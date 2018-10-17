@@ -1,0 +1,63 @@
+header{
+  background-color: #505050;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 7px;
+}
+
+main{
+  background-color: #00a0f0;
+}
+
+footer{
+  background-color: #909090;
+}
+
+body{
+  background-image: url("https://media.giphy.com/media/rWY9ySfjytitq/giphy.gif");
+}
+
+p{
+  padding-left: 5px;
+}
+
+a{
+  padding-left: 5px;
+}
+
+/* Gère les boutons du Header */
+.Boutons a{
+  font-size: 34px;
+  color: #000000;
+  font-style: normal;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 4px;
+}
+
+.Boutons a:hover{
+    background-color: #f0f0f0;
+    border-style: solid;
+    border-color: black;
+}
+
+.Acceuil {
+  border-style: solid;
+  position: static;
+  font-size: 74px;
+  text-align: center;
+}
+
+.Acceuil p{
+  line-height: 0px
+}
+
+#CV{
+   display: none;
+  border-style: solid;
+}
+
+#A-propos{
+  border-style: solid;
+}
