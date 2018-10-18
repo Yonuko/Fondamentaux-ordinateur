@@ -42,6 +42,12 @@ a{
     border-color: black;
 }
 
+.Boutons a:focus ~ .CV{
+
+  display: block;
+
+}
+
 .Acceuil {
   border-style: solid;
   position: static;
@@ -53,8 +59,8 @@ a{
   line-height: 0px
 }
 
-#CV{
-   display: none;
+.CV{
+  display: none;
   border-style: solid;
 }
 
