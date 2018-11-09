@@ -1,20 +1,28 @@
 header{
   background-color: #505050;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-bottom: 7px;
+  margin-top: 0;
+  padding-top: 0.2%;
+  padding-bottom: 0.6%;
+  padding-left: 0.2%;
+  width: 99%;
+  position: fixed;
 }
 
-main{
-  background-color: #00a0f0;
+main {
+  top : 7px;
 }
 
 footer{
   background-color: #909090;
 }
 
+footer p{
+  padding-bottom: 5px;
+}
+
 body{
-  background-image: url("https://media.giphy.com/media/rWY9ySfjytitq/giphy.gif");
+  background-color: rgb(0, 0, 0);
+  margin-top: 0;
 }
 
 p{
@@ -42,28 +50,20 @@ a{
     border-color: black;
 }
 
-.Boutons a:focus ~ .CV{
-
-  display: block;
-
-}
-
 .Acceuil {
-  border-style: solid;
-  position: static;
-  font-size: 74px;
+  font-size: 114px;
   text-align: center;
+  margin-top: -70px;
 }
 
-.Acceuil p{
-  line-height: 0px
-}
-
-.CV{
-  display: none;
-  border-style: solid;
+.Acceuil p {
+  padding-top: 20%;
+  color: white;
+  padding-left: inherit;
 }
 
 #A-propos{
   border-style: solid;
+  color: white;
+  background-color: black;
 }
