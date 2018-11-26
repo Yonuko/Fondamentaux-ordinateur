@@ -1,44 +1,64 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="main.css">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css" />
-    <title>Portfolio Sacha Eghiazarian</title>
+    <title></title>
   </head>
   <body>
 
-    <header>
-    <nav class="Boutons">
-      <a href="Portfolio.html">Accueil</a>
-      <a href="#A-propos">A propos</a>
-      <a href="CV.html">CV</a>
-      <a href="#Contact">Contact</a>
-    </nav>
-  </header>
+    <main>
+      <section id="Accueil">
+        <section id="Boutton">
+          <nav>
+            <ul>
+              <li>Sacha EGHIAZARIAN</li>
+              <li><a href="#Accueil">Accueil</a></li>
+              <li><a href="#A-propos">A propos</a></li>
+              <li><a href="#Projets">Mes projets</a></li>
+              <li><a href="#Competence">Mes Competence</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </section>
 
-  <main>
-    <section>
-      <div class="Acceuil" id="Acceuil">
-        <p>Portfolio</p>
+      </section>
 
-      </div>
-    </section>
+      <section id="A-propos">
+        <p id="title">A Propos</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </section>
 
-    <section>
-      <div id="A-propos">
-        <p class="EspceDancrage">Je me présente Sacha Eghiazarian, je suis actuellement étudiant à Ynov Digital HighSchool.</p>
-        <p>Sur ce Portfolio vous pourrez trouver toutes les informations nécessaires
-        sur mes études et compétences.</p>
-      </div>
-    </section>
+      <section id="Projets">
+        <p id="title">Mes projets</p>
+        <table class="projet">
+          <tr>
+            <td><img src="tripode.png"></td>
+            <td><img src="BoH.png" class="BoH"></td>
+            <td><img src="BoH.png" class="BoH"></td>
+          </tr>
+          <tr>
+            <td><img src="BoH.png" class="BoH"></td>
+            <td><img src="BoH.png" class="BoH"></td>
+            <td><img src="BoH.png" class="BoH"></td>
+          </tr>
+        </table>
+      </section>
 
-    <footer id="Contact">
-      <p>Me contacter : </p>
-      <a href="https://www.linkedin.com/in/sacha-eghiazarian-b3bba5170/">LinkedIn</a><br>
-      <a href="mailto:sacha.eghiazarian@ynov.com?subject=Contact pro">sacha.eghiazarian@ynov.com</a>
-      <p>Téléphone : 0695209755</p>
-    </footer>
+      <section id="Competence">
+        <p id="competences">Mes competences</p>
+        <p>Competence en developpement C#</p>
+        <div class="CompetenceDevCs"></div>
+        <div class="DevCsfill"></div>
+        <p>Competence en developpement C</p>
+        <div class="CompetenceDevC"></div>
+        <div class="DevCfill"></div>
+        <p>HTML CSS</p>
+        <div class="html"></div>
+        <div class="htmlFill"></div>
+      </section>
+
+    </main>
 
   </body>
 </html>
