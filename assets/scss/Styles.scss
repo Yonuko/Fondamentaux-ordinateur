@@ -1,0 +1,98 @@
+//Ce fichier gère le css s'appliquant sur toute la page est pas juste
+//une section particulière
+
+HTML{
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+//Met le bacground en blanc car par defaut gulp le met en noir
+main{
+  background-color: white;
+  height: auto;
+}
+
+//Deplace toutes les balises <p> de la page de 1%
+//pour qu'elles ne soient pas coller au bord de la page
+p{
+  padding-left: 1%;
+  margin:0;
+  text-align: justify;
+}
+
+//Met le bacground en blanc car par defaut gulp le met en noir
+//et retir le margin que chaque body a par defaut sur un site HTML
+body{
+  margin: 0;
+  height: auto;
+  background-color: white;
+}
+
+//Gère le menu perssistant sur le coin gauche de la page
+.Menu{
+  position: fixed;
+  top: 30vh;
+  height: 40vh;
+  width: 14vw;
+  max-width: 14vw;
+  left: 1vw;
+
+  ul{
+    list-style: none;
+
+    li{
+      position: relative;
+      max-height: 6vh;
+
+      a{
+        color: black;
+        font-size: 1.4vw;
+      }
+
+      a:hover{
+        text-decoration: none;
+        color: orange;
+      }
+    }
+
+  }
+
+}
+
+//Déplace le contenu de la page de 15% sur la droite pour qu'il soit bien
+//décaler par rapport au menu
+.Contenu{
+  position: relative;
+  left: 15.1vw;
+  width: 70vw;
+  max-width: 70vw;
+  height: auto;
+}
+
+.title{
+  display: inline;
+  padding: 0;
+  font-size: 2.5vw;
+  border-bottom-style: solid;
+  width: 25%;
+  max-width: 25%;
+  margin:0;
+}
+
+.CV{
+  width: 90vw;
+  max-width: 90vw;
+  height: 90vh;
+  max-height: 90vh;
+
+  left: 5vw;
+
+  background-color: #000;
+
+  position: fixed;
+
+  p{
+    text-align: center;
+    color: white;
+  }
+}

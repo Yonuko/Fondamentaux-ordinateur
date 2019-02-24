@@ -1,0 +1,24 @@
+//Ce fichier gère le footer, donc la partie Contact
+
+footer{
+
+  height: 20vh;
+
+  .LinkedIn{
+    width: auto;
+    height: auto;
+    float: right;
+    position: relative;
+
+    img{
+      width: 2vw;
+      height: auto;
+      position: relative;
+    }
+
+    &:hover{
+      text-decoration: none;
+    }
+
+  }
+}
