@@ -1,13 +1,30 @@
-#Unity{
-  left: 0;
-  width: 100vw;
-  max-width: 99vw;
-  height: 60vh;
-  max-height: 60vh;
-
+@mixin image-fullscreen{
+  left: 30vw;
+  position: relative;
+  width: 70vw;
+  max-width: 70vw;
   background-size: cover;
   background-position: center;
-  background-image: url("../images/UnityImage.jpg");
   background-attachment: fixed;
+}
 
+#Unity{
+  @include image-fullscreen;
+  height: 60vh;
+  max-height: 60vh;
+  background-image: url("../images/Background/UnityImage.jpg");
+}
+
+#Programming{
+  @include image-fullscreen;
+  height: 50vh;
+  max-height: 50vh;
+  background-image: url("../images/Background/programming.jpg");
+}
+
+#ContactImage{
+  @include image-fullscreen;
+  height: 20vh;
+  max-height: 20vh;
+  background-image: url("../images/Background/Contact.jpg");
 }

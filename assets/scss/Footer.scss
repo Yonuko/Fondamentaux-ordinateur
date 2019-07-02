@@ -2,23 +2,64 @@
 
 footer{
 
-  height: 20vh;
+  height: 40vh;
 
-  .LinkedIn{
-    width: auto;
+  img{
+    top: 5vh;
+    width: 5vw;
     height: auto;
-    float: right;
+    left: 25%;
     position: relative;
-
-    img{
-      width: 2vw;
-      height: auto;
-      position: relative;
-    }
 
     &:hover{
       text-decoration: none;
     }
+  }
+
+  .LinkedIn{
+    left: 28%;
+    position: relative;
+  }
+
+  button{
+    top: 8vh;
+    position: relative;
+    width: 10vw;
+    height: 5vh;
+    font-size: 1.2vw;
+  }
+
+  #ContactButton{
+    left: 26%;
+    top: 15vh;
+  }
+
+  form{
+    display: none;
+    position: relative;
+    top: 10vh;
+    left: 10vw;
+
+    input{
+      width: 50vw;
+      margin-top: 2vh;
+
+      &[type="submit"]{
+        width: 20vw;
+        height: 6vh;
+      }
+    }
+  }
+
+  #ContactMe{
+    margin-top: 10vh;
+
+    height: auto;
+
+    p{
+      font-size: 1.5vw;
+    }
 
   }
+
 }

@@ -1,0 +1,49 @@
+main{
+  left: 16vw;
+  max-width: 84vw;
+  position: relative;
+}
+
+/* Gère le menu */
+.menu{
+  left: 0;
+  text-align: center;
+  position: fixed;
+  width: 15vw;
+  height: 100vh;
+  background-color: #e6e6e6;
+  padding-top: 0;
+  list-style-type: none;
+}
+
+.menu nav{
+  padding-top: 50%;
+  position: relative;
+}
+
+nav input{
+  font-size: 1.5vw;
+  padding-top: 5%;
+  border: none;
+  background: none;
+  color: black;
+}
+
+nav input:hover{
+  color: red;
+}
+
+nav li{
+  font-size: 1.5vw;
+  padding-top: 5%;
+  color: black;
+}
+
+nav li:hover,.menu a:hover{
+  color: red;
+}
+
+nav li a{
+  text-decoration: none;
+  color: black;
+}

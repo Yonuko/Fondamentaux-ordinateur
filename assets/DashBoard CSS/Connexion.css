@@ -1,0 +1,21 @@
+.connexion{
+    border-style: solid;
+    width: 30vw;
+    height: 40vh;
+    top: 30vh;
+    position: relative;
+    left: 19vw;
+}
+
+.connexion input{
+    width: 80%;
+    left:10%;
+    top: 6vh;
+    position: relative;
+    margin-bottom: 5%;
+}
+
+.connexion p{
+    text-align: center;
+    font-size: 1.5vw;
+}

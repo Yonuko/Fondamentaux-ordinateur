@@ -2,18 +2,38 @@
 
 #Projets{
   top: 80vh;
-  height: 100%;
+  height: auto;
+
+  p{
+    position: absolute;
+    background-color: #000;
+    color: white;
+    opacity: 0;
+    max-width: 12 * 1.2vw;
+    left: -0.1vw;
+    top: 80%;
+  }
 
   img{
+    position: relative;
     width: 100%;
-    max-width: 20vw;
+    max-width: 12vw;
     height: auto;
+	
+	padding-top : 20px;
 
-    transition: all .2s ease-in-out;
+    transition: transform, 0.4s;
 
     &:hover{
-      transform: scale(1.05);
+      transform: scale(1.2);
+    }
+	
+	&:hover .ProjectHover{
+      opacity: 1;
     }
   }
 
+  div{
+    left: 7%;
+  }
 }

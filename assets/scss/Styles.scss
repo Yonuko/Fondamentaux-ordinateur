@@ -21,7 +21,7 @@ p{
 }
 
 //Met le bacground en blanc car par defaut gulp le met en noir
-//et retir le margin que chaque body a par defaut sur un site HTML
+//et retir le margin que chaque body a par defaut sur un site internet
 body{
   margin: 0;
   height: auto;
@@ -31,6 +31,8 @@ body{
 //Gère le menu perssistant sur le coin gauche de la page
 .Menu{
   position: fixed;
+  display: none;
+  z-index: 0;
   top: 30vh;
   height: 40vh;
   width: 14vw;
@@ -63,7 +65,7 @@ body{
 //décaler par rapport au menu
 .Contenu{
   position: relative;
-  left: 15.1vw;
+  left: 30vw;
   width: 70vw;
   max-width: 70vw;
   height: auto;
@@ -71,28 +73,13 @@ body{
 
 .title{
   display: inline;
+  position: relative;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   padding: 0;
   font-size: 2.5vw;
+  left: 29vw;
   border-bottom-style: solid;
   width: 25%;
   max-width: 25%;
-  margin:0;
-}
-
-.CV{
-  width: 90vw;
-  max-width: 90vw;
-  height: 90vh;
-  max-height: 90vh;
-
-  left: 5vw;
-
-  background-color: #000;
-
-  position: fixed;
-
-  p{
-    text-align: center;
-    color: white;
-  }
 }
