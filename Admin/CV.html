@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style/admin.css">
+    <title>Admin - cv</title>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="login">
+                Bienvenue,<br>
+                Sacha EGHIAZARIAN <!-- Afficher name de l'utilisateur connecté -->
+            </div>
+            <div class="menu-button">
+                <a href="admin.html" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
+                <a href="blog.html" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
+                <a href="Texte.html" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
+                <a href="Competences.html" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
+                <a href="Projets.html" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
+                <a href="CV.html" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
+            </div>
+        </div>
+
+        <div class="secondary-menu">
+            <div class="notification">
+                <button id="bell" class="logo"></button>
+                <div id="notif-content" class="content">
+                    <div class="header">
+                        Notifications
+                        <img onclick="notificationCloseButton()" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
+                    </div>
+                    <div class="notification-content no-notification">
+                       aucune notification
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
+                <div class="dropdown-content">
+                    <a href="#">Retour au site</a>
+                    <a href="#">Retour au blog</a>
+                    <a href="#">Déconnexion</a>
+                </div>
+            </div>
+        </div>
+        <main>
+
+        </main>
+    </header>
+    <script src="../assets/script/notification.js"></script>
+</body>
+</html>

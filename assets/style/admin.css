@@ -1,0 +1,256 @@
+html, body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  height: 100vh;
+  overflow: hidden; }
+
+img {
+  height: 100%;
+  width: auto; }
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  justify-content: stretch; }
+  header .menu {
+    background: #2d3e4e;
+    flex: 0 0 15%;
+    display: flex;
+    flex-flow: column wrap;
+    border: #3d4e5e 0.1px;
+    border-right-style: solid; }
+    header .menu .login {
+      width: 100%;
+      height: 10%;
+      padding: 5px 20px;
+      margin-bottom: 20px;
+      background-color: #1d2e3e;
+      border: #2d3e4e 0.1px;
+      border-bottom-style: solid; }
+    header .menu .menu-button {
+      display: flex;
+      flex-flow: column wrap; }
+      header .menu .menu-button a {
+        display: flex;
+        text-decoration: none;
+        color: lightgray;
+        font-size: 24px;
+        padding: 10px 20px;
+        align-items: center; }
+        header .menu .menu-button a img {
+          padding-right: 10px;
+          height: 25px;
+          width: auto; }
+        header .menu .menu-button a:hover {
+          color: gray; }
+  header .secondary-menu {
+    background: #fafafa;
+    height: 5%;
+    flex: 1 0 85%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    border: #f0f0f0 0.1px;
+    border-bottom-style: solid; }
+    header .secondary-menu .notification {
+      width: 35px; }
+      header .secondary-menu .notification .logo {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        background-image: url("../image/notification bell.png");
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat; }
+      header .secondary-menu .notification .num {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        font-size: 13px;
+        top: 0;
+        margin-left: 20px;
+        padding-top: 2px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: red;
+        color: white; }
+      header .secondary-menu .notification .content {
+        display: none;
+        width: 300px;
+        height: 400px;
+        margin-left: -265px;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1; }
+        header .secondary-menu .notification .content .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: lightgray;
+          height: 40px;
+          padding: 0 10px; }
+          header .secondary-menu .notification .content .header .close {
+            justify-self: end;
+            height: 60%;
+            width: auto; }
+            header .secondary-menu .notification .content .header .close:hover {
+              cursor: pointer; }
+        header .secondary-menu .notification .content .notification-content {
+          display: flex;
+          height: 360px;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          overflow-y: auto; }
+          header .secondary-menu .notification .content .notification-content .notSeen {
+            background-color: #8a8a8a; }
+          header .secondary-menu .notification .content .notification-content .notification-card {
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            border: #e0e0e0 0.1px;
+            border-style: solid none;
+            opacity: 1;
+            -webkit-transition: opacity 200ms linear;
+            transition: opacity 200ms linear; }
+            header .secondary-menu .notification .content .notification-content .notification-card:hover {
+              cursor: pointer; }
+            header .secondary-menu .notification .content .notification-content .notification-card .close {
+              justify-self: end;
+              height: 30%;
+              opacity: 0.6;
+              width: auto; }
+              header .secondary-menu .notification .content .notification-content .notification-card .close:hover {
+                opacity: 1;
+                cursor: pointer; }
+        header .secondary-menu .notification .content .no-notification {
+          justify-content: center; }
+    header .secondary-menu .dropbtn {
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      background: none; }
+    header .secondary-menu button {
+      outline: none;
+      cursor: pointer; }
+    header .secondary-menu .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1; }
+      header .secondary-menu .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block; }
+      header .secondary-menu .dropdown-content a:hover {
+        background-color: #ddd; }
+    header .secondary-menu .dropdown:hover .dropdown-content {
+      display: block; }
+  header main {
+    max-height: 95%;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 85%;
+    height: 95%; }
+    header main .body-content {
+      overflow-y: auto;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: flex-start; }
+  header .card {
+    height: 200px;
+    border: #e0e0e0 1px solid;
+    flex: 0 0 45%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; }
+    header .card .card-header {
+      background-color: lightgray;
+      font-size: 24px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px; }
+      header .card .card-header .card-title:first-child {
+        justify-self: start; }
+      header .card .card-header img {
+        height: 30px;
+        cursor: pointer; }
+    header .card .card-body {
+      padding: 15px;
+      height: 100%; }
+  header .projet {
+    display: flex;
+    flex-direction: column;
+    height: auto; }
+    header .projet .card-body .card {
+      flex: 0 0 100%;
+      height: 100px; }
+      header .projet .card-body .card .card-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; }
+        header .projet .card-body .card .card-body .edit {
+          height: 30%;
+          cursor: pointer; }
+  header .skills {
+    height: auto; }
+    header .skills .card-body {
+      display: flex;
+      flex-direction: column; }
+      header .skills .card-body .skill {
+        display: flex;
+        flex-basis: 20px;
+        margin: 10px 0; }
+        header .skills .card-body .skill .skill-bar-holder {
+          flex: 1 0 20px;
+          background-color: black;
+          border-radius: 10px;
+          margin-left: 10px; }
+          header .skills .card-body .skill .skill-bar-holder .skill-bar {
+            background-color: blue;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            height: 100%;
+            width: 2%;
+            display: inline-block; }
+  header .webSite-info {
+    flex-basis: 30%;
+    height: 80px; }
+    header .webSite-info .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px; }
+      header .webSite-info .card-body img {
+        padding: 0 15px; }
+
+/*# sourceMappingURL=admin.css.map */
