@@ -1,1 +1,0 @@
-document.getElementsByClassName("body-content")[0].offsetHeight = document.getElementsByTagName("main")[0].offsetHeight;

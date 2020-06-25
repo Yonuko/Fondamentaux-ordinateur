@@ -26,20 +26,23 @@ header {
     border: #3d4e5e 0.1px;
     border-right-style: solid; }
     header .menu .login {
+      display: flex;
+      align-items: center;
       width: 100%;
       height: 10%;
       padding: 5px 20px;
       margin-bottom: 20px;
       background-color: #1d2e3e;
       border: #2d3e4e 0.1px;
-      border-bottom-style: solid; }
+      border-bottom-style: solid;
+      color: white; }
     header .menu .menu-button {
       display: flex;
       flex-flow: column wrap; }
       header .menu .menu-button a {
         display: flex;
         text-decoration: none;
-        color: lightgray;
+        color: #9dabb8;
         font-size: 24px;
         padding: 10px 20px;
         align-items: center; }
@@ -48,7 +51,7 @@ header {
           height: 25px;
           width: auto; }
         header .menu .menu-button a:hover {
-          color: gray; }
+          color: #7d8b98; }
   header .secondary-menu {
     background: #fafafa;
     height: 5%;

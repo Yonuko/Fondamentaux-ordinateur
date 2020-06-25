@@ -32,6 +32,8 @@ header{
         border-right-style: solid;
 
         .login{
+            display: flex;
+            align-items: center;
             width: 100%;
             height: 10%;
             padding: 5px 20px;
@@ -39,6 +41,7 @@ header{
             background-color: #1d2e3e;
             border: #2d3e4e 0.1px;
             border-bottom-style: solid;
+            color: white;
         }
 
         .menu-button{
@@ -48,7 +51,7 @@ header{
             a{
                 display: flex;
                 text-decoration: none;
-                color: lightgray;
+                color: #9dabb8;
                 font-size: 24px;
                 padding: 10px 20px;
                 align-items: center;
@@ -60,7 +63,7 @@ header{
                 }
 
                 &:hover{
-                    color: gray;
+                    color: #7d8b98;
                 }
             }
         }
