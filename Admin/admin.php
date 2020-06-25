@@ -14,12 +14,12 @@
                 Sacha EGHIAZARIAN <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="admin.html" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
-                <a href="blog.html" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
-                <a href="Texte.html" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
-                <a href="Competences.html" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
-                <a href="Projets.html" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
-                <a href="CV.html" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
+                <a href="admin.php" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
+                <a href="blog.php" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
+                <a href="Texte.php" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
+                <a href="Competences.php" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
+                <a href="Projets.php" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
+                <a href="CV.php" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
             </div>
         </div>
 

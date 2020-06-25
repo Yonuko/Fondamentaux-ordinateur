@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/Admin/admin.css">
     <link rel="stylesheet" href="../assets/style/Admin/SpecificPage.css">
-    <title>Admin - projets</title>
+    <title>Admin - blog</title>
 </head>
 <body>
     <header>
@@ -15,12 +15,12 @@
                 Sacha EGHIAZARIAN <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="admin.html" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
-                <a href="blog.html" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
-                <a href="Texte.html" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
-                <a href="Competences.html" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
-                <a href="Projets.html" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
-                <a href="CV.html" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
+                <a href="admin.php" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
+                <a href="blog.php" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
+                <a href="Texte.php" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
+                <a href="Competences.php" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
+                <a href="Projets.php" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
+                <a href="CV.php" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
             </div>
         </div>
 
@@ -82,9 +82,9 @@
                         120 vues totales
                     </div>
                 </div>
-                <div class="card projet">
+                <div class="card blog">
                     <div class="card-header">
-                        <div class="card-title">Projets</div>
+                        <div class="card-title">Blog</div>
                         <div>
                             <img src="../assets/image/refresh.png" alt="Refresh icon">
                         </div>
@@ -93,8 +93,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <img src="../assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
+                                <div>Rapport de stage</div> <!-- Remplacer par le nom du projet -->
+                                <div>Expérience pro</div>
                                 <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <div>vues totales: 15</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <img class="edit" src="../assets/image/edit.png" alt="Edit Icon">
@@ -103,8 +103,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <img src="../assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
+                                <div>Rapport de stage</div> <!-- Remplacer par le nom du projet -->
+                                <div>Expérience pro</div>
                                 <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <div>vues totales: 15</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <img class="edit" src="../assets/image/edit.png" alt="Edit Icon">
