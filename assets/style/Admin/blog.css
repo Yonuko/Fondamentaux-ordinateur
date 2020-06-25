@@ -1,4 +1,21 @@
+header .secondary-menu {
+  justify-content: space-between; }
+  header .secondary-menu .manageMenu {
+    display: flex;
+    justify-content: flex-end; }
+    header .secondary-menu .manageMenu .add {
+      background-image: url("../../image/plusIcon.png");
+      padding-left: 35px;
+      background-position: 5px;
+      background-size: 25px;
+      border: none;
+      background-repeat: no-repeat; }
+  header .secondary-menu .connexionMenu {
+    display: flex;
+    justify-content: flex-start; }
 header .blog {
+  flex-basis: 90%; }
+header .projet {
   flex-basis: 90%; }
 
 /*# sourceMappingURL=blog.css.map */

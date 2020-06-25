@@ -1,5 +1,33 @@
 header{
+    
+    .secondary-menu{
+        justify-content: space-between;
+
+        .manageMenu{
+            display: flex;
+            justify-content: flex-end;
+
+            .add{
+                background-image: url("../../image/plusIcon.png");
+                padding-left: 35px;
+                background-position: 5px;
+                background-size: 25px;
+                border: none;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .connexionMenu{
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+    
     .blog{
+        flex-basis: 90%;
+    }
+
+    .projet{
         flex-basis: 90%;
     }
 }

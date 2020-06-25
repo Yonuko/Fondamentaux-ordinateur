@@ -25,32 +25,37 @@
         </div>
 
         <div class="secondary-menu">
-            <div class="notification">
-                <button id="bell" class="logo"></button>
-                <span id="num" class="num">0</span>
-                <div id="notif-content" class="content">
-                    <div class="header">
-                        Notifications
-                        <img onclick="notificationCloseButton()" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
-                    </div>
-                    <div class="notification-content">
-                       <!--  aucune notification -->
-                       <div onclick="readNotif(1)" class="notification-card" id="notification-1">
-                           <div class="card-content">
-                                On s'en ballance
+            <div class="manageMenu">
+                <button class="add">Ajouter</button>
+            </div>
+            <div class="connexionMenu">
+                <div class="notification">
+                    <button id="bell" class="logo"></button>
+                    <span id="num" class="num">0</span>
+                    <div id="notif-content" class="content">
+                        <div class="header">
+                            Notifications
+                            <img onclick="notificationCloseButton()" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
+                        </div>
+                        <div class="notification-content">
+                           <!--  aucune notification -->
+                           <div onclick="readNotif(1)" class="notification-card" id="notification-1">
+                               <div class="card-content">
+                                    On s'en ballance
+                               </div>
+                               <img onclick="removeNotif(1)" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
                            </div>
-                           <img onclick="removeNotif(1)" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
-                       </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
-                <div class="dropdown-content">
-                    <a href="#">Retour au site</a>
-                    <a href="#">Retour au blog</a>
-                    <a href="#">Messages</a>
-                    <a href="#">Déconnexion</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
+                    <div class="dropdown-content">
+                        <a href="#">Retour au site</a>
+                        <a href="#">Retour au blog</a>
+                        <a href="#">Messages</a>
+                        <a href="#">Déconnexion</a>
+                    </div>
                 </div>
             </div>
         </div>
