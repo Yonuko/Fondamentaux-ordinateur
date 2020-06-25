@@ -10,6 +10,24 @@ let notificationObjects = document.getElementsByClassName("notification-content"
 let activated = false;
 let stayOpen = false;
 
+// Check if main should be 95% or not
+// TODO:: change the percente by the height of page - height of header
+resizeMain();
+window.addEventListener('resize', () =>{
+    resizeMain();
+});
+
+function resizeMain(){
+    let mainElement = document.getElementsByTagName("main")[0];
+    let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
+    // 50 is the height of the menu
+    if(mainElement.offsetHeight - (headerHeight - 50) > 0){
+        mainElement.style.height = (headerHeight - 50) + "px";
+    }else{
+        mainElement.style.height = "auto";
+    }
+}
+
 function notificationCloseButton(){
     stayOpen = false;
     activated = false;
