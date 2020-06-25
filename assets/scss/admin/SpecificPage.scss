@@ -30,4 +30,12 @@ header{
     .projet{
         flex-basis: 90%;
     }
+
+    .skills{
+        flex-basis: 90%;
+
+        .skill{
+            font-size: 20px;
+        }
+    }
 }

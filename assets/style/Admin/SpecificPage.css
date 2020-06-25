@@ -17,5 +17,9 @@ header .blog {
   flex-basis: 90%; }
 header .projet {
   flex-basis: 90%; }
+header .skills {
+  flex-basis: 90%; }
+  header .skills .skill {
+    font-size: 20px; }
 
-/*# sourceMappingURL=blog.css.map */
+/*# sourceMappingURL=SpecificPage.css.map */
