@@ -59,7 +59,7 @@
                 <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
                 <div class="dropdown-content">
                     <a href="http://localhost/portfolio/">Retour au site</a>
-                    <a href="#">Retour au blog</a>
+                    <a href="http://localhost/portfolio/blog">Retour au blog</a>
                     <a href="#">Messages</a>
                     <a href="#">Déconnexion</a>
                 </div>

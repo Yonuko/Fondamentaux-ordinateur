@@ -8,17 +8,29 @@ $router = new Router(new Request);
  * Route Site
  */
 
- // test de route avec plusieurs paramètre
-$router->get('portfolio/{id}/test/{projectID}/blog', function ($id, $newID) {
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/test.php");
-});
-
 $router->get('portfolio', function () {
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/accueil.php");
 });
 
-$router->post('portfolio/data', function ($request) {
-  return json_encode($request->getBody());
+$router->get('portfolio/blog', function () {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/blog.php");
+});
+
+$router->get('portfolio/skills', function () {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/skills.php");
+});
+
+$router->get('portfolio/projects', function () {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/projects.php");
+});
+
+$router->get('portfolio/contact', function () {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/contact.php");
+});
+
+ // test de route avec plusieurs paramètre
+ $router->get('portfolio/{id}/test/{projectID}/blog', function ($id, $newID) {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/test.php");
 });
 
 /**

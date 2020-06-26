@@ -3,4 +3,9 @@ assets/scss/admin/.sass-cache/
 *.sass.map
 *.scss.map
 
+assets/scss/main/.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 assets/PHP/db.ini
