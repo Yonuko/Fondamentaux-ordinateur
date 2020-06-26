@@ -19,6 +19,7 @@ class Router
 
         if (!in_array(strtoupper($name), $this->supportedHttpMethods)) {
             $this->invalidMethodHandler();
+            return;
         }
 
         $this->{strtolower($name)}[$this->formatRoute($route)] = $method;
@@ -39,12 +40,14 @@ class Router
 
     private function invalidMethodHandler()
     {
-        header("{$this->request->serverProtocol} 405 Method Not Allowed");
+        header("405 Method Not Allowed");
+        http_response_code(405);
     }
 
     private function defaultRequestHandler()
     {
-        header("{$this->request->serverProtocol} 404 Not Found");
+        echo("404 Not Found");
+        http_response_code(404);
     }
 
     /**
@@ -55,7 +58,7 @@ class Router
         $methodDictionary = $this->{strtolower($this->request->requestMethod)};
         $formatedRoute = $this->formatRoute($this->request->requestUri);
 
-        if (is_null($methodDictionary[$formatedRoute])) {
+        if (!isset($methodDictionary[$formatedRoute])) {
             $this->defaultRequestHandler();
             return;
         }

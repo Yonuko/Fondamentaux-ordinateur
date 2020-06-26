@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/assets/image
+RewriteCond %{REQUEST_URI} !/assets/style
+RewriteCond %{REQUEST_URI} !/assets/script
+RewriteRule ^(.+)$ /portfolio/index.php [QSA,L]

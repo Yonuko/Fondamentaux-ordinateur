@@ -4,25 +4,44 @@ include_once 'Request.php';
 include_once 'Routeur.php';
 $router = new Router(new Request);
 
+/**
+ * Route Site
+ */
 $router->get('/portfolio', function () {
-    return <<<HTML
-  <h1>Hello world</h1>
-HTML;
-});
-
-
-$router->get('/portfolio/profile', function () {
-    return <<<HTML
-  <h1>Profile</h1>
-HTML;
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/index.php");
 });
 
 $router->post('/portfolio/data', function ($request) {
-
-    return json_encode($request->getBody());
+  return json_encode($request->getBody());
 });
 
-$router->get('/portfolio/administration', function (){
-    echo "chui là";
-    include_once("../../../Admin/admin.php");
+/**
+ *  Route Admin
+ */
+$router->get('/portfolio/login', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/login.php");
+});
+
+$router->get('/portfolio/admin', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/admin.php");
+});
+
+$router->get('/portfolio/admin/blog', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog.php");
+});
+
+$router->get('/portfolio/admin/texte', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Texte.php");
+});
+
+$router->get('/portfolio/admin/skills', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Competences.php");
+});
+
+$router->get('/portfolio/admin/projects', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets.php");
+});
+
+$router->get('/portfolio/admin/CV', function ($request){
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/CV.php");
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/Admin/admin.css">
-    <title>Admin - texte</title>
+    <title>Admin - cv</title>
 </head>
 <body>
     <header>
@@ -14,12 +14,24 @@
                 Sacha EGHIAZARIAN <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="admin.php" class="element"><img src="../assets/image/homeIcon.png" alt="home icon"> Accueil</a>
-                <a href="blog.php" class="element"><img src="../assets/image/blogIcon.png" alt="blog icon"> Blog</a>
-                <a href="Texte.php" class="element"><img src="../assets/image/textIcon.png" alt="Text icon"> Texte</a>
-                <a href="Competences.php" class="element"><img src="../assets/image/skillsIcon.png" alt="skills icon"> Competences</a>
-                <a href="Projets.php" class="element"><img src="../assets/image/projectIcon.png" alt="project icon"> Projets</a>
-                <a href="CV.php" class="element"><img src="../assets/image/cvIcon.png" alt="cv icon"> CV</a>
+                <a href="http://localhost/portfolio/admin" class="element">
+                    <img src="http://localhost/portfolio/assets/image/homeIcon.png" alt="home icon"> Accueil
+                </a>
+                <a href="http://localhost/portfolio/admin/blog" class="element">
+                    <img src="http://localhost/portfolio/assets/image/blogIcon.png" alt="blog icon"> Blog
+                </a>
+                <a href="http://localhost/portfolio/admin/texte" class="element">
+                    <img src="http://localhost/portfolio/assets/image/textIcon.png" alt="Text icon"> Texte
+                </a>
+                <a href="http://localhost/portfolio/admin/skills" class="element">
+                    <img src="http://localhost/portfolio/assets/image/skillsIcon.png" alt="skills icon"> Competences
+                </a>
+                <a href="http://localhost/portfolio/admin/projects" class="element">
+                    <img src="http://localhost/portfolio/assets/image/projectIcon.png" alt="project icon"> Projets
+                </a>
+                <a href="http://localhost/portfolio/admin/CV" class="element">
+                    <img src="http://localhost/portfolio/assets/image/cvIcon.png" alt="cv icon"> CV
+                </a>
             </div>
         </div>
 
@@ -46,7 +58,7 @@
             <div class="dropdown">
                 <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
                 <div class="dropdown-content">
-                    <a href="#">Retour au site</a>
+                    <a href="http://localhost/portfolio/">Retour au site</a>
                     <a href="#">Retour au blog</a>
                     <a href="#">Messages</a>
                     <a href="#">Déconnexion</a>
