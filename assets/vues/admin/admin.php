@@ -1,3 +1,7 @@
+<?php
+    session_name("PortfolioSE");
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,13 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
     <title>Admin - accueil</title>
+    <?php
+        if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
+            header("location:http://localhost/portfolio/login");
+            return;
+        }
+    ?>
 </head>
 <body>
     <header>
         <div class="menu">
             <div class="login">
                 Bienvenue,<br>
-                Sacha EGHIAZARIAN <!-- Afficher name de l'utilisateur connecté -->
+                <?php echo $_SESSION["name"]; ?> <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
                 <a href="http://localhost/portfolio/admin" class="element">
@@ -56,12 +66,14 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">Sacha EGHIAZARIAN</button> <!-- Afficher name de l'utilisateur connecté -->
+                <button class="dropbtn"><?php echo $_SESSION["name"]; ?></button> <!-- Afficher name de l'utilisateur connecté -->
                 <div class="dropdown-content">
                     <a href="http://localhost/portfolio/">Retour au site</a>
                     <a href="http://localhost/portfolio/blog">Retour au blog</a>
                     <a href="#">Messages</a>
-                    <a href="#">Déconnexion</a>
+                    <form action="http://localhost/portfolio/logout" method="POST">
+                        <input type="submit" value="Deconnexion">
+                    </form>
                 </div>
             </div>
         </div>

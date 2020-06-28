@@ -31,7 +31,7 @@ header{
             color: white;
 
             &:hover{
-                color: grey;
+                color: #b3b3b3;
             }
         }
     }
@@ -45,11 +45,16 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
 
-    a{
-        color: white;
-        font-weight: bold;
-        text-decoration: none;
-        font-size: 18px;
+    &:hover{
+        background-color: white;
+        border: #227093 solid 0.5px;
+        color: #227093;
+        font-size: 20px;
+
     }
 }

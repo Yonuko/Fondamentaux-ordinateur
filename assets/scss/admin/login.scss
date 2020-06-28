@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form{
+    width: 30%;
+    border: black solid 1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+    label{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .submit{
+        font-size: 18px;
+        margin: 15px 0;
+    }
+
+    .error{
+        padding-top: 20px;
+        color: red;
+    }
+}

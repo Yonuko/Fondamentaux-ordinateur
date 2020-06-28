@@ -30,9 +30,7 @@
                     <br><br>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora in ex a autem deserunt voluptatem repellendus laudantium beatae libero hic, reprehenderit sequi, illum magnam iusto pariatur officiis quam eum. Possimus?
                 </p>
-                <div class="button"> 
-                    <a href="http://localhost/portfolio/skills">Mes compétences</a>
-                </div>
+                <a class="button" href="http://localhost/portfolio/skills">Mes compétences</a>
             </section>
         </section>
     </main>

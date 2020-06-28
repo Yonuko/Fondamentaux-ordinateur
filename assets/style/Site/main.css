@@ -26,7 +26,7 @@ header {
       text-decoration: none;
       color: white; }
       header .menu a:hover {
-        color: grey; }
+        color: #b3b3b3; }
 
 .button {
   width: 200px;
@@ -35,11 +35,15 @@ header {
   border: black solid 0.5px;
   display: flex;
   justify-content: center;
-  align-items: center; }
-  .button a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 18px; }
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px; }
+  .button:hover {
+    background-color: white;
+    border: #227093 solid 0.5px;
+    color: #227093;
+    font-size: 20px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -44,4 +44,23 @@ class Request implements IRequest
             return $body;
         }
     }
+
+    /**
+     * This method send an HTTP request of the given method
+     * @param string $url the url to send the request
+     * @param string $method the name of the method you want to use
+     * @param array $data list of content you want to send
+     * @return $content the return of the request
+     */
+    public static function send(string $url, string $method, array $data){
+        $content = http_build_query($data);
+        $context = stream_context_create (array (
+            'http' => array (
+                'method' => strtoupper($method),
+                'content' => $content,
+            ),
+        ));
+        $result = file_get_contents($url, null, $context);
+        return $result;
+    }
 }
