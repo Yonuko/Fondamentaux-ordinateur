@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/login.css">
     <title>Admin - login</title>
+    <?php
+        if(isset($_SESSION["name"]) || isset($_SESSION["id"])){
+            header("location:http://localhost/portfolio/admin");
+            return;
+        }
+    ?>
 </head>
 <body>
 

@@ -46,4 +46,101 @@ main{
             }
         }
     }
+
+    .quote{
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        #quote{
+            width: 38px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .quote-text{
+            width: 60%;
+        }
+    }
+
+    .blog{
+        margin-top: 100px;
+        background-color: #84817a;
+        height: 600px;
+        background-image: url("http://localhost/portfolio/assets/image/site/blog.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 250px;
+        margin-right: -80px;
+
+        h2{
+            width: auto;
+            text-align: left;
+            font-size: 78px;
+            color: #d1ccc0;
+            margin: 0;
+            margin-left: 150px;
+        }
+
+        p{
+            padding-left: 300px;
+            text-align: left;
+            color: #f7f1e3;
+            width: 50%;
+        }
+
+        .button{
+            margin-left: 300px;
+            border: solid 1px white;
+        }
+    }
+
+    .project{
+        margin-top: 100px;
+
+        h3{
+            text-align: center;
+            color: #227093;
+            font-size: 78px;
+            margin: 0;
+            margin-bottom: 50px;
+        }
+
+        .project-list{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+
+            .project-item{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                width: 500px;
+                height: 300px;
+                margin-bottom: 50px;
+                cursor: pointer;
+
+                span{
+                    background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+                p{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    padding: 5px 0;
+                    margin: 0;
+                    background-color: #f7f1e3;
+                    color: #227093;
+                    font-size: 26px;
+                }
+            }
+        }
+    }
 }
