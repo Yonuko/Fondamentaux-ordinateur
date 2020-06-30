@@ -15,6 +15,11 @@
             <a href="http://localhost/portfolio/projects">Mes projets</a>
             <a href="http://localhost/portfolio/skills">Mes compétences</a>
             <a href="http://localhost/portfolio/contact">Contact</a>
+            <?php 
+                if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
+                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                }
+            ?>
         </div>
     </header>
     <div class="image">
@@ -87,6 +92,11 @@
             <a href="http://localhost/portfolio/projects">Mes projets</a>
             <a href="http://localhost/portfolio/skills">Mes compétences</a>
             <a href="http://localhost/portfolio/contact">Contact</a>
+            <?php 
+                if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
+                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                }
+            ?>
         </div>
     </footer>
 </body>

@@ -1,7 +1,3 @@
-<?php
-    session_name("PortfolioSE");
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
