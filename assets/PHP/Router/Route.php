@@ -27,9 +27,12 @@ $router->get('portfolio/contact', function () {
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/contact.php");
 });
 
- // test de route avec plusieurs paramètre
- $router->get('portfolio/{id}/test/{projectID}/blog', function ($id, $newID) {
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/test.php");
+$router->get('portfolio/projects/{id}', function ($id) {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/project.php");
+});
+
+$router->get('portfolio/post/{id}', function ($id) {
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/post.php");
 });
 
 /**

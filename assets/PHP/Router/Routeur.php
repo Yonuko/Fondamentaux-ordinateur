@@ -98,6 +98,13 @@ class Router
             // we remove matching element to only get the parameters part
             $dynamicRouteParameters = array_diff($dynamicRouteParts, $routeParts);
             $routeParameters = array_diff($routeParts, $dynamicRouteParts);
+            // if there is an difference that is not a parameters then we continue the loop
+            $matches = array_filter($dynamicRouteParameters, function($var){ 
+                return (boolean)preg_match("/}/", $var);
+            });
+            if(count($matches) != count($dynamicRouteParameters)){
+                continue;
+            }
             // if there is not the same amount of element the two urls doesn't match
             if(count($dynamicRouteParameters) != count($routeParameters)){
                 continue;

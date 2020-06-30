@@ -32,18 +32,3 @@
         header("Location:http://localhost/portfolio/login");
         return;
     }
-
-    function sendRequest($rqt, $db, $formInput, $type){
-        $gotValue = false;
-        $rqtHolder = $db->prepare($rqt);
-        $rqtHolder->execute($formInput);
-        $tab = [];
-        while ($ligne = $rqtHolder->fetch($type)) {
-            $gotValue = true;
-            foreach ($ligne as $val) {
-                array_push($tab, $val);
-            }
-        }
-        // Si aucune ligne n'a été lu renvoie false, sinon renvoie un tableau constituer des valeurs retrouné
-        return ($gotValue) ? $tab : $gotValue;
-    }
