@@ -1,5 +1,6 @@
 header {
-  background: none; }
+  background: none;
+  position: absolute; }
 
 .image {
   display: flex;
@@ -88,7 +89,7 @@ main {
         justify-content: flex-end;
         align-items: center;
         width: 500px;
-        height: 300px;
+        height: 500px;
         margin-bottom: 50px;
         cursor: pointer; }
         main .project .project-list .project-item span {

@@ -14,6 +14,10 @@ class Router
         $this->request = $request;
     }
 
+    function getRequest(){
+        return $this->request;
+    }
+
     function __call($name, $args)
     {
         list($route, $method) = $args;
@@ -96,13 +100,17 @@ class Router
             $dynamicRouteParts = explode("/", $dynamicRoute);
             $routeParts = explode("/", $route);
             // we remove matching element to only get the parameters part
-            $dynamicRouteParameters = array_diff($dynamicRouteParts, $routeParts);
-            $routeParameters = array_diff($routeParts, $dynamicRouteParts);
-            // if there is an difference that is not a parameters then we continue the loop
-            $matches = array_filter($dynamicRouteParameters, function($var){ 
+            $dynamicRouteParameters = $this->compareSplits($dynamicRouteParts, $routeParts);
+            $routeParameters = $this->compareSplits($routeParts, $dynamicRouteParts);
+            // if there is an element that is not a parameters then we continue the loop
+            $matches = array_filter($dynamicRouteParameters, function($var){
                 return (boolean)preg_match("/}/", $var);
             });
-            if(count($matches) != count($dynamicRouteParameters)){
+            $parametersNumbers = array_filter($routeParameters, function($var){
+                return (boolean)is_numeric($var);
+            });
+            if(count($matches) !== count($dynamicRouteParameters) || 
+            count($parametersNumbers) !== count($routeParameters)){
                 continue;
             }
             // if there is not the same amount of element the two urls doesn't match
@@ -115,6 +123,30 @@ class Router
             );
         }
         return false;
+    }
+
+    /**
+     * This function return the differences between the two given array in order (compared to array_diff)
+     * ex : array("projects", "{id}"), array("projects", "1") will return array("{id}") but
+     *      array("projects", "{id}"), array("1", "projects") will return array("projects", "{id}")
+     * @param array $array1 first array to compare
+     * @param array $array2 second array to compare
+     * @return array an array containing all the entries from array1 that are not present in the other array
+     */
+    private function compareSplits(array $array1, array $array2){
+        $result = array();
+        $loopCount = (count($array1) > count($array2)) ? count($array2) : count($array1);
+        for($i = 0; $i < $loopCount; $i++){
+            if($array1[$i] !== $array2[$i]){
+                array_push($result, $array1[$i]);
+            }
+        }
+        if(count($array1) > count($array2)){
+            for($i = $loopCount; $i < count($array1); $i++){
+                array_push($result, $array1[$i]);
+            }
+        }
+        return $result;
     }
 
     function __destruct()

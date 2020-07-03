@@ -100,46 +100,35 @@
                         <div class="card-title">Projets</div>
                         <div>
                             <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon">
+                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'http://localhost/portfolio/admin/projects'">
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://localhost/portfolio/assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
-                                <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
-                                <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://localhost/portfolio/assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
-                                <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
-                                <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://localhost/portfolio/assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
-                                <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
-                                <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://localhost/portfolio/assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Bravery of History</div> <!-- Remplacer par le nom du projet -->
-                                <div>Dev</div>
-                                <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
-                                <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
-                            </div>
-                        </div>
+                    <?php 
+                            $rqt = "SELECT * FROM projects;";
+                            $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                            if(!is_null($projects)){  
+                                foreach($projects as $project){
+                                    extract($project);
+                                    echo "<div class='card'>
+                                    <div class='card-body'>
+                                        <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
+                                        <div>$name</div>
+                                        <div>Dev</div>
+                                        <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
+                                        <div>vues totales: $views</div>
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
+                                        src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
+                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
+                                    </div>
+                                </div>";
+                                }
+                            }else{
+                                echo "<p style='text-align: center;'>Aucun projet disponible, veuillez en créer un</p>";
+                            }
+                        ?>
                     </div>
                 </div>
 
@@ -148,7 +137,8 @@
                         <div class="card-title">Blog</div>
                         <div>
                             <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon">
+                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'http://localhost/portfolio/admin/blog'">
                         </div>
                     </div>
                     <div class="card-body">
@@ -159,6 +149,8 @@
                                 <div>Expérience pro</div>
                                 <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
                                 <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
+                                <img class='edit' onclick="window.location = 'http://localhost/portfolio/admin/projects/$project_id'"
+                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                             </div>
                         </div>
                     </div>
@@ -169,7 +161,8 @@
                         <div class="card-title">Competences</div>
                         <div>
                             <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon">
+                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'http://localhost/portfolio/admin/skills'">
                         </div>
                     </div>
                     <div class="card-body">

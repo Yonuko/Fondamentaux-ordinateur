@@ -58,30 +58,20 @@
         <section class="project">
             <h3>Mes projets</h3>
             <div class="project-list">
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
-                <div class="project-item">
-                    <span class="image"></span>
-                    <p>Titre du projet</p>
-                </div>
+                <?php 
+                    $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 6;";
+                    $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    foreach($projects as $project){
+                        extract($project);
+                        echo "                
+                        <div class='project-item'>
+                            <span class='image' 
+                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            <p>$name</p>
+                        </div>
+                        ";
+                    }
+                ?>
             </div>
         </section>
     </main>

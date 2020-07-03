@@ -3,13 +3,17 @@ header .secondary-menu {
   header .secondary-menu .manageMenu {
     display: flex;
     justify-content: flex-end; }
-    header .secondary-menu .manageMenu .add {
-      background-image: url("../../image/plusIcon.png");
-      padding-left: 35px;
-      background-position: 5px;
-      background-size: 25px;
-      border: none;
-      background-repeat: no-repeat; }
+    header .secondary-menu .manageMenu form {
+      height: 100%; }
+      header .secondary-menu .manageMenu form .add {
+        background-image: url("../../image/plusIcon.png");
+        padding-left: 35px;
+        background-position: 5px;
+        background-size: 25px;
+        border: none;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat; }
   header .secondary-menu .connexionMenu {
     display: flex;
     justify-content: flex-start; }

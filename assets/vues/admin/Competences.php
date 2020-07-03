@@ -44,7 +44,9 @@
 
         <div class="secondary-menu">
             <div class="manageMenu">
-                <button class="add">Ajouter</button>
+                <form action="http://localhost/portfolio/admin/skills/create" method="post">
+                    <button class="add">Ajouter</button>
+                </form>
             </div>
             <div class="connexionMenu">
                 <div class="notification">

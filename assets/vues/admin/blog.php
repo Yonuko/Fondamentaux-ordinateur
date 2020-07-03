@@ -44,7 +44,9 @@
 
         <div class="secondary-menu">
             <div class="manageMenu">
-                <button class="add">Ajouter</button>
+                <form action="http://localhost/portfolio/admin/blog/create" method="post">
+                    <button class="add">Ajouter</button>
+                </form>
             </div>
             <div class="connexionMenu">
                 <div class="notification">
@@ -118,6 +120,8 @@
                                 <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <div>vues totales: 15</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <img class="edit" src="../assets/image/edit.png" alt="Edit Icon">
+                                <img class='edit' onclick="window.location = 'http://localhost/portfolio/admin/projects/$project_id'"
+                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                             </div>
                         </div>
                         <div class="card">
@@ -128,6 +132,8 @@
                                 <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <div>vues totales: 15</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                 <img class="edit" src="../assets/image/edit.png" alt="Edit Icon">
+                                <img class='edit' onclick="window.location = 'http://localhost/portfolio/admin/projects/$project_id'"
+                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                             </div>
                         </div>
                     </div>

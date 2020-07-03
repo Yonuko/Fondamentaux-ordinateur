@@ -1,0 +1,35 @@
+main{
+
+    .title{
+        width: 100%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1{
+            color: #227093;
+            font-size: 78px;
+        }
+    }
+
+    .Latest-post{
+        background-color: #d1ccc0;
+        color: #707070;
+        padding-left: 300px;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 350px;
+
+        span{
+            font-size: 28px;
+        }
+
+        p{
+            width: 60%;
+        }
+    }
+}
