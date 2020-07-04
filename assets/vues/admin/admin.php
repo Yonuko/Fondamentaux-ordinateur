@@ -120,7 +120,7 @@
                                         <div>vues totales: $views</div>
                                         <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
                                         src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id/delete'\"
                                         src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                                     </div>
                                 </div>";

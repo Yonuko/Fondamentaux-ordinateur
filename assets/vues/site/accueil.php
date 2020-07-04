@@ -63,7 +63,7 @@
                     $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                     foreach($projects as $project){
                         extract($project);
-                        echo "                
+                        echo "
                         <div class='project-item'>
                             <span class='image' 
                             style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>

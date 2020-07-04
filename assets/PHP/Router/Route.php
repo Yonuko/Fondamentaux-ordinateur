@@ -115,6 +115,20 @@ $router->get('portfolio/admin/projects/{id}/active', function ($id){
   header("Location:http://localhost/portfolio/admin/projects");
 });
 
+$router->get('portfolio/admin/projects/{id}/delete', function ($id){
+  needAdmin();
+  $rqt = "SELECT logo FROM projects WHERE project_id = ?;";
+  $filename = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
+  unlink($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Projets/" . $filename);
+  $rqt = "DELETE FROM projects WHERE project_id = ?;";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  $rqt = "DELETE FROM project_types WHERE project_id = ?;";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  $rqt = "DELETE FROM projects_description WHERE project_id = ?";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  header("Location:http://localhost/portfolio/admin/projects");
+});
+
 $router->get('portfolio/admin/CV', function (){
   needAdmin();
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/CV.php");

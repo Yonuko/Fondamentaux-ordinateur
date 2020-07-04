@@ -63,4 +63,19 @@ if ($uploadOk == 0) {
 $rqt = "INSERT INTO projects VALUES (null, ?, ?, 0, 0);";
 sendRequest($rqt, [$data["name"], $filename], PDO::FETCH_ASSOC);
 
+$rqt = "SELECT project_id FROM projects WHERE name = ?;";
+$project_id = sendRequest($rqt, [$data["name"]], PDO::FETCH_NUM)[0][0];
+$rqt = "SELECT project_type_id FROM project_type";
+$type_id = sendRequest($rqt, [], PDO::FETCH_NUM)[0][0];
+
+$rqt = "INSERT INTO project_types VALUES (?, ?);";
+sendRequest($rqt, [$project_id, $type_id], PDO::FETCH_ASSOC);
+
+$i = 1;
+while(isset($data["description-$i"])){
+    $rqt = "INSERT INTO projects_description VALUES (?, ?, ?, ?);";
+    sendRequest($rqt, [$project_id, $data["subName-$i"], $data["description-$i"], $i], PDO::FETCH_NUM);
+    $i++;
+}
+
 header("Location:http://localhost/portfolio/admin/projects");

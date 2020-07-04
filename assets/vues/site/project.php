@@ -21,6 +21,27 @@
             ?>
         </div>
     </header>
+    <main>
+        <?php 
+            $rqt = "SELECT * FROM projects_description WHERE project_id = 12;";
+            $desc = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
+            extract($desc);
+            echo "<h$order>$subTitle</h$order>";
+            echo html_entity_decode($Description);
+        ?>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </main>
     <footer>
         <div class="menu">
             <a href="http://localhost/portfolio">Accueil</a>

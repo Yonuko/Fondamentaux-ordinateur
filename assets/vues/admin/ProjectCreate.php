@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/createProject.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
     <title>Admin - detail d'un projet</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
@@ -109,11 +110,20 @@
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
+                                        <label for="subName-1">Sous titre paragraphe 1</label>
+                                        <input type="text" name="subName-1">
                                         <div id="description-label-1" class="toggler">
                                             <img class="expend toggle" src="http://localhost/portfolio/assets/image/ArrowIcon.png">
                                             <label for="description-1">Description (paragraphe) 1</label>
                                         </div>
-                                        <textarea id="description-1" name="description-1" required></textarea>
+                                        <textarea id="description-1" name="description-1"></textarea>
+                                        <script>
+                                            ClassicEditor
+                                                .create( document.querySelector( '#description-1' ) )
+                                                .catch( error => {
+                                                    console.error( error );
+                                                });
+                                        </script>
                                     </div>
                                </div>
                             </div>
