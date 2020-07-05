@@ -110,16 +110,16 @@
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
-                                        <label for="subName-1">Sous titre paragraphe 1</label>
+                                        <label for="subName-1" class="label">Sous titre paragraphe 1</label>
                                         <input type="text" name="subName-1">
                                         <div id="description-label-1" class="toggler">
                                             <img class="expend toggle" src="http://localhost/portfolio/assets/image/ArrowIcon.png">
                                             <label for="description-1">Description (paragraphe) 1</label>
                                         </div>
-                                        <textarea id="description-1" name="description-1"></textarea>
+                                        <textarea id="description-textarea-1" name="description-1"></textarea>
                                         <script>
                                             ClassicEditor
-                                                .create( document.querySelector( '#description-1' ) )
+                                                .create( document.querySelector( '#description-textarea-1' ) )
                                                 .catch( error => {
                                                     console.error( error );
                                                 });

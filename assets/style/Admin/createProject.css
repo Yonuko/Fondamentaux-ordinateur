@@ -62,6 +62,8 @@ form {
         form .form-content .scrolleur #Descriptions textarea {
           max-width: 100%;
           margin-bottom: 50px; }
+        form .form-content .scrolleur #Descriptions .label {
+          margin-top: 20px; }
   form .descriptionButton {
     display: flex;
     align-items: center;

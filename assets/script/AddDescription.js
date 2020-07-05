@@ -4,23 +4,12 @@ let descriptionHolder = document.getElementById("Descriptions");
 let addDescriptionButton = document.getElementById("addDesc");
 let removeDescriptionButton = document.getElementById("removeDesc");
 let expendObject = document.getElementsByClassName("expend");
-let firstDescription = document.getElementById("description-1");
 
-for(let i = 0; i < expendObject.length; i++){
-    expendObject[i].onclick = () =>{
-        if(expendObject[i].classList.contains("toggle")){
-            expendObject[i].classList.remove("toggle");
-            firstDescription.style.display = "none";
-        }else{
-            expendObject[i].classList.add("toggle");
-            firstDescription.style.display = "block";
-        }
-    };
-}
+addIDToCKeditor();
 
 removeDescriptionButton.onclick = () =>{
     document.getElementById("description-ckeditor-" + count).remove();
-    document.getElementById("description-" + count).remove();
+    document.getElementById("description-textarea-" + count).remove();
     document.getElementById("description-label-" + count).remove();
     document.getElementById("subName-" + count).remove();
     document.getElementById("subName-label-" + count).remove();
@@ -41,6 +30,7 @@ addDescriptionButton.onclick = () =>{
 
     subTitleLabel.setAttribute("for", "subName-" + count);
     subTitleLabel.setAttribute("id", "subName-label-" + count);
+    subTitleLabel.setAttribute("class", "label");
     subTitleLabel.innerHTML = "Sous titre paragraphe " + count;
 
     subTitleName.setAttribute("type", "text");
@@ -51,7 +41,7 @@ addDescriptionButton.onclick = () =>{
     labelDiv.setAttribute("id", "description-label-" + count);
 
     descriptionTextArea.setAttribute("name", "description-" + count);
-    descriptionTextArea.setAttribute("id", "description-" + count);
+    descriptionTextArea.setAttribute("id", "description-textarea-" + count);
     
     arrowImg.classList.add("expend");
     arrowImg.classList.add("toggle");
@@ -71,10 +61,10 @@ addDescriptionButton.onclick = () =>{
     descriptionHolder.appendChild(descriptionTextArea);
 
     ClassicEditor
-    .create( document.querySelector( '#description-' + count ) )
-    .then( editor => {
-        console.log( 'Editor was initialized', editor );
-    } )
+    .create( document.querySelector( '#description-textarea-' + count ) )
+    .then(editor => {
+        addIDToCKeditor();
+    })
     .catch( error => {
         console.error( error );
     } );
@@ -82,21 +72,21 @@ addDescriptionButton.onclick = () =>{
     if(count >= 1){
         removeDescriptionButton.style.display = "block";
     }
-
-    addIDToCKeditor();
 };
 
 function addIDToCKeditor(){
-    let editors = document.getElementsByClassName("ck-editor");
+    let editorsCollection = descriptionHolder.getElementsByClassName("ck-editor");
+    let editors = Array.prototype.slice.call( editorsCollection );
     let arrowImgs = document.getElementsByClassName("expend");
+    console.log(editors.length);
     for(let i = 0; i < editors.length; i++){
-        editors[i].setAttribute("id", "description-ckeditor-" + count);
+        editors[i].setAttribute("id", "description-ckeditor-" + (i+1));
         arrowImgs[i].onclick = () =>{
-            if(arrowImg.classList.contains("toggle")){
-                arrowImg.classList.remove("toggle");
+            if(arrowImgs[i].classList.contains("toggle")){
+                arrowImgs[i].classList.remove("toggle");
                 editors[i].style.display = "none";
             }else{
-                arrowImg.classList.add("toggle");
+                arrowImgs[i].classList.add("toggle");
                 editors[i].style.display = "block";
             }
         };
