@@ -80,7 +80,7 @@
                     foreach($projects as $project){
                         extract($project);
                         echo "
-                        <div class='project-item'>
+                        <div class='project-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
                             <span class='image' 
                             style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
                             <p>$name</p>

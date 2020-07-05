@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
-    <title>Portfolio Sacha EGHIAZARIAN - Project</title>
+    <?php 
+        $rqt = "SELECT * FROM projects WHERE project_id = ?;";
+        $project = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
+        if(is_null($project)){
+            echo "<title>Portfolio Sacha EGHIAZARIAN - Projet inconnu</title>";
+            include_once("404.php");
+            http_response_code(404);
+            return;
+        }
+        extract($project);
+        ?>
+    <title>Portfolio Sacha EGHIAZARIAN - Projet <?php echo $name ?></title>
 </head>
 <body>
     <header>
@@ -22,12 +33,14 @@
         </div>
     </header>
     <main>
-        <?php 
-            $rqt = "SELECT * FROM projects_description WHERE project_id = 12;";
-            $desc = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
-            extract($desc);
-            echo "<h$order>$subTitle</h$order>";
-            echo html_entity_decode($Description);
+        <?php
+            $rqt = "SELECT * FROM projects_description WHERE project_id = ?;";
+            $desc = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
+            if(!is_null($desc)){
+                extract($desc);
+                echo "<h$order>$subTitle</h$order>";
+                echo html_entity_decode($Description);
+            }
         ?>
         <br>
         <br>

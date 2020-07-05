@@ -48,6 +48,7 @@ main{
             margin-right: 5%;
             background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
             background-size: cover;
+            border: white solid 10px;
         }
     }
 
@@ -62,13 +63,17 @@ main{
             justify-content: space-around;
 
             .post{
-                height: 70%;
+                height: 80%;
                 width: 25%;
                 display: flex;
                 flex-direction: column;
+
+                &:hover{
+                    cursor: pointer;
+                }
                 
                 .post-title{
-                    color: #90b7c9;
+                    color: #227093;
                     font-size: 32px;
                 }
 
@@ -81,6 +86,7 @@ main{
                     background-size: cover;
                     height: 70%;
                     margin-bottom: 20px;
+                    // border: black solid 0.5px;
                 }
 
             }
@@ -115,6 +121,10 @@ main{
     
             p{
                 color: white;
+            }
+
+            .post-icon{
+                border: white solid 10px;
             }
         }
     }
