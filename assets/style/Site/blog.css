@@ -15,11 +15,63 @@ main .Latest-post {
   height: 400px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  align-content: flex-start;
+  flex-direction: row;
   margin-bottom: 350px; }
-  main .Latest-post span {
-    font-size: 28px; }
-  main .Latest-post p {
-    width: 60%; }
+  main .Latest-post .latest-post-message {
+    margin-top: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
+    main .Latest-post .latest-post-message span {
+      font-size: 32px; }
+    main .Latest-post .latest-post-message p {
+      width: 60%; }
+  main .Latest-post .latest-post-image {
+    margin-top: 50px;
+    margin-bottom: -10px;
+    width: 40%;
+    height: 100%;
+    margin-right: 5%;
+    background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+    background-size: cover; }
+main .articles {
+  width: 100%;
+  margin-top: 50px; }
+  main .articles .posts {
+    height: 600px;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around; }
+    main .articles .posts .post {
+      height: 70%;
+      width: 25%;
+      display: flex;
+      flex-direction: column; }
+      main .articles .posts .post .post-title {
+        color: #90b7c9;
+        font-size: 32px; }
+      main .articles .posts .post p {
+        color: #797979; }
+      main .articles .posts .post .post-icon {
+        background-image: url("http://localhost/portfolio/assets/image/Uploads/Blog/test.jpg");
+        background-size: cover;
+        height: 70%;
+        margin-bottom: 20px; }
+    main .articles .posts .post:first-child {
+      align-self: flex-end; }
+    main .articles .posts .post:last-child {
+      align-self: flex-start; }
+    main .articles .posts .post:nth-child(2) {
+      align-self: center; }
+main .posts.dark {
+  background-color: #84817a; }
+  main .posts.dark .post:hover {
+    cursor: pointer; }
+  main .posts.dark .post .post-title {
+    color: white;
+    font-size: 32px; }
+  main .posts.dark .post p {
+    color: white; }
 
 /*# sourceMappingURL=blog.css.map */

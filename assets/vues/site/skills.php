@@ -21,6 +21,30 @@
             ?>
         </div>
     </header>
+    <main>
+        
+        <section class="project">
+            <h2>Mes projets</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
+            <a class="button" href="http://localhost/portfolio/projects">Mes projets</a>
+            <div class="project-list">
+                <?php 
+                    $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 3;";
+                    $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    foreach($projects as $project){
+                        extract($project);
+                        echo "
+                        <div class='project-item'>
+                            <span class='image' 
+                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            <p>$name</p>
+                        </div>
+                        ";
+                    }
+                ?>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="menu">
             <a href="http://localhost/portfolio">Accueil</a>

@@ -27,8 +27,68 @@
             <h1>Mon blog</h1>
         </section>
         <section class="Latest-post">
-            <span>Dernier article</span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aperiam asperiores, laboriosam magnam nostrum nisi illum iure sapiente consectetur possimus nulla placeat facilis expedita quas beatae voluptatem voluptatum necessitatibus ipsa.</p>
+            <div class="latest-post-message">
+                <span>Dernier article</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aperiam asperiores, laboriosam magnam nostrum nisi illum iure sapiente consectetur possimus nulla placeat facilis expedita quas beatae voluptatem voluptatum necessitatibus ipsa.</p>
+            </div>
+            <span class="latest-post-image"></span>
+        </section>
+        <section class="articles">
+            <div class="posts">
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+            </div>
+            <div class="posts dark">
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+                <div class="post">
+                    <span class="post-icon"></span>
+                    <span class="post-title">Title</span>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+                </div>
+            </div>
+        </section>
+        <section class="project">
+            <h2>Mes projets</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
+            <a class="button" href="http://localhost/portfolio/projects">Mes projets</a>
+            <div class="project-list">
+                <?php 
+                    $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 3;";
+                    $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    foreach($projects as $project){
+                        extract($project);
+                        echo "
+                        <div class='project-item'>
+                            <span class='image' 
+                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            <p>$name</p>
+                        </div>
+                        ";
+                    }
+                ?>
+            </div>
         </section>
     </main>
     <footer>

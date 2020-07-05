@@ -21,15 +21,101 @@ main{
         height: 400px;
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        align-content: flex-start;
+        flex-direction: row;
         margin-bottom: 350px;
 
-        span{
-            font-size: 28px;
+        .latest-post-message{
+            margin-top: 50px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            
+            span{
+                font-size: 32px;
+            }
+            
+            p{
+                width: 60%;
+            }
         }
+        
+        .latest-post-image{
+            margin-top: 50px;
+            margin-bottom: -10px;
+            width: 40%;
+            height: 100%;
+            margin-right: 5%;
+            background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+            background-size: cover;
+        }
+    }
 
-        p{
-            width: 60%;
+    .articles{
+        width: 100%;
+        margin-top: 50px;
+
+        .posts{
+            height: 600px;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-around;
+
+            .post{
+                height: 70%;
+                width: 25%;
+                display: flex;
+                flex-direction: column;
+                
+                .post-title{
+                    color: #90b7c9;
+                    font-size: 32px;
+                }
+
+                p{
+                    color: #797979;
+                }
+                
+                .post-icon{
+                    background-image: url("http://localhost/portfolio/assets/image/Uploads/Blog/test.jpg");
+                    background-size: cover;
+                    height: 70%;
+                    margin-bottom: 20px;
+                }
+
+            }
+
+            .post:first-child{
+                align-self: flex-end;
+            }
+
+            .post:last-child{
+                align-self: flex-start;
+            }
+
+            .post:nth-child(2){
+                align-self: center;
+            }
+        }
+    }
+
+    .posts.dark{
+        background-color: #84817a;
+
+        .post{
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            .post-title{
+                color: white;
+                font-size: 32px;
+            }
+    
+            p{
+                color: white;
+            }
         }
     }
 }
