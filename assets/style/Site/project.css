@@ -1,0 +1,20 @@
+main .project-presentation {
+  margin-top: 150px;
+  background-size: 50%, 100%, cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  margin: 0 50px;
+  height: 600px; }
+  main .project-presentation h1 {
+    text-align: center;
+    font-size: 78px;
+    color: #d7d1c3;
+    mix-blend-mode: lighten; }
+  main .project-presentation .message {
+    padding-left: 51%;
+    font-size: 18px; }
+    main .project-presentation .message span {
+      color: #7a7a7a;
+      font-size: 42px; }
+
+/*# sourceMappingURL=project.css.map */
