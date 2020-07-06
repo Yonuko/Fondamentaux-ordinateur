@@ -81,6 +81,7 @@ header {
       cursor: pointer; }
       .project .project-list .project-item span {
         background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
