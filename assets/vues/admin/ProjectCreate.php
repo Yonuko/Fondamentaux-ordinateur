@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/createProject.css">
-    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js"></script>
     <title>Admin - detail d'un projet</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){

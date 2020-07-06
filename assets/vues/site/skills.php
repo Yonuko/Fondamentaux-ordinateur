@@ -30,9 +30,27 @@
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem repellendus officiis dolorum. Hic eum iusto vero blanditiis ad tenetur id, deserunt exercitationem repudiandae laborum sit reiciendis fugiat pariatur? Voluptatem, adipisci!</p>
             </div>
         </section>
+        <section class="types">
+            <div id="devButton" class="type">
+                <img src="http://localhost/portfolio/assets/image/site/icons/dev.png" alt="">
+                <p>Développement Logiciel</p>
+            </div>
+            <div id="infraButton" class="type">
+                <img src="http://localhost/portfolio/assets/image/site/icons/infra.png" alt="">
+                <p>Infrastructure</p>
+            </div>
+            <div id="webButton" class="type">
+                <img src="http://localhost/portfolio/assets/image/site/icons/web.png" alt="">
+                <p>Développement Web</p>
+            </div>
+            <div id="otherButton" class="type">
+                <img src="http://localhost/portfolio/assets/image/site/icons/other.png" alt="">
+                <p>Autre</p>
+            </div>
+        </section>
         <section class="skills">
             <?php 
-                $rqt = "SELECT * FROM skills WHERE isShown = 1;";
+                $rqt = "SELECT * FROM skills WHERE isShown = 1 ORDER BY level DESC;";
                 $skills = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                 foreach($skills as $skill){
                     extract($skill);

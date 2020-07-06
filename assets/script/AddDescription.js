@@ -78,7 +78,6 @@ function addIDToCKeditor(){
     let editorsCollection = descriptionHolder.getElementsByClassName("ck-editor");
     let editors = Array.prototype.slice.call( editorsCollection );
     let arrowImgs = document.getElementsByClassName("expend");
-    console.log(editors.length);
     for(let i = 0; i < editors.length; i++){
         editors[i].setAttribute("id", "description-ckeditor-" + (i+1));
         arrowImgs[i].onclick = () =>{

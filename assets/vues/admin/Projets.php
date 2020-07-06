@@ -124,11 +124,14 @@
                             if(!is_null($projects)){  
                                 foreach($projects as $project){
                                     extract($project);
+                                    $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
+                                    ON pt.project_type_id = p.project_type_id WHERE project_id = ?;";
+                                    $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
                                     echo "<div class='card'>
                                     <div class='card-body'>
                                         <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
-                                        <div>Dev</div>
+                                        <div>$type</div>
                                         <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>";
                                         if($isShown){

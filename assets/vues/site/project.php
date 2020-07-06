@@ -34,12 +34,14 @@
     </header>
     <main>
         <?php
-            $rqt = "SELECT * FROM projects_description WHERE project_id = ?;";
-            $desc = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
-            if(!is_null($desc)){
-                extract($desc);
-                echo "<h$order>$subTitle</h$order>";
-                echo html_entity_decode($Description);
+            $rqt = "SELECT * FROM projects_description WHERE project_id = ? ORDER BY `order`;";
+            $descTab = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+            if(!is_null($descTab)){
+                foreach($descTab as $desc){
+                    extract($desc);
+                    echo "<h$order>$subTitle</h$order>";
+                    echo html_entity_decode($Description);
+                }
             }
         ?>
         <br>
