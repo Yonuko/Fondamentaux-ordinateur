@@ -109,4 +109,52 @@ main {
           color: #227093;
           font-size: 26px; }
 
+@media (max-width: 1100px) {
+  .image div {
+    font-size: 86px; }
+
+  main .quote .quote-text {
+    width: 80%; } }
+@media (max-width: 1060px) {
+  main {
+    padding: 0; }
+    main .a-propos {
+      background-size: 50%, 100%, auto; }
+      main .a-propos .message {
+        padding-left: 51%; }
+    main .blog {
+      margin-left: 80px;
+      margin-right: 0; }
+      main .blog p {
+        width: 70%; } }
+@media (max-width: 800px) {
+  main .blog {
+    margin-left: 80px;
+    margin-right: 0; }
+    main .blog p {
+      width: 90%; } }
+@media (max-width: 750px) {
+  .image div {
+    font-size: 48px; }
+
+  main .a-propos .message {
+    font-size: 16px; }
+    main .a-propos .message span {
+      font-size: 32px; }
+  main .blog {
+    margin-left: 40px;
+    margin-right: 0;
+    background-position: 150px; }
+    main .blog p {
+      width: 90%;
+      padding-left: 200px; }
+    main .blog h2 {
+      margin-left: 50px; }
+    main .blog .button {
+      margin-left: 200px; } }
+@media (max-width: 650px) {
+  main .project .project-list .project-item {
+    width: 400px;
+    height: 400px; } }
+
 /*# sourceMappingURL=accueil.css.map */
