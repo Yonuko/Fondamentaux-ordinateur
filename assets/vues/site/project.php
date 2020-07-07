@@ -32,6 +32,9 @@
                 }
             ?>
         </div>
+        <div class="burger">
+            <div class="hamburger hamburger-one"></div>
+        </div>
     </header>
     <main>
         <?php
@@ -43,12 +46,8 @@
             style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\">
                 <h1>$name</h1>
                 <section class='message'>
-                    <span>Bonjour !</span>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, aut obcaecati! <br>Cupiditate quas deleniti officia ad ea aperiam porro perferendis atque dolorum <br>consectetur assumenda, placeat vitae, unde perspiciatis quasi doloribus?
-                        <br><br>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora in ex a autem deserunt voluptatem repellendus laudantium beatae libero hic, reprehenderit sequi, illum magnam iusto pariatur officiis quam eum. Possimus?
-                    </p>
+                    <span>$presentation_name</span>
+                    <div>" . html_entity_decode($presentation) . "</div>
                 </section>
             </section>
             ";
@@ -56,11 +55,29 @@
         <?php
             $rqt = "SELECT * FROM projects_description WHERE project_id = ? ORDER BY `order`;";
             $descTab = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+            $isColorOne = true;
             if(!is_null($descTab)){
                 foreach($descTab as $desc){
                     extract($desc);
-                    echo "<h$order>$subTitle</h$order>";
-                    echo html_entity_decode($Description);
+                    if($isColorOne){
+                        echo "<section class='description color'>";
+                    }else{
+                        echo "<section class='description'>";
+                    }
+                    echo "<div class='marge'></div>";
+                    if($isColorOne){
+                        echo "<div class='strcuture'>";
+                    }
+                    echo "<div class='content'>";
+                    echo "<h$order class='title'>$subTitle</h$order>";
+                    echo "<div class='description-content'>" . html_entity_decode($Description) . "</div>";
+                    echo "</div>";
+                    if($isColorOne){
+                        echo "<div class='img'></div>";
+                        echo "</div>";
+                    }
+                    echo "</section>";
+                    $isColorOne = !$isColorOne;
                 }
             }
         ?>
@@ -100,5 +117,6 @@
             ?>
         </div>
     </footer>
+    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
 </body>
 </html>

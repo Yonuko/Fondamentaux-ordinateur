@@ -21,6 +21,9 @@
                 }
             ?>
         </div>
+        <div class="burger">
+            <div class="hamburger hamburger-one"></div>
+        </div>
     </header>
     <div class="image">
         <div>Sacha Eghiazarian</div>
@@ -89,5 +92,6 @@
             ?>
         </div>
     </footer>
+    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
 </body>
 </html>

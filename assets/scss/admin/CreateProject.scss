@@ -81,6 +81,11 @@ form{
                     border: solid 1px red;
                 }
             }
+
+            .document-editor__editable-container .ck-editor__editable{
+                width: 100%;
+                max-width: 100%;
+            }
         
             #Descriptions{
                 width: 100%;

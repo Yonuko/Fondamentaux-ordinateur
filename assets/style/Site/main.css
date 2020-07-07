@@ -26,6 +26,8 @@ header {
       color: white; }
       header .menu a:hover {
         color: #b3b3b3; }
+  header .burger {
+    display: none; }
 
 .button {
   width: 200px;
@@ -121,5 +123,75 @@ footer {
       font-weight: bold; }
       footer .menu a:hover {
         color: #126083; }
+
+@media (max-width: 1400px) {
+  header {
+    align-items: unset;
+    align-content: center; }
+    header .menu {
+      position: fixed;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1; }
+      header .menu .hamburger {
+        height: 48px; }
+      header .menu a {
+        font-size: 48px;
+        color: white;
+        margin-bottom: 50px; }
+    header .hamburger {
+      top: 50%;
+      width: 50px;
+      height: 6px;
+      position: relative;
+      background: #FCFCFC;
+      transition: 0.5s; }
+      header .hamburger::before {
+        top: -16px; }
+      header .hamburger::after {
+        top: 16px; }
+    header .burger {
+      display: block;
+      position: absolute;
+      top: 2px;
+      right: 20px;
+      height: 46px;
+      width: 50px;
+      z-index: 0;
+      cursor: pointer; }
+    header .hamburger-one:before,
+    header .hamburger-one:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 6px;
+      background: #FCFCFC;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: 0.5s; }
+    header .burger.active-one {
+      z-index: 1; }
+      header .burger.active-one .hamburger-one {
+        background: rgba(0, 0, 0, 0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0); }
+        header .burger.active-one .hamburger-one::before {
+          top: 0;
+          transform: rotate(45deg); }
+        header .burger.active-one .hamburger-one::after {
+          top: 0;
+          transform: rotate(135deg);
+          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); }
+
+  footer {
+    height: 500px; }
+    footer .menu {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      margin-top: 200px;
+      font-size: 36px; } }
 
 /*# sourceMappingURL=main.css.map */

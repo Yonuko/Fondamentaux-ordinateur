@@ -60,8 +60,8 @@ if ($uploadOk == 0) {
     }
 }
 
-$rqt = "INSERT INTO projects VALUES (null, ?, ?, 0, 0);";
-sendRequest($rqt, [$data["name"], $filename], PDO::FETCH_ASSOC);
+$rqt = "INSERT INTO projects VALUES (null, ?, ?, ?, ?, 0, 0);";
+sendRequest($rqt, [$data["name"], $data["presentationName"], $data["presentation"], $filename], PDO::FETCH_ASSOC);
 
 $rqt = "SELECT project_id FROM projects WHERE name = ?;";
 $project_id = sendRequest($rqt, [$data["name"]], PDO::FETCH_NUM)[0][0];

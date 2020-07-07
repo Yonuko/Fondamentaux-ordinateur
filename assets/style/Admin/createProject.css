@@ -54,6 +54,9 @@ form {
         margin-bottom: 20px; }
         form .form-content .scrolleur input:invalid {
           border: solid 1px red; }
+      form .form-content .scrolleur .document-editor__editable-container .ck-editor__editable {
+        width: 100%;
+        max-width: 100%; }
       form .form-content .scrolleur #Descriptions {
         width: 100%;
         max-width: 100%;

@@ -21,6 +21,9 @@
                 }
             ?>
         </div>
+        <div class="burger">
+            <div class="hamburger hamburger-one"></div>
+        </div>
     </header>
     <main>
     <section class="title">
@@ -31,14 +34,12 @@
                 $rqt = "SELECT * FROM projects ORDER BY project_id DESC LIMIT 1;";
                 $latest_project = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
                 extract($latest_project);
-                $rqt = "SELECT Description FROM projects_description WHERE `order` = 1 AND project_id = ?;";
-                $desc = sendRequest($rqt, [$project_id], PDO::FETCH_NUM)[0][0];
                 echo "
                 <span class='latest-project-image' 
                 style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo')\"></span>
                 <div class='latest-project-message'>
                     <span>$name</span>
-                    <div class='description'>" . html_entity_decode($desc) . "</div>
+                    <div class='description'>" . html_entity_decode($presentation) . "</div>
                     <a href='http://localhost/portfolio/projects/$project_id' class='button'>Voir le projet</a>
                 </div>
                 ";
@@ -52,9 +53,6 @@
                 $count = 0;
                 foreach($projects as $project){
                     extract($project);
-                    $rqt = "SELECT * FROM projects_description WHERE project_id = ? AND `order` = 1;";
-                    $desc = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0];
-                    extract($desc);
                     if($count % 3 === 0 && $count !== 0){
                         echo "</div><div class='project-list'>";
                     }
@@ -63,7 +61,7 @@
                         <span class='project-icon' 
                         style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
                         <span class='project-title'>$name</span>
-                        <div class='description'>" . html_entity_decode($Description) . "</div>
+                        <div class='description'>" . html_entity_decode($presentation) . "</div>
                     </div>
                     ";
                     $count++;
@@ -107,5 +105,6 @@
             ?>
         </div>
     </footer>
+    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
 </body>
 </html>

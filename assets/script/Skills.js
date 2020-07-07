@@ -22,7 +22,7 @@ let otherSkills = document.getElementsByClassName("other");
 
 ChangeSelector();
 
-if(devButton !== undefined){
+if(devButton !== null){
     devButton.onclick = () => {
         if(selector === "dev"){
             selector = "none";

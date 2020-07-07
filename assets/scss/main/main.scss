@@ -34,6 +34,10 @@ header{
             }
         }
     }
+
+    .burger{
+        display: none;
+    }
 }
 
 .button{
@@ -152,6 +156,105 @@ footer{
             &:hover{
                 color: #126083;
             }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    header{
+        align-items: unset;
+        align-content: center;
+
+        .menu{
+            position: fixed;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba($color: #000000, $alpha: 0.6);
+            z-index: 1;
+
+            .hamburger{
+                height: 48px;
+            }
+
+            a{
+                font-size: 48px;
+                color: white;
+                margin-bottom: 50px;
+            }
+        }
+
+        .hamburger {
+            top: 50%;
+            width: 50px;
+            height: 6px;
+            position: relative;
+            background: #FCFCFC;
+            transition: 0.5s;
+
+            &::before{
+                top: -16px;
+            }
+
+            &::after{
+                top: 16px;
+            }
+        }
+
+        .burger {
+            display: block;
+            position: absolute;
+            top: 2px;
+            right: 20px;
+            height: 46px;
+            width: 50px;
+            z-index: 0;
+            cursor: pointer;
+        }
+
+        .hamburger-one:before,
+        .hamburger-one:after {
+            content: '';
+            position:absolute;
+            width: 50px;
+            height: 6px;
+            background:#FCFCFC;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition:0.5s;
+        }
+
+        .burger.active-one{
+            z-index: 1;
+
+            .hamburger-one{
+                background:rgba(0,0,0,0);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+
+                &::before{
+                    top: 0;
+                    transform:rotate(45deg);
+                }
+
+                &::after{
+                    top: 0;
+                    transform:rotate(135deg);
+                    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+
+    footer{
+        height: 500px;
+
+        .menu{
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            margin-top: 200px;
+            font-size: 36px;
         }
     }
 }

@@ -108,6 +108,17 @@
                                     </div>
                                     <label for="logo">Logo du projet</label>
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
+                                    <label for="presentationName">Titre de la présentation</label>
+                                    <input type="text" name="presentationName">
+                                    <label for="presentation">Présentation du projet</label>
+                                    <textarea name="presentation" id="presentation"></textarea>
+                                    <script>
+                                        ClassicEditor
+                                        .create( document.querySelector( '#presentation' ) )
+                                        .catch( error => {
+                                            console.error( error );
+                                        });
+                                    </script>
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
                                         <label for="subName-1" class="label">Sous titre paragraphe 1</label>

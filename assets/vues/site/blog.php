@@ -21,6 +21,9 @@
                 }
             ?>
         </div>
+        <div class="burger">
+            <div class="hamburger hamburger-one"></div>
+        </div>
     </header>
     <main>
         <section class="title">
@@ -105,5 +108,6 @@
             ?>
         </div>
     </footer>
+    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
 </body>
 </html>

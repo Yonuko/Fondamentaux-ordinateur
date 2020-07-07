@@ -24,4 +24,68 @@ main{
             }
         }
     }
+
+    .description{
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        width: 100%;
+        margin-top: 50px;
+
+
+        .marge{
+            margin: 0 10px;
+            flex: 0 0 250px;
+        }
+
+        .content{
+            width: 90%;
+            margin-right: 200px;
+            padding-left: 20px;
+
+            .description-content{
+                color: #707070;
+                font-size: 20px;
+                margin-bottom: 150px;
+            }
+
+            .title{
+                color: #227093;
+                font-size: 46px;
+            }
+        }
+    }
+
+    .color{
+
+        .marge{
+            background-color: #84817a;
+        }
+
+        .content{
+            background-color: #f7f1e3;
+            padding-left: 150px;
+            margin-top: 50px;
+            padding-right: 50px;
+        }
+
+        .img{
+            height: 250px;
+            margin-top: 50px;
+            align-self: flex-end;
+            width: 80%;
+            background-image: url("http://localhost/portfolio/assets/image/site/Accueil.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .strcuture{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+    }
 }
