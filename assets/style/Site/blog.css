@@ -84,4 +84,31 @@ main .posts.dark {
   main .posts.dark .post .post-icon {
     border: white solid 10px; }
 
+@media (max-width: 1400px) {
+  main .Latest-post {
+    padding-left: 200px; }
+    main .Latest-post .latest-post-message p {
+      width: 80%; } }
+@media (max-width: 1100px) {
+  main .Latest-post {
+    padding-left: 100px; }
+    main .Latest-post .latest-post-image {
+      margin-right: 0;
+      margin-bottom: 0;
+      width: 50%;
+      height: 80%; } }
+@media (max-width: 900px) {
+  main .articles .posts {
+    flex-wrap: wrap;
+    height: 1200px; }
+    main .articles .posts .post {
+      width: 40%;
+      height: 45%; }
+    main .articles .posts .post:first-child {
+      align-self: unset; }
+    main .articles .posts .post:last-child {
+      align-self: unset; }
+    main .articles .posts .post:nth-child(2) {
+      align-self: unset; } }
+
 /*# sourceMappingURL=blog.css.map */

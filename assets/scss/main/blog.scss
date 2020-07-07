@@ -133,3 +133,60 @@ main{
         }
     }
 }
+
+@media (max-width: 1400px){
+    main{
+        .Latest-post{
+            padding-left: 200px;
+            
+            .latest-post-message{
+                p{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px){
+    main{
+        .Latest-post{
+            padding-left: 100px;
+
+            .latest-post-image{
+                margin-right: 0;
+                margin-bottom: 0;
+                width: 50%;
+                height: 80%;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px){
+    main{
+        .articles{
+            .posts{
+                flex-wrap: wrap;
+                height: 1200px;
+
+                .post{
+                    width: 40%;
+                    height: 45%;
+                }
+
+                .post:first-child{
+                    align-self: unset;
+                }
+    
+                .post:last-child{
+                    align-self: unset;
+                }
+    
+                .post:nth-child(2){
+                    align-self: unset;
+                }
+            }
+        }
+    }
+}
