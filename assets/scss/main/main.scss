@@ -267,6 +267,19 @@ footer{
     }
 }
 
+@media (max-width: 650px){
+    main{
+        .project{
+            .project-list{
+                .project-item{
+                    width: 400px;
+                    height: 400px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 500px){
     .button{
         width: 150px;
@@ -281,14 +294,37 @@ footer{
     }
 }
 
-@media (max-width: 650px){
-    main{
-        .project{
-            .project-list{
-                .project-item{
-                    width: 400px;
-                    height: 400px;
-                }
+@media (max-width: 450px){
+    header{
+        .menu{
+            a{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    header{
+        .menu{
+            a{
+                font-size: 42px;
+            }
+        }
+    }
+    
+    footer{
+        .menu{
+            width: 90%;
+        }
+    }
+}
+
+@media (max-width: 320px){
+    header{
+        .menu{
+            a{
+                font-size: 38px;
             }
         }
     }
