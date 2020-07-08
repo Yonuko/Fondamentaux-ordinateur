@@ -38,6 +38,8 @@ main{
             p{
                 width: 60%;
                 font-size: 18px;
+                height: 100%;
+                overflow: hidden;
             }
         }
         
@@ -185,6 +187,65 @@ main{
     
                 .post:nth-child(2){
                     align-self: unset;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px){
+    main{
+        .Latest-post{
+            padding-left: 50px;
+
+            .latest-post-message{
+
+                span{
+                    font-size: 38px;
+                }
+
+                p{
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 550px){
+    main{
+        .Latest-post{
+            justify-content: space-between;
+
+            .latest-post-image{
+                width: 40%;
+                height: 60%;
+            }
+
+            .latest-post-message{
+                p{
+                    font-size: 16px;
+                    width: 98%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px){
+    main{
+        .title{
+            h1{
+                font-size: 52px;
+            }
+        }
+
+        .Latest-post{
+            padding-left: 20px;
+
+            .latest-post-message{
+                p{
+                    font-size: 15px;
                 }
             }
         }

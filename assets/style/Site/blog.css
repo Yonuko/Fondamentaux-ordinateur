@@ -27,7 +27,9 @@ main .Latest-post {
       font-size: 42px; }
     main .Latest-post .latest-post-message p {
       width: 60%;
-      font-size: 18px; }
+      font-size: 18px;
+      height: 100%;
+      overflow: hidden; }
   main .Latest-post .latest-post-image {
     margin-top: 50px;
     margin-bottom: -10px;
@@ -110,5 +112,28 @@ main .posts.dark {
       align-self: unset; }
     main .articles .posts .post:nth-child(2) {
       align-self: unset; } }
+@media (max-width: 650px) {
+  main .Latest-post {
+    padding-left: 50px; }
+    main .Latest-post .latest-post-message span {
+      font-size: 38px; }
+    main .Latest-post .latest-post-message p {
+      width: 90%; } }
+@media (max-width: 550px) {
+  main .Latest-post {
+    justify-content: space-between; }
+    main .Latest-post .latest-post-image {
+      width: 40%;
+      height: 60%; }
+    main .Latest-post .latest-post-message p {
+      font-size: 16px;
+      width: 98%; } }
+@media (max-width: 450px) {
+  main .title h1 {
+    font-size: 52px; }
+  main .Latest-post {
+    padding-left: 20px; }
+    main .Latest-post .latest-post-message p {
+      font-size: 15px; } }
 
 /*# sourceMappingURL=blog.css.map */
