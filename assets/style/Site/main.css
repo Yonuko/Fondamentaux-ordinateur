@@ -212,7 +212,7 @@ footer {
       color: #227093;
       font-size: 17px; } }
 @media (max-width: 480px) {
-  main .project h3 {
+  main .project h2 {
     font-size: 52px; }
   main .project .project-list .project-item {
     width: 400px;

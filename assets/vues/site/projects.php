@@ -31,7 +31,7 @@
         </section>
         <section class="Latest-project">
             <?php 
-                $rqt = "SELECT * FROM projects ORDER BY project_id DESC LIMIT 1;";
+                $rqt = "SELECT * FROM projects ORDER BY project_id ASC LIMIT 1;";
                 $latest_project = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
                 extract($latest_project);
                 echo "
@@ -46,15 +46,51 @@
             ?>
         </section>
         <section class="projects">
-            <div class='project-list'>
             <?php 
                 $rqt = "SELECT * FROM projects WHERE isShown = 1;";
                 $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                 $count = 0;
+                $isColor = true;
                 foreach($projects as $project){
                     extract($project);
                     if($count % 3 === 0 && $count !== 0){
-                        echo "</div><div class='project-list'>";
+                        if($isColor){
+                            echo "</div><div class='project-list dark'>";
+                        }else{
+                            echo "</div><div class='project-list'>";
+                        }
+                        $isColor = !$isColor;
+                    }else if($count === 0){
+                        echo "<div class='project-list'>";
+                    }
+                    echo "
+                    <div class='project' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                        <span class='project-icon' 
+                        style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                        <span class='project-title'>$name</span>
+                        <div class='description'>" . html_entity_decode($presentation) . "</div>
+                    </div>
+                    ";
+                    $count++;
+                }
+            ?>
+            </div>
+            <?php 
+                $rqt = "SELECT * FROM projects WHERE isShown = 1;";
+                $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                $count = 0;
+                $isColor = true;
+                foreach($projects as $project){
+                    extract($project);
+                    if($count % 2 === 0 && $count !== 0){
+                        if($isColor){
+                            echo "</div><div class='project-list dark phone'>";
+                        }else{
+                            echo "</div><div class='project-list phone'>";
+                        }
+                        $isColor = !$isColor;
+                    }else if($count === 0){
+                        echo "<div class='project-list phone'>";
                     }
                     echo "
                     <div class='project' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
