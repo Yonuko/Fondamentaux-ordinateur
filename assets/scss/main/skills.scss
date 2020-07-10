@@ -77,11 +77,11 @@ main{
             justify-content: space-between;
 
             .skill-bar-holder{
-                flex: 0 0 70%;
+                flex: 0 0 75%;
                 background-color: white;
                 border-radius: 10px;
                 margin-left: 10px;
-                margin-right: 15%;
+                margin-right: 150px;
                 height: 20px;
                 position: relative;
 
@@ -93,6 +93,138 @@ main{
                     width: 2%;
                     display: inline-block;
                     position: absolute;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px){
+    main{
+        .skills{        
+            .skill{
+                .skill-bar-holder{
+                    margin-right: 100px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px){
+    main{
+        .types{
+            .type{  
+                width: 100px;
+                height: 200px;
+    
+                p{
+                    font-size: 38px;
+                }
+            }
+        }
+
+        .skills{
+            padding-left: 50px;
+            
+            .skill{
+                font-size: 22px;
+
+                .skill-bar-holder{
+                    margin-right: 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 950px){
+    main{
+        .types{
+            .type{
+                width: 75px;
+                height: 150px;
+    
+                p{
+                    font-size: 28px;
+                }
+            }
+        }
+
+        .skills{
+            padding-left: 20px;
+            
+            .skill{
+                font-size: 22px;
+
+                .skill-bar-holder{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px){
+    main{
+        .types{
+            .type{
+    
+                p{
+                    font-size: 24px;
+                }
+            }
+        }
+        
+        .skills{
+            .skill{
+                .skill-bar-holder{
+                    flex-basis: 65%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    main{
+        .types{
+            flex-direction: column;
+
+            .type{
+                width: 120px;
+                height: 250px;
+                
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+    
+                p{
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .skills{
+            .skill{
+                font-size: 18px;
+
+                .skill-bar-holder{
+                    flex-basis: 60%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px){
+    main{
+        .skills{
+            .skill{
+
+                .skill-bar-holder{
+                    flex-basis: 50%;
                 }
             }
         }
