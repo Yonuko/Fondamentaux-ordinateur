@@ -26,12 +26,33 @@
         </div>
     </header>
     <main>
-        <section class="title">
+        <section class="post-title">
             Titre de l'article
         </section>
         <section class="Paragraphe">
-            <div>Sous titre</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
+            <img src="http://localhost/portfolio/assets/image/Uploads/Blog/project.jpg" alt="Les pires niveaux">
+            <div class="text">
+                <h1 class="title">Sous titre</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
+            </div>
+        </section>
+        <section class="Paragraphe secondary">
+            <div class="text">
+                <h2 class="title">Sous titre</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
+            </div>
+        </section>
+        <section class="Paragraphe tiercary">
+            <div class="text">
+                <h2 class="title">Sous titre</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
+            </div>
+        </section>
+        <section class="Paragraphe quad">
+            <div class="text">
+                <h2 class="title">Sous titre</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
+            </div>
         </section>
         <section class="posts">
             <h2>Mes articles</h2>

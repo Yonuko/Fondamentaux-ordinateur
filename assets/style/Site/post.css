@@ -1,4 +1,4 @@
-main .title {
+main .post-title {
   margin-top: 50px;
   height: 400px;
   background-color: #84817a;
@@ -17,12 +17,55 @@ main .Paragraphe {
   margin-top: 50px;
   padding: 40px 0;
   padding-right: 50px;
-  padding-left: 40%; }
-  main .Paragraphe div {
-    color: #227093;
-    font-size: 42px; }
-  main .Paragraphe p {
-    color: #707070; }
+  display: flex;
+  justify-content: space-between; }
+  main .Paragraphe img {
+    width: 35%;
+    height: auto;
+    margin-left: -40px;
+    margin-right: 50px; }
+  main .Paragraphe .text {
+    display: flex;
+    flex-direction: column; }
+    main .Paragraphe .text .title {
+      color: #227093;
+      font-size: 42px;
+      margin: 10px 0; }
+    main .Paragraphe .text p {
+      color: #707070; }
+main .secondary {
+  background-color: inherit;
+  margin: 0; }
+  main .secondary .text .title {
+    color: white;
+    background-color: #d1ccc0;
+    padding-left: 250px;
+    width: 50%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-image: url("http://localhost/portfolio/assets/image/site/icons/settings.png");
+    background-size: auto 80%;
+    background-position: 150px;
+    background-repeat: no-repeat; }
+  main .secondary .text p {
+    padding-left: 250px; }
+main .tiercary {
+  background-color: inherit;
+  margin: 0; }
+  main .tiercary .text {
+    padding-left: 250px; }
+main .quad {
+  background-color: #84817a;
+  margin: 0;
+  text-align: right;
+  padding-right: 50%; }
+  main .quad .text {
+    padding-left: 50px; }
+    main .quad .text .title {
+      color: white; }
+    main .quad .text p {
+      color: white; }
 main .posts {
   margin-top: 200px;
   width: 100%;
