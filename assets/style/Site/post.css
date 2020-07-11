@@ -31,7 +31,7 @@ main .Paragraphe {
       color: #227093;
       font-size: 42px;
       margin: 10px 0; }
-    main .Paragraphe .text p {
+    main .Paragraphe .text .content {
       color: #707070; }
 main .secondary {
   background-color: inherit;
@@ -48,7 +48,7 @@ main .secondary {
     background-size: auto 80%;
     background-position: 150px;
     background-repeat: no-repeat; }
-  main .secondary .text p {
+  main .secondary .text .content {
     padding-left: 250px; }
 main .tiercary {
   background-color: inherit;
@@ -64,7 +64,7 @@ main .quad {
     padding-left: 50px; }
     main .quad .text .title {
       color: white; }
-    main .quad .text p {
+    main .quad .text .content {
       color: white; }
 main .posts {
   margin-top: 200px;

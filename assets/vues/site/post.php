@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/post.css">
-    <title>Portfolio Sacha EGHIAZARIAN - Post</title>
+    <?php 
+        $rqt = "SELECT * FROM posts WHERE post_id = ?;";
+        $post = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
+        if(is_null($post)){
+            echo "<title>Portfolio Sacha EGHIAZARIAN - Article inconnu</title>";
+            include_once("404.php");
+            http_response_code(404);
+            return;
+        }
+        extract($post);
+        ?>
+    <title>Portfolio Sacha EGHIAZARIAN - Article <?php echo $name ?></title>
 </head>
 <body>
     <header>
@@ -29,43 +40,45 @@
         <section class="post-title">
             Titre de l'article
         </section>
-        <section class="Paragraphe">
-            <img src="http://localhost/portfolio/assets/image/Uploads/Blog/project.jpg" alt="Les pires niveaux">
-            <div class="text">
-                <h1 class="title">Sous titre</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
-            </div>
-        </section>
-        <section class="Paragraphe secondary">
-            <div class="text">
-                <h2 class="title">Sous titre</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
-            </div>
-        </section>
-        <section class="Paragraphe tiercary">
-            <div class="text">
-                <h2 class="title">Sous titre</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
-            </div>
-        </section>
-        <section class="Paragraphe quad">
-            <div class="text">
-                <h2 class="title">Sous titre</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis sed nesciunt saepe libero, pariatur numquam rem. Consequuntur, quibusdam! Eaque voluptate, dolore temporibus debitis libero ea porro enim soluta quibusdam quae.</p>
-            </div>
-        </section>
+        <?php 
+            $rqt = "SELECT * FROM post_descriptions WHERE post_id = ?";
+            $post_descriptions = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+            $count = 1;
+            if(!is_null($post_descriptions)){
+                foreach($post_descriptions as $description){
+                    extract($description);
+                    if($count % 4 === 0){
+                        echo "<section class='Paragraphe quad'>";
+                        echo "<img src='http://localhost/portfolio/assets/image/Uploads/Blog/project.jpg'>";
+                    }else if($count % 3 === 0){
+                        echo "<section class='Paragraphe tiercary'>";
+                    }else if($count % 2 === 0){
+                        echo "<section class='Paragraphe secondary'>";
+                    }else{
+                        echo "<section class='Paragraphe'>";
+                        echo "<img src='http://localhost/portfolio/assets/image/Uploads/Blog/$logo'>";
+                    }
+                    echo "<div class='text'>";
+                    echo "<h$order>$subTitle</h$order>";
+                    echo "<div class='content'>$content</div>";
+                    echo "<div>";
+                    echo "</section>";
+                    $count++;
+                }
+            }
+        ?>
         <section class="posts">
             <h2>Mes articles</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
             <a class="button" href="http://localhost/portfolio/projects">Mon blog</a>
             <div class="posts-list">
                 <?php 
-                    $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 3;";
-                    $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
-                    foreach($projects as $project){
-                        extract($project);
+                    $rqt = "SELECT * from posts WHERE isShown = 1 LIMIT 3;";
+                    $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    foreach($posts as $post){
+                        extract($post);
                         echo "
-                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$post_id'\">
                             <span class='image' 
                             style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
                             <p>$name</p>

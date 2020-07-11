@@ -31,10 +31,6 @@ $router->get('portfolio/projects/{id}', function ($id) {
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/project.php");
 });
 
-$router->get('portfolio/test/{id}', function ($id) {
- return "bonjour $id";
-});
-
 $router->get('portfolio/post/{id}', function ($id) {
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/post.php");
 });
