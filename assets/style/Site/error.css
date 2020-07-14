@@ -1,0 +1,17 @@
+main .error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  margin-bottom: 176px; }
+  main .error p {
+    margin: 0;
+    margin-bottom: 20px; }
+  main .error .error-code {
+    color: red;
+    font-size: 92px; }
+  main .error .error-message {
+    font-size: 42px; }
+
+/*# sourceMappingURL=error.css.map */

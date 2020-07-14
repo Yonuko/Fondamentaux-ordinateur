@@ -10,8 +10,7 @@
         $post = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
         if(is_null($post)){
             echo "<title>Portfolio Sacha EGHIAZARIAN - Article inconnu</title>";
-            include_once("404.php");
-            http_response_code(404);
+            include_once("PostNotFound.php");
             return;
         }
         extract($post);

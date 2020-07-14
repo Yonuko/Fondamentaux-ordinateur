@@ -57,8 +57,7 @@ class Router
 
     private function defaultRequestHandler()
     {
-        echo("404 Not Found<br>Request uri : " . $this->request->requestUri . '<br>Formated route : ' . 
-        $this->formatRoute($this->request->requestUri));
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/404.php");
         http_response_code(404);
     }
 

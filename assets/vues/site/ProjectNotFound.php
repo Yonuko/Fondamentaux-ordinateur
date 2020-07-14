@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/error.css">
-    <title>Portfolio Sacha EGHIAZARIAN - Page introuvable</title>
 </head>
 <body>
     <header>
@@ -28,7 +22,7 @@
     <main>
       <section class="error">
         <p class="error-code">404</p>
-        <p class="error-message">La page que vous essayez d'atteindre n'existe pas</p>
+        <p class="error-message">Le projet que vous essayez d'atteindre n'existe plus ou n'a jamais existé</p>
       </section>
     </main>
     <footer>

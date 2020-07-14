@@ -1,5 +1,7 @@
 <?php
 
+needAdmin();
+
 $data = $request->getBody();
 if(isset($data["addNewType"])){
     if(isset($data["newType"])){

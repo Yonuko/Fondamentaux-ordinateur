@@ -10,8 +10,7 @@
         $project = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
         if(is_null($project)){
             echo "<title>Portfolio Sacha EGHIAZARIAN - Projet inconnu</title>";
-            include_once("404.php");
-            http_response_code(404);
+            include_once("ProjectNotFound.php");
             return;
         }
         extract($project);
