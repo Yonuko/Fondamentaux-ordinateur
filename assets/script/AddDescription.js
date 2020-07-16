@@ -1,9 +1,14 @@
-let count = 1;
+let countOfDesc = document.getElementsByClassName("toggler");
+let count = countOfDesc.length;
 
 let descriptionHolder = document.getElementById("Descriptions");
 let addDescriptionButton = document.getElementById("addDesc");
 let removeDescriptionButton = document.getElementById("removeDesc");
 let expendObject = document.getElementsByClassName("expend");
+
+if(count >= 1){
+    removeDescriptionButton.style.display = "block";
+}
 
 addIDToCKeditor();
 

@@ -3,6 +3,20 @@ let typeSection = document.getElementsByClassName("types")[0];
 let e = document.getElementById("typeSelect");
 let typeNames = Array();
 
+let types = document.getElementsByClassName("type");
+
+for(let i = 0; i < types.length; i++){
+    typeNames.push(types[i].value);
+    types[i].onclick = () => {
+        const index = typeNames.indexOf(types[i].getAttribute("value"));
+        if (index > -1) {
+            typeNames.splice(index, 1);
+        }
+        types[i].remove();
+        SetName();
+    }
+}
+
 addTypeButton.onclick = () => {
     if(typeNames.includes(e.options[e.selectedIndex].value)){
         return;

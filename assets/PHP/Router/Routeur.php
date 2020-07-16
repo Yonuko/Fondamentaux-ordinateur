@@ -73,6 +73,9 @@ class Router
         // if the route is a dynamic one, we send all the parameters to the function and exit the function
         if($dynamicRoute !== false){
             $method = $methodDictionary[$dynamicRoute['route']];
+            if($this->request->requestMethod === "POST"){
+                array_unshift($dynamicRoute['parameters'], $this->request);
+            }
             echo call_user_func_array($method, $dynamicRoute['parameters']);
             return;
         }

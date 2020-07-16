@@ -127,6 +127,11 @@ $router->post('portfolio/admin/projects/store', function ($request){
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/projects/store.php");
 });
 
+$router->post('portfolio/admin/projects/{id}/update', function ($request, $id){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/projects/update.php");
+});
+
 $router->get('portfolio/admin/projects/{id}', function ($id){
   needAdmin();
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets/ProjetEdit.php");
