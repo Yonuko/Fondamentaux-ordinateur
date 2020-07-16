@@ -79,19 +79,19 @@
             <div class="body-content">
                 <div class="card projet">
                     <div class="card-header">
-                        <div class="card-title">Nouveau Projet</div>
+                        <div class="card-title">Nouvel article</div>
                     </div>
                     <div class="card-body">
-                        <form action="http://localhost/portfolio/admin/projects/store" method="POST" enctype="multipart/form-data">
+                        <form action="http://localhost/portfolio/admin/blog/store" method="POST" enctype="multipart/form-data">
                             <div class="form-content">
                                <div class="scrolleur">
-                                <label for="name">Nom du projet</label>
-                                    <input type="text" name="name" value="Nouveau Projet" required>
+                                <label for="name">Nom de l'article</label>
+                                    <input type="text" name="name" value="Nouveau Post" required>
                                     <label for="type">Type</label>
                                     <div class="type">
                                         <select name="type">
                                             <?php 
-                                                $rqt = "SELECT * FROM Project_Type;";
+                                                $rqt = "SELECT * FROM Categorie;";
                                                 $types = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                                                 if(!is_null($types)){
                                                     foreach($types as $type){
@@ -106,19 +106,8 @@
                                         <input type="submit" name="addNewType" value="ajouter" formnovalidate>
                                         <input type="submit" name="delType" value="supprimer" formnovalidate>
                                     </div>
-                                    <label for="logo">Logo du projet</label>
+                                    <label for="logo">Logo de l'article</label>
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
-                                    <label for="presentationName">Titre de la présentation</label>
-                                    <input type="text" name="presentationName">
-                                    <label for="presentation">Présentation du projet</label>
-                                    <textarea name="presentation" id="presentation"></textarea>
-                                    <script>
-                                        ClassicEditor
-                                        .create( document.querySelector( '#presentation' ) )
-                                        .catch( error => {
-                                            console.error( error );
-                                        });
-                                    </script>
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
                                         <label for="subName-1" class="label">Sous titre paragraphe 1</label>

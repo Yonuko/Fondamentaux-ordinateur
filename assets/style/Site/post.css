@@ -17,8 +17,7 @@ main .Paragraphe {
   margin-top: 50px;
   padding: 40px 0;
   padding-right: 50px;
-  display: flex;
-  justify-content: space-between; }
+  display: flex; }
   main .Paragraphe img {
     width: 35%;
     height: auto;
@@ -36,20 +35,22 @@ main .Paragraphe {
 main .secondary {
   background-color: inherit;
   margin: 0; }
-  main .secondary .text .title {
-    color: white;
-    background-color: #d1ccc0;
-    padding-left: 250px;
-    width: 50%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    background-image: url("http://localhost/portfolio/assets/image/site/icons/settings.png");
-    background-size: auto 80%;
-    background-position: 150px;
-    background-repeat: no-repeat; }
-  main .secondary .text .content {
-    padding-left: 250px; }
+  main .secondary .text {
+    width: 100%; }
+    main .secondary .text .title {
+      color: white;
+      background-color: #d1ccc0;
+      padding-left: 250px;
+      width: 50%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      background-image: url("http://localhost/portfolio/assets/image/site/icons/settings.png");
+      background-size: auto 80%;
+      background-position: 150px;
+      background-repeat: no-repeat; }
+    main .secondary .text .content {
+      padding-left: 250px; }
 main .tiercary {
   background-color: inherit;
   margin: 0; }
@@ -59,9 +60,12 @@ main .quad {
   background-color: #84817a;
   margin: 0;
   text-align: right;
-  padding-right: 50%; }
+  flex-direction: row-reverse; }
+  main .quad img {
+    margin: 0; }
   main .quad .text {
-    padding-left: 50px; }
+    padding-left: 50px;
+    padding-right: 50px; }
     main .quad .text .title {
       color: white; }
     main .quad .text .content {

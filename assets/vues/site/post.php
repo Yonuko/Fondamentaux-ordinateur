@@ -14,7 +14,7 @@
             return;
         }
         extract($post);
-        ?>
+    ?>
     <title>Portfolio Sacha EGHIAZARIAN - Article <?php echo $name ?></title>
 </head>
 <body>
@@ -37,10 +37,12 @@
     </header>
     <main>
         <section class="post-title">
-            Titre de l'article
+            <?php 
+                echo sendRequest("SELECT name FROM posts WHERE post_id = ?", [$id], PDO::FETCH_NUM)[0][0];
+            ?>
         </section>
         <?php 
-            $rqt = "SELECT * FROM post_descriptions WHERE post_id = ?";
+            $rqt = "SELECT * FROM post_descriptions WHERE post_id = ? ORDER BY `order` ASC;";
             $post_descriptions = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
             $count = 1;
             if(!is_null($post_descriptions)){
@@ -58,18 +60,21 @@
                         echo "<img src='http://localhost/portfolio/assets/image/Uploads/Blog/$logo'>";
                     }
                     echo "<div class='text'>";
-                    echo "<h$order>$subTitle</h$order>";
-                    echo "<div class='content'>$content</div>";
-                    echo "<div>";
+                    echo "<h$order class='title'>$subTitle</h$order>";
+                    echo "<div class='content'>" . html_entity_decode($content) . "</div>";
+                    echo "</div>";
                     echo "</section>";
                     $count++;
+                    if($count > 4){
+                        $count = 2;
+                    }
                 }
             }
         ?>
         <section class="posts">
             <h2>Mes articles</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
-            <a class="button" href="http://localhost/portfolio/projects">Mon blog</a>
+            <a class="button" href="http://localhost/portfolio/blog">Mon blog</a>
             <div class="posts-list">
                 <?php 
                     $rqt = "SELECT * from posts WHERE isShown = 1 LIMIT 3;";
@@ -77,9 +82,9 @@
                     foreach($posts as $post){
                         extract($post);
                         echo "
-                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$post_id'\">
+                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
                             <span class='image' 
-                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Blog/$logo');\"></span>
                             <p>$name</p>
                         </div>
                         ";

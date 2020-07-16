@@ -108,17 +108,17 @@
         <section class="posts">
             <h2>Mes articles</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
-            <a class="button" href="http://localhost/portfolio/projects">Mon blog</a>
+            <a class="button" href="http://localhost/portfolio/blog">Mon blog</a>
             <div class="posts-list">
                 <?php 
-                    $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 3;";
-                    $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
-                    foreach($projects as $project){
-                        extract($project);
+                    $rqt = "SELECT * from posts WHERE isShown = 1 LIMIT 3;";
+                    $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    foreach($posts as $post){
+                        extract($post);
                         echo "
-                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
                             <span class='image' 
-                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Blog/$logo');\"></span>
                             <p>$name</p>
                         </div>
                         ";

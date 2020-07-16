@@ -5,8 +5,15 @@ needAdmin();
 $data = $request->getBody();
 if(isset($data["addNewType"])){
     if(isset($data["newType"])){
-        $rqt = "INSERT INTO project_type VALUES (null, ?);";
-        sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
+        if(isset($data["subType"]) && $data["subType"] !== "null"){
+            $rqt = "SELECT project_type_id FROM project_type WHERE name = ?;";
+            $subTypeID = sendRequest($rqt, [$data["subType"]], PDO::FETCH_NUM)[0][0];
+            $rqt = "INSERT INTO project_type VALUES (null, ?, ?);";
+            sendRequest($rqt, [$data["newType"], $subTypeID], PDO::FETCH_ASSOC);
+        }else{
+            $rqt = "INSERT INTO project_type VALUES (null, ?, null);";
+            sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
+        }
     }
     header("Location:http://localhost/portfolio/admin/projects/create");
     return;
@@ -65,13 +72,17 @@ if ($uploadOk == 0) {
 $rqt = "INSERT INTO projects VALUES (null, ?, ?, ?, ?, 0, 0);";
 sendRequest($rqt, [$data["name"], $data["presentationName"], $data["presentation"], $filename], PDO::FETCH_ASSOC);
 
+$i = 1;
 $rqt = "SELECT project_id FROM projects WHERE name = ?;";
 $project_id = sendRequest($rqt, [$data["name"]], PDO::FETCH_NUM)[0][0];
-$rqt = "SELECT project_type_id FROM project_type";
-$type_id = sendRequest($rqt, [], PDO::FETCH_NUM)[0][0];
-
-$rqt = "INSERT INTO project_types VALUES (?, ?);";
-sendRequest($rqt, [$project_id, $type_id], PDO::FETCH_ASSOC);
+while(isset($data["type-$i"])){
+    $rqt = "SELECT project_type_id FROM project_type WHERE name = ?;";
+    $type_id = sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_NUM)[0][0];
+    
+    $rqt = "INSERT INTO project_types VALUES (?, ?);";
+    sendRequest($rqt, [$project_id, $type_id], PDO::FETCH_ASSOC);
+    $i++;
+}
 
 $i = 1;
 while(isset($data["description-$i"])){

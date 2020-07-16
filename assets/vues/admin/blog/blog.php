@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/Admin/admin.css">
     <link rel="stylesheet" href="../assets/style/Admin/SpecificPage.css">
-    <title>Admin - projets</title>
+    <title>Admin - blog</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
             header("location:http://localhost/portfolio/login");
@@ -44,7 +44,7 @@
 
         <div class="secondary-menu">
             <div class="manageMenu">
-                <form action="http://localhost/portfolio/admin/projects/create" method="get">
+                <form action="http://localhost/portfolio/admin/blog/create" method="get">
                     <button class="add">Ajouter</button>
                 </form>
             </div>
@@ -89,7 +89,7 @@
                         <img src="../assets/image/blogIcon.png" alt="Messages count icon">
                         <div>Post le plus regardé:<br>
                             <?php 
-                                $rqt = "SELECT name FROM projects ORDER BY views DESC LIMIT 1;";
+                                $rqt = "SELECT name FROM posts ORDER BY views DESC LIMIT 1;";
                                 echo sendRequest($rqt, [], PDO::FETCH_ASSOC)[0]["name"];
                             ?>
                         </div>
@@ -105,53 +105,52 @@
                     <div class="card-body">
                         <img src="../assets/image/Users.png" alt="Messages count icon">
                         <?php 
-                            $rqt = "SELECT SUM(views) as count from projects;";
+                            $rqt = "SELECT SUM(views) as count from posts;";
                             echo sendRequest($rqt, [], PDO::FETCH_ASSOC)[0]["count"] . " vues totales";
                         ?>
                     </div>
                 </div>
                 <div class="card projet">
                     <div class="card-header">
-                        <div class="card-title">Projets</div>
+                        <div class="card-title">Articles</div>
                         <div>
                             <img src="../assets/image/refresh.png" alt="Refresh icon">
                         </div>
                     </div>
                     <div class="card-body">
                         <?php 
-                            $rqt = "SELECT * FROM projects;";
-                            $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
-                            if(!is_null($projects)){  
-                                foreach($projects as $project){
-                                    extract($project);
-                                    $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
-                                    ON pt.project_type_id = p.project_type_id WHERE project_id = ?;";
-                                    $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
+                            $rqt = "SELECT * FROM posts;";
+                            $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                            if(!is_null($posts)){  
+                                foreach($posts as $post){
+                                    extract($post);
+                                    $rqt = "SELECT name FROM categorie WHERE category_id = ?;";
+                                    $type = sendRequest($rqt, [$category_id], PDO::FETCH_ASSOC)[0]["name"];
                                     echo "<div class='card'>
                                     <div class='card-body'>
-                                        <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
+                                        <img src='http://localhost/portfolio/assets/image/Uploads/Blog/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
                                         <div>$type</div>
                                         <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>";
                                         if($isShown){
                                             echo "<input style='cursor: pointer;'
-                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\" 
+                                            onclick=\"location.href = 'http://localhost/portfolio/admin/blog/$post_id/active'\" 
                                             type='checkbox' value='visible' checked>";
                                         }else{
                                             echo "<input style='cursor: pointer;'
-                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\"
+                                            onclick=\"location.href = 'http://localhost/portfolio/admin/blog/$post_id/active'\"
                                             type='checkbox' value='visible'>";
                                         }
-                                        echo "<img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
+                                        echo "<img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id'\"
                                         src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id/delete'\"
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id/delete'\"
                                         src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                                     </div>
                                 </div>";
                                 }
                             }else{
-                                echo "<p style='text-align:center;'>Aucun projet disponible, veuillez en créer un</p>";
+                                echo "<p style='text-align:center;'>Aucun article disponible, veuillez en créer un</p>";
                             }
                         ?>
                     </div>

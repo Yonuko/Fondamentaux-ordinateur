@@ -37,40 +37,35 @@
             <span class="latest-post-image"></span>
         </section>
         <section class="articles">
-            <div class="posts">
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
+        <?php 
+            $rqt = "SELECT * FROM posts WHERE isShown = 1;";
+            $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+            $count = 0;
+            $isColor = true;
+            foreach($posts as $post){
+                extract($post);
+                $firstDesc = sendRequest("SELECT content FROM post_descriptions WHERE `order` = 1 AND post_id = ?;", [$post_id], PDO::FETCH_NUM)[0][0];
+                if($count % 3 === 0 && $count !== 0){
+                    if($isColor){
+                        echo "</div><div class='posts dark'>";
+                    }else{
+                        echo "</div><div class='posts'>";
+                    }
+                    $isColor = !$isColor;
+                }else if($count === 0){
+                    echo "<div class='posts'>";
+                }
+                echo "
+                <div class='post' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
+                    <span class='post-icon' 
+                    style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Blog/$logo');\"></span>
+                    <span class='post-title'>$name</span>
+                    <div class='description'>" . html_entity_decode($firstDesc) . "</div>
                 </div>
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
-                </div>
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
-                </div>
-            </div>
-            <div class="posts dark">
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
-                </div>
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
-                </div>
-                <div class="post">
-                    <span class="post-icon"></span>
-                    <span class="post-title">Title</span>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio dignissimos perspiciatis rem mollitia explicabo tempore ipsam hic totam odit sunt aliquam, facilis voluptates eius enim qui cum rerum maxime? Numquam?</p>
-                </div>
-            </div>
+                ";
+                $count++;
+            }
+        ?>
         </section>
         <section class="project">
             <h2>Mes projets</h2>

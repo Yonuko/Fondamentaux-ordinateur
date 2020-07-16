@@ -58,17 +58,43 @@ $router->get('portfolio/admin', function (){
 
 $router->get('portfolio/admin/blog', function (){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog/blog.php");
+});
+
+$router->get('portfolio/admin/blog/create', function (){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog/PostCreate.php");
+});
+
+$router->post('portfolio/admin/blog/store', function ($request){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/blog/store.php");
 });
 
 $router->get('portfolio/admin/blog/{id}', function ($id){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog/PostEdit.php");
 });
 
-$router->get('portfolio/admin/blog/create', function ($id){
+$router->get('portfolio/admin/blog/{id}/active', function ($id){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog.php");
+  $rqt = "SELECT isShown FROM posts WHERE post_id = ?;";
+  $isActive = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
+  $rqt = "UPDATE posts SET isShown = ? WHERE post_id = ?;";
+  sendRequest($rqt, [!$isActive, $id], PDO::FETCH_ASSOC);
+  header("Location:http://localhost/portfolio/admin/blog");
+});
+
+$router->get('portfolio/admin/blog/{id}/delete', function ($id){
+  needAdmin();
+  $rqt = "SELECT logo FROM posts WHERE post_id = ?;";
+  $filename = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
+  unlink($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Blog/" . $filename);
+  $rqt = "DELETE FROM posts WHERE post_id = ?;";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  $rqt = "DELETE FROM post_descriptions WHERE post_id = ?";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  header("Location:http://localhost/portfolio/admin/blog");
 });
 
 $router->get('portfolio/admin/texte', function (){
@@ -88,12 +114,12 @@ $router->get('portfolio/admin/skills/create', function (){
 
 $router->get('portfolio/admin/projects', function (){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets/Projets.php");
 });
 
 $router->get('portfolio/admin/projects/create', function (){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/ProjectCreate.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets/ProjectCreate.php");
 });
 
 $router->post('portfolio/admin/projects/store', function ($request){
@@ -103,7 +129,7 @@ $router->post('portfolio/admin/projects/store', function ($request){
 
 $router->get('portfolio/admin/projects/{id}', function ($id){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/ProjetEdit.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Projets/ProjetEdit.php");
 });
 
 $router->get('portfolio/admin/projects/{id}/active', function ($id){

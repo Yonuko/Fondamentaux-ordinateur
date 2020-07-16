@@ -78,6 +78,9 @@ class Router
         }
 
         if (!isset($methodDictionary[$formatedRoute])) {
+            echo "requested url : " . $this->request->requestUri;
+            echo "<br>formated route : " . $formatedRoute . "<br>";
+            echo "method : " . $this->request->requestMethod . "<br>";
             $this->defaultRequestHandler();
             return;
         }

@@ -111,11 +111,14 @@
                             if(!is_null($projects)){  
                                 foreach($projects as $project){
                                     extract($project);
+                                    $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
+                                    ON pt.project_type_id = p.project_type_id WHERE project_id = ? LIMIT 1;";
+                                    $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
                                     echo "<div class='card'>
                                     <div class='card-body'>
                                         <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
-                                        <div>Dev</div>
+                                        <div>$type</div>
                                         <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>
                                         <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
@@ -142,17 +145,30 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="http://localhost/portfolio/assets/image/Uploads/Projets/BoH.jpg" alt="Icon de Bravery Of History (BoH)">
-                                <div>Rapport de stage</div> <!-- Remplacer par le nom du projet -->
-                                <div>Expérience pro</div>
-                                <div>vues : 4</div> <!-- Remplacer par le nombre de vues -->
-                                <img class="edit" src="http://localhost/portfolio/assets/image/edit.png" alt="Edit Icon">
-                                <img class='edit' onclick="window.location = 'http://localhost/portfolio/admin/projects/$project_id'"
+                        <?php 
+                            $rqt = "SELECT * FROM posts;";
+                            $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                            if(!is_null($posts)){  
+                                foreach($posts as $post){
+                                    extract($post);
+                                    echo "<div class='card'>
+                                    <div class='card-body'>
+                                        <img src='http://localhost/portfolio/assets/image/Uploads/Blog/$logo' alt='Icon du projet $name'>
+                                        <div>$name</div>
+                                        <div>Dev</div>
+                                        <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
+                                        <div>vues totales: $views</div>
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id'\"
+                                        src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id/delete'\"
                                         src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
-                            </div>
-                        </div>
+                                    </div>
+                                </div>";
+                                }
+                            }else{
+                                echo "<p style='text-align: center;'>Aucun projet disponible, veuillez en créer un</p>";
+                            }
+                        ?>
                     </div>
                 </div>
 

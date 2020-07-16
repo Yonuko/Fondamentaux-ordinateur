@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/SpecificPage.css">
+    <link rel="stylesheet" href="../assets/style/Admin/admin.css">
+    <link rel="stylesheet" href="../assets/style/Admin/SpecificPage.css">
     <title>Admin - projets</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
@@ -55,7 +55,7 @@
                     <div id="notif-content" class="content">
                         <div class="header">
                             Notifications
-                            <img onclick="notificationCloseButton()" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                            <img onclick="notificationCloseButton()" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
                         </div>
                         <div class="notification-content">
                            <!--  aucune notification -->
@@ -63,7 +63,7 @@
                                <div class="card-content">
                                     On s'en ballance
                                </div>
-                               <img onclick="removeNotif(1)" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                               <img onclick="removeNotif(1)" class="close" src="../assets/image/closeIcon.png" alt="croix fermante">
                            </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                 <!-- First row where there are showed the web site infos -->
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/blogIcon.png" alt="Messages count icon">
+                        <img src="../assets/image/blogIcon.png" alt="Messages count icon">
                         <div>Post le plus regardé:<br>
                             <?php 
                                 $rqt = "SELECT name FROM projects ORDER BY views DESC LIMIT 1;";
@@ -97,13 +97,13 @@
                 </div>
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/pagesViewed.png" alt="Messages count icon">
+                        <img src="../assets/image/pagesViewed.png" alt="Messages count icon">
                         42 vues cette semaine
                     </div>
                 </div>
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/Users.png" alt="Messages count icon">
+                        <img src="../assets/image/Users.png" alt="Messages count icon">
                         <?php 
                             $rqt = "SELECT SUM(views) as count from projects;";
                             echo sendRequest($rqt, [], PDO::FETCH_ASSOC)[0]["count"] . " vues totales";
@@ -114,7 +114,7 @@
                     <div class="card-header">
                         <div class="card-title">Projets</div>
                         <div>
-                            <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
+                            <img src="../assets/image/refresh.png" alt="Refresh icon">
                         </div>
                     </div>
                     <div class="card-body">
@@ -124,23 +124,28 @@
                             if(!is_null($projects)){  
                                 foreach($projects as $project){
                                     extract($project);
+                                    $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
+                                    ON pt.project_type_id = p.project_type_id WHERE project_id = ? LIMIT 1;";
+                                    $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
                                     echo "<div class='card'>
                                     <div class='card-body'>
                                         <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
-                                        <div>Dev</div>
+                                        <div>$type</div>
                                         <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>";
                                         if($isShown){
-                                            echo "<input onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\" 
+                                            echo "<input style='cursor: pointer;'
+                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\" 
                                             type='checkbox' value='visible' checked>";
                                         }else{
-                                            echo "<input onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\"
+                                            echo "<input style='cursor: pointer;'
+                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\"
                                             type='checkbox' value='visible'>";
                                         }
                                         echo "<img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
                                         src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
+                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id/delete'\"
                                         src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
                                     </div>
                                 </div>";
@@ -154,6 +159,6 @@
             </div>
         </main>
     </header>
-    <script src="http://localhost/portfolio/assets/script/notification.js"></script>
+    <script src="../assets/script/notification.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
             return;
         }
         extract($project);
-        ?>
+    ?>
     <title>Portfolio Sacha EGHIAZARIAN - Projet <?php echo $name ?></title>
 </head>
 <body>

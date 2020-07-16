@@ -21,7 +21,6 @@ main{
         padding: 40px 0;
         padding-right: 50px;
         display: flex;
-        justify-content: space-between;
 
         img{
             width: 35%;
@@ -51,6 +50,8 @@ main{
         margin: 0;
 
         .text{
+            width: 100%;
+
             .title{
                 color: white;
                 background-color: #d1ccc0;
@@ -84,10 +85,15 @@ main{
         background-color: #84817a;
         margin: 0;
         text-align: right;
-        padding-right: 50%;
+        flex-direction: row-reverse;
+
+        img{
+            margin: 0;
+        }
 
         .text{
             padding-left: 50px;
+            padding-right: 50px;
 
             .title{
                 color: white;
