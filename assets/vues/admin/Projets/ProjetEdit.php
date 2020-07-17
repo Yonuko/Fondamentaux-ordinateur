@@ -160,14 +160,14 @@
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
                                         <?php 
-                                            $rqt = "SELECT * FROM projects_description WHERE project_id = ?;";
+                                            $rqt = "SELECT * FROM projects_description WHERE project_id = ? ORDER BY `order` ASC;";
                                             $descriptions = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
                                             $i = 1;
                                             foreach($descriptions as $description){
                                                 extract($description);
                                                 echo "
-                                                <label for='subName-$i' class='label'>Sous titre paragraphe $i</label>
-                                                <input type='text' name='subName-$i' value='$subTitle'>
+                                                <label id='subName-label-$i' for='subName-$i' class='label'>Sous titre paragraphe $i</label>
+                                                <input type='text' id='subName-$i' name='subName-$i' value='$subTitle'>
                                                 <div id='description-label-$i' class='toggler'>
                                                     <img class='expend toggle' src='http://localhost/portfolio/assets/image/ArrowIcon.png'>
                                                     <label for='description-$i'>Description (paragraphe) $i</label>

@@ -28,6 +28,12 @@ if(isset($data["delType"])){
 
 // Create the new project
 
+// if no type is set, we return to the beginning page
+if(!isset($data["type-1"])){
+    header("Location:http://localhost/portfolio/admin/projects/create");
+    return; 
+}
+
 $filename = "";
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Projets/";

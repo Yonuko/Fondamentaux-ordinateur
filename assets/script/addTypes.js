@@ -7,12 +7,13 @@ let types = document.getElementsByClassName("type");
 
 for(let i = 0; i < types.length; i++){
     typeNames.push(types[i].value);
-    types[i].onclick = () => {
-        const index = typeNames.indexOf(types[i].getAttribute("value"));
+    const type = types[i];
+    type.onclick = () => {
+        const index = typeNames.indexOf(type.getAttribute("value"));
         if (index > -1) {
             typeNames.splice(index, 1);
         }
-        types[i].remove();
+        type.remove();
         SetName();
     }
 }

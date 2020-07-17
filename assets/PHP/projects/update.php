@@ -18,20 +18,25 @@ if(isset($data["addNewType"])){
             sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
         }
     }
-    header("Location:http://localhost/portfolio/admin/projects/$id/edit");
+    header("Location:http://localhost/portfolio/admin/projects/$id");
     return;
 }
 
 if(isset($data["delType"])){
     $rqt = "DELETE FROM project_type WHERE name = ?;";
     sendRequest($rqt, [$data["type"]], PDO::FETCH_ASSOC);
-    header("Location:http://localhost/portfolio/admin/projects/$id/edit");
+    header("Location:http://localhost/portfolio/admin/projects/$id");
+    return;
+}
+
+if(!isset($data["type-1"])){
+    header("Location:http://localhost/portfolio/admin/projects/$id");
     return;
 }
 
 // Create the new project
 
-if(isset($data["logo"])){
+if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     $filename = "";
 
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Projets/";
@@ -59,7 +64,7 @@ if(isset($data["logo"])){
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.<br>";
-        header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id/edit");
+        header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id");
         return;
     // if everything is ok, try to upload file
     } else {
@@ -68,10 +73,12 @@ if(isset($data["logo"])){
             $filename = basename( $_FILES["logo"]["name"]);
         } else {
             echo "Sorry, there was an error uploading your file.<br>";
-            header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id/edit");
+            header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id");
             return;
         }
     }
+
+    unlink($target_dir . sendRequest("SELECT logo FROM projects WHERE project_id = ?;", [$id], PDO::FETCH_NUM)[0][0]);
     $rqt = "UPDATE projects SET logo = ? WHERE project_id = ?;";
     sendRequest($rqt, [$filename, $id], PDO::FETCH_NUM);
 }
@@ -79,13 +86,13 @@ if(isset($data["logo"])){
 $rqt = "UPDATE projects SET name = ?, presentation_name = ?, presentation = ? WHERE project_id = ?;";
 sendRequest($rqt, [$data["name"], $data["presentationName"], $data["presentation"], $id], PDO::FETCH_ASSOC);
 
+// Types
 $i = 1;
-$rqt = "DELETE FROM project_type WHERE project_id = ?;";
+$rqt = "DELETE FROM project_types WHERE project_id = ?;";
 sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
 while(isset($data["type-$i"])){
     $rqt = "SELECT project_type_id FROM project_type WHERE name = ?;";
     $type_id = sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_NUM)[0][0];
-    
     $rqt = "INSERT INTO project_types VALUES (?, ?);";
     sendRequest($rqt, [$id, $type_id], PDO::FETCH_ASSOC);
     $i++;
@@ -93,19 +100,21 @@ while(isset($data["type-$i"])){
 
 $i = 1;
 $rqt = "SELECT count(*) FROM projects_description WHERE project_id = ?;";
-$descriptionCount = sendRequest($rqt, [$data["name"]], PDO::FETCH_NUM)[0][0];
+$descriptionCount = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
 while(isset($data["description-$i"])){
     if($i <= $descriptionCount){
-        $rqt = "UPDATE projects_description SET subTitle = ?, Description = ?;";
-        sendRequest($rqt, [$data["subName-$i"], $data["description-$i"]], PDO::FETCH_NUM);
+        $rqt = "UPDATE projects_description SET subTitle = ?, Description = ? WHERE `order` = ?;";
+        sendRequest($rqt, [$data["subName-$i"], $data["description-$i"], $i], PDO::FETCH_NUM);
     }else{
         $rqt = "INSERT INTO projects_description VALUES (?, ?, ?, ?);";
         sendRequest($rqt, [$id, $data["subName-$i"], $data["description-$i"], $i], PDO::FETCH_NUM);
     }
     $i++;
 }
-if($i < $descriptionCount){
-    $rqt = "DELETE FROM projects_description WHERE project_id = ? AND `order` > ?";
+
+// Delete every paragraphes that have been removed
+if($i <= $descriptionCount){
+    $rqt = "DELETE FROM projects_description WHERE project_id = ? AND `order` >= ?;";
     sendRequest($rqt, [$id, $i], PDO::FETCH_NUM);
 }
 
