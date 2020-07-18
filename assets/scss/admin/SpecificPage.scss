@@ -44,4 +44,22 @@ header{
             font-size: 20px;
         }
     }
+
+    .skills-form{
+        display: flex;
+        flex-direction: column;
+
+        .slider{
+            margin-left: 20%;
+    
+            .skill-slider{
+                width: 75%;
+            }
+    
+            .value{
+                width: 50px;
+            }
+        }
+    }
+
 }
