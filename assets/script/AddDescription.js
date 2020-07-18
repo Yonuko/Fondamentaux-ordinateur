@@ -6,7 +6,7 @@ let addDescriptionButton = document.getElementById("addDesc");
 let removeDescriptionButton = document.getElementById("removeDesc");
 let expendObject = document.getElementsByClassName("expend");
 
-if(count >= 1){
+if(count > 1){
     removeDescriptionButton.style.display = "block";
 }
 

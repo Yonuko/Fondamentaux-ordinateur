@@ -19,7 +19,7 @@ if(isset($data["delType"])){
     return;
 }
 
-// Create the new project
+// Create the new post
 
 $filename = "";
 

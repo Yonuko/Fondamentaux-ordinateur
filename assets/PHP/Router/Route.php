@@ -76,6 +76,11 @@ $router->get('portfolio/admin/blog/{id}', function ($id){
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/blog/PostEdit.php");
 });
 
+$router->post('portfolio/admin/blog/{id}/update', function ($request, $id){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/blog/update.php");
+});
+
 $router->get('portfolio/admin/blog/{id}/active', function ($id){
   needAdmin();
   $rqt = "SELECT isShown FROM posts WHERE post_id = ?;";

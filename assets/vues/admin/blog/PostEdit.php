@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/createProject.css">
     <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js"></script>
-    <title>Admin - detail d'un projet</title>
+    <title>Admin - project edit</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
             header("location:http://localhost/portfolio/login");
@@ -79,23 +79,38 @@
             <div class="body-content">
                 <div class="card projet">
                     <div class="card-header">
-                        <div class="card-title">Nouvel article</div>
+                        <div class="card-title">
+                            <?php
+                                echo sendRequest("SELECT name FROM posts WHERE post_id = ?;", [$id], PDO::FETCH_NUM)[0][0]; 
+                            ?>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <form action="http://localhost/portfolio/admin/blog/store" method="POST" enctype="multipart/form-data">
+                        <?php 
+                            $rqt = "SELECT * FROM posts WHERE post_id = ?;";
+                            $post = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
+                        ?>
+                        <form action="http://localhost/portfolio/admin/blog/<?php echo $id?>/update" method="POST" enctype="multipart/form-data">
+                            <input type="text" name="id" value="<?php echo $id?>" hidden>
                             <div class="form-content">
                                <div class="scrolleur">
-                                <label for="name">Nom de l'article</label>
-                                    <input type="text" name="name" value="Nouveau Post" required>
+                                <label for="name">Nom du projet</label>
+                                    <input type="text" name="name" value="<?php echo $post["name"] ?>" required>
                                     <label for="type">Type</label>
                                     <div class="typeSelector">
                                         <select name="type">
                                             <?php 
                                                 $rqt = "SELECT * FROM Categorie;";
                                                 $types = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                                                $current_type = sendRequest("SELECT name FROM Categorie WHERE category_id = ?;",
+                                                    [$post["category_id"]], PDO::FETCH_NUM)[0][0];
                                                 if(!is_null($types)){
                                                     foreach($types as $type){
-                                                        echo "<option value='" . $type["name"] . "'>" . $type["name"] . "</option>";
+                                                        if($type["name"] === $current_type){
+                                                            echo "<option selected value='" . $type["name"] . "'>" . $type["name"] . "</option>";
+                                                        }else{
+                                                            echo "<option value='" . $type["name"] . "'>" . $type["name"] . "</option>";
+                                                        }
                                                     }
                                                 }else{
                                                     echo "<option value=''>none</option>";
@@ -106,24 +121,38 @@
                                         <input type="submit" name="addNewType" value="ajouter" formnovalidate>
                                         <input type="submit" name="delType" value="supprimer" formnovalidate>
                                     </div>
-                                    <label for="logo">Logo de l'article</label>
-                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
+                                    <label for="logo">Logo du projet</label>
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo">
                                     <p style="text-align: center;">Paragraphes</p>
                                     <div id="Descriptions">
-                                        <label for="subName-1" class="label">Sous titre paragraphe 1</label>
-                                        <input type="text" name="subName-1">
-                                        <div id="description-label-1" class="toggler">
-                                            <img class="expend toggle" src="http://localhost/portfolio/assets/image/ArrowIcon.png">
-                                            <label for="description-1">Description (paragraphe) 1</label>
-                                        </div>
-                                        <textarea id="description-textarea-1" name="description-1"></textarea>
-                                        <script>
-                                            ClassicEditor
-                                                .create( document.querySelector( '#description-textarea-1' ) )
-                                                .catch( error => {
-                                                    console.error( error );
-                                                });
-                                        </script>
+                                        <?php 
+                                            $rqt = "SELECT * FROM post_descriptions WHERE post_id = ? ORDER BY `order` ASC;";
+                                            $descriptions = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+                                            $i = 1;
+                                            foreach($descriptions as $description){
+                                                extract($description);
+                                                echo "
+                                                <label id='subName-label-$i' for='subName-$i' class='label'>Sous titre paragraphe $i</label>
+                                                <input type='text' id='subName-$i' name='subName-$i' value='$subTitle'>
+                                                <div id='description-label-$i' class='toggler'>
+                                                    <img class='expend toggle' src='http://localhost/portfolio/assets/image/ArrowIcon.png'>
+                                                    <label for='description-$i'>Description (paragraphe) $i</label>
+                                                </div>
+                                                <textarea id='description-textarea-$i' name='description-$i'></textarea>
+                                                <script>
+                                                    ClassicEditor
+                                                        .create( document.querySelector( '#description-textarea-$i' ) )
+                                                        .then( editor => {
+                                                            editor.setData('" . html_entity_decode($content) . "');
+                                                        })
+                                                        .catch( error => {
+                                                            console.error( error );
+                                                        });
+                                                </script>
+                                                ";
+                                                $i++;
+                                            }
+                                        ?>
                                     </div>
                                </div>
                             </div>
@@ -132,7 +161,7 @@
                                 <img id="removeDesc" style="display: none;"
                                     src="http://localhost/portfolio/assets/image/minus.png" alt="Remove a description">
                             </div>
-                            <input class="create" type="submit" name="create" value="Créer">
+                            <input class="create" type="submit" name="create" value="Edit">
                         </form>
                     </div>
                 </div>
