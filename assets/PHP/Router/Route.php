@@ -109,12 +109,32 @@ $router->get('portfolio/admin/texte', function (){
 
 $router->get('portfolio/admin/skills', function (){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Competences.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/skills/Competences.php");
 });
 
 $router->get('portfolio/admin/skills/create', function (){
   needAdmin();
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Competences.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/skills/SkillCreate.php");
+});
+
+$router->post('portfolio/admin/skills/store', function ($request){
+  needAdmin();
+  $data = $request->getBody();
+  $rqt = "INSERT skills VALUES (null, ?, ?, ?, 1, 0);";
+  sendRequest($rqt, [$data["name"], $data["value"], $data["type"]], PDO::FETCH_ASSOC);
+  header("Location:http://localhost/portfolio/admin/skills");
+});
+
+$router->post('portfolio/admin/skills/update', function ($request){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/skills/update.php");
+});
+
+$router->get('portfolio/admin/skills/{id}/delete', function ($id){
+  needAdmin();
+  $rqt = "DELETE FROM skills WHERE skill_id = ?;";
+  sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+  header("Location:http://localhost/portfolio/admin/skills");
 });
 
 $router->get('portfolio/admin/projects', function (){

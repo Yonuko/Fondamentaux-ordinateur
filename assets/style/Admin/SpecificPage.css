@@ -25,5 +25,19 @@ header .skills {
   flex-basis: 90%; }
   header .skills .skill {
     font-size: 20px; }
+header .card-body .skill {
+  height: 20px; }
+header .skills-form {
+  display: flex;
+  flex-direction: column; }
+  header .skills-form p {
+    margin: 0;
+    width: 20%; }
+  header .skills-form .slider {
+    margin-left: 20%; }
+    header .skills-form .slider .skill-slider {
+      width: 75%; }
+    header .skills-form .slider .value {
+      width: 50px; }
 
 /*# sourceMappingURL=SpecificPage.css.map */

@@ -182,24 +182,25 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="skill">
-                            Unity
-                            <div class="skill-bar-holder">
-                                <span class="skill-bar" aria-valuenow="60" aria-valuemin="1" aria-valuemax="100"></span>
-                            </div> 
-                        </div>
-                        <div class="skill">
-                            Unity
-                            <div class="skill-bar-holder">
-                                <span class="skill-bar" aria-valuenow="60" aria-valuemin="1" aria-valuemax="100"></span>
-                            </div> 
-                        </div>
-                        <div class="skill">
-                            Unity
-                            <div class="skill-bar-holder">
-                                <span class="skill-bar" aria-valuenow="60" aria-valuemin="1" aria-valuemax="100"></span>
-                            </div> 
-                        </div>
+                        <?php 
+                            $rqt = "SELECT * FROM skills ORDER BY level DESC;";
+                            $skills = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                            if(is_null($skills)){
+                                echo "<p style='text-align:center;'>Aucun skills n'est disponible pour l'instant</p>";
+                            }else{
+                                foreach($skills as $skill){
+                                    extract($skill);
+                                    echo "
+                                    <div class='skill'>
+                                        $name
+                                        <div class='skill-bar-holder'>
+                                            <span class='skill-bar' aria-valuenow='$level' aria-valuemin='1' aria-valuemax='100'></span>
+                                        </div> 
+                                    </div>
+                                    ";
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

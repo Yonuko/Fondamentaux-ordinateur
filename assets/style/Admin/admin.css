@@ -264,13 +264,13 @@ header {
       flex-direction: column; }
       header .skills .card-body .skill {
         display: flex;
+        justify-content: space-between;
         flex-basis: 20px;
         margin: 10px 0; }
         header .skills .card-body .skill .skill-bar-holder {
-          flex: 1 0 20px;
+          flex: 0 0 70%;
           background-color: black;
-          border-radius: 10px;
-          margin-left: 10px; }
+          border-radius: 10px; }
           header .skills .card-body .skill .skill-bar-holder .skill-bar {
             background-color: blue;
             border-top-left-radius: 10px;
@@ -278,6 +278,9 @@ header {
             height: 100%;
             width: 2%;
             display: inline-block; }
+        header .skills .card-body .skill .edit {
+          cursor: pointer;
+          height: 30px; }
   header .webSite-info {
     flex-basis: 30%;
     height: 80px; }
@@ -288,5 +291,22 @@ header {
       font-size: 26px; }
       header .webSite-info .card-body img {
         padding: 0 15px; }
+
+.button {
+  width: 200px;
+  height: 35px;
+  font-size: 18px;
+  background-color: #227093;
+  border: black solid 0.5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .button:hover {
+    background-color: white;
+    border: #227093 solid 0.5px;
+    color: #227093;
+    font-size: 20px;
+    cursor: pointer; }
 
 /*# sourceMappingURL=admin.css.map */

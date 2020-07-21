@@ -45,9 +45,21 @@ header{
         }
     }
 
+    .card-body{
+        .skill{
+            height: 20px;
+        }
+    }
+
+
     .skills-form{
         display: flex;
         flex-direction: column;
+
+        p{
+            margin: 0;
+            width: 20%;
+        }
 
         .slider{
             margin-left: 20%;
