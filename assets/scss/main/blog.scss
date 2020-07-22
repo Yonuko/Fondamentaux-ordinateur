@@ -35,7 +35,7 @@ main{
                 font-size: 42px;
             }
             
-            p{
+            .desc{
                 width: 60%;
                 font-size: 18px;
                 height: 100%;
@@ -54,6 +54,26 @@ main{
             background-position: center;
             background-repeat: no-repeat;
             border: white solid 10px;
+        }
+    }
+
+    .Selector{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+
+        .selectItem{
+            color: #707070;
+            margin-right: 50px;
+            font-size: 48px;
+            cursor: pointer;
+
+            &:hover{
+                color: #404040;
+            }
         }
     }
 
@@ -80,6 +100,11 @@ main{
                 .post-title{
                     color: #227093;
                     font-size: 32px;
+                }
+
+                .description{
+                    height: 25%;
+                    overflow: hidden;
                 }
 
                 p{

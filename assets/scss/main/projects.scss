@@ -70,6 +70,54 @@ main{
         }
     }
 
+    .Selectors{
+        display: flex;
+        flex-direction: column;
+        margin-top: 150px;
+        margin-bottom: -50px;
+        
+        .Selector{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+    
+            .selectItem{
+                color: #707070;
+                margin-right: 50px;
+                font-size: 48px;
+                cursor: pointer;
+    
+                &:hover{
+                    color: #404040;
+                }
+            }
+        }
+    
+        .subSelector{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            margin-top: 20px;
+    
+            .selectItem{
+                color: #707070;
+                margin-right: 30px;
+                font-size: 36px;
+                cursor: pointer;
+    
+                &:hover{
+                    color: #404040;
+                }
+            }
+        }
+    }
+
     .projects{
         width: 100%;
         margin-top: 50px;

@@ -45,6 +45,34 @@
                 ";
             ?>
         </section>
+        <section class="Selectors">
+            <?php 
+                $rqt = "SELECT * FROM project_type WHERE sub_project_id IS NULL;";
+                $types = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                echo "<section class='Selector'>";
+                foreach($types as $type){
+                    extract($type);
+                    $sub_name = sendRequest("SELECT name FROM project_type WHERE project_type_id = ?;", [$sub_project_id], PDO::FETCH_NUM)[0][0];
+                    echo "<div id='" . str_replace(' ', '_', $name) . "' class='selectItem' data-sub-type='none'
+                    data-type='" . str_replace(' ', '_', $name) . "'>" . $name . "</div>";
+                }
+                echo "</section>";
+                $rqt = "SELECT sub_project_id FROM project_type WHERE sub_project_id IS NOT NULL GROUP BY sub_project_id;";
+                $subTypesIDs = sendRequest($rqt, [], PDO::FETCH_NUM);
+                foreach($subTypesIDs as $subTypeID){
+                    $rqt = "SELECT * FROM project_type WHERE sub_project_id = ?;";
+                    $subTypes = sendRequest($rqt, [$subTypeID[0]], PDO::FETCH_ASSOC);
+                    $masterType = sendRequest("SELECT name FROM project_type WHERE project_type_id = ?;", [$subTypeID[0]], PDO::FETCH_NUM)[0][0];
+                    echo "<section class='subSelector sub_type_" . str_replace(' ', '_', $masterType) . "'>";
+                    foreach($subTypes as $subType){
+                        extract($subType);
+                        echo "<div id='" . str_replace(' ', '_', $name) . "' class='selectItem' data-sub-type='" . str_replace(' ', '_', $masterType) . "'
+                        data-type='" . str_replace(' ', '_', $name) . "'>" . $name . "</div>";
+                    }
+                    echo "</section>";
+                }
+            ?>
+        </section>
         <section class="projects">
             <?php 
                 $rqt = "SELECT * FROM projects WHERE isShown = 1;";
@@ -64,7 +92,15 @@
                         echo "<div class='project-list'>";
                     }
                     echo "
-                    <div class='project' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                    <div class='project";
+                    $rqt = "SELECT t.name FROM project_types pt INNER JOIN project_type t INNER JOIN projects p ON
+                    p.project_id = pt.project_id AND t.project_type_id = pt.project_type_id WHERE p.project_id = ?;";
+                    $types = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC);
+                    foreach($types as $type){
+                        echo " " . str_replace(' ', '_', $type["name"]);
+                    }
+                    echo "' ";
+                    echo "onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
                         <span class='project-icon' 
                         style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
                         <span class='project-title'>$name</span>
@@ -142,5 +178,6 @@
         </div>
     </footer>
     <script src="http://localhost/portfolio/assets/script/burger.js"></script>
+    <script src="http://localhost/portfolio/assets/script/projectSelector.js"></script>
 </body>
 </html>

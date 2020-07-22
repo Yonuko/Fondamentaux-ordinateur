@@ -46,7 +46,8 @@ main {
       height: auto;
       margin-bottom: 10px; }
     main .quote .quote-text {
-      width: 60%; }
+      width: 60%;
+      font-size: 18px; }
   main .blog {
     margin-top: 100px;
     background-color: #84817a;
@@ -68,6 +69,7 @@ main {
       padding-left: 300px;
       text-align: left;
       color: #f7f1e3;
+      font-size: 18px;
       width: 50%; }
     main .blog .button {
       margin-left: 300px;

@@ -32,11 +32,14 @@
         <section class="a-propos">
             <h1>A propos</h1>
             <section class="message">
-                <span>Bonjour !</span>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, aut obcaecati! <br>Cupiditate quas deleniti officia ad ea aperiam porro perferendis atque dolorum <br>consectetur assumenda, placeat vitae, unde perspiciatis quasi doloribus?
+                <span>Présentation</span>
+                <p>Je m'appelle Sacha EGHIAZARIAN j'ai 19 ans, je suis actuellement étudiant en 3ème année à Ynov Aix Campus (cursus en 5 ans)
                     <br><br>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora in ex a autem deserunt voluptatem repellendus laudantium beatae libero hic, reprehenderit sequi, illum magnam iusto pariatur officiis quam eum. Possimus?
+                    Pationné d'informatique depuis l'âge de 14 ans, je souhaite continuer sur la voie du développement logicielle que j'ai débuté en auto didacte il y a de cela 5 ans.
+                    <br>
+                    Je suis quelqu'un de sérieux, pationné et autonome, et je me sers des erreurs du passé pour devenir meilleurs de jour en jour.
+                    <br>
+                    Quelque soit l'obstacle je continue d'avancer !
                 </p>
                 <a class="button" href="http://localhost/portfolio/skills">Mes compétences</a>
             </section>
@@ -44,15 +47,15 @@
 
         <section class="quote">
             <img id="quote" src="http://localhost/portfolio/assets/image/site/quote.JPG" alt="quote icon"><br>
-            <div class="quote-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero velit laborum suscipit, debitis eligendi odit illo esse impedit ut architecto veniam ullam, quos vel consectetur eum aliquid dignissimos quas! Nostrum.</div>
+            <div class="quote-text">“Si tu ne peux pas voler, alors cours. Si tu ne peux pas courir, alors marche. Si tu ne peux pas marcher, alors rampe, mais quoi que tu fasses, tu dois continuer à avancer”<br> - Martin Luther King Jr.</div>
         </section>
 
         <section class="blog">
             <h2>Mon blog</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, aut obcaecati! <br>Cupiditate quas deleniti officia ad ea aperiam porro perferendis atque dolorum <br>consectetur assumenda, placeat vitae, unde perspiciatis quasi doloribus?
+                Sur ce site vous pourrez consulter mon blog, que j'allimente avec des expérimentations personnelles en lien avec l'informatique, généralement le développement.
                 <br><br>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora in ex a autem deserunt voluptatem repellendus laudantium beatae libero hic, reprehenderit sequi, illum magnam iusto pariatur officiis quam eum. Possimus?
+                Mais egalement avec un rapport de mes différentes expériences professionnelles faite en fin d'année scolaire.
             </p>
             <br>
             <a class="button" href="http://localhost/portfolio/blog">En savoir plus</a>

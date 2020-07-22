@@ -31,10 +31,30 @@
         </section>
         <section class="Latest-post">
             <div class="latest-post-message">
-                <span>Dernier article</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aperiam asperiores, laboriosam magnam nostrum nisi illum iure sapiente consectetur possimus nulla placeat facilis expedita quas beatae voluptatem voluptatum necessitatibus ipsa.</p>
+            <?php 
+                $rqt = "SELECT * FROM posts ORDER BY post_id DESC LIMIT 1";
+                $post = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
+                extract($post);
+                echo "<span>$name</span>";
+                $firstDesc = sendRequest("SELECT content FROM post_descriptions WHERE `order` = 1 AND post_id = ?;", [$post_id], PDO::FETCH_NUM)[0][0];
+                echo "<div class='desc'>" . html_entity_decode($firstDesc) . "</div>";
+            ?>
             </div>
-            <span class="latest-post-image"></span>
+            <?php 
+                $rqt = "SELECT logo FROM posts ORDER BY post_id DESC LIMIT 1";
+                $logo = sendRequest($rqt, [], PDO::FETCH_NUM)[0][0];
+                echo "<span class='latest-post-image' style='background-image: url(\"http://localhost/portfolio/assets/image/Uploads/Blog/$logo\")'></span>";
+            ?>
+            </section>
+        <section class="Selector">
+            <?php 
+                $rqt = "SELECT * FROM Categorie;";
+                $types = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                foreach($types as $type){
+                    extract($type);
+                    echo "<div class='selectItem' data-type='" . str_replace(' ', '_', $name) . "'>" . $name . "</div>";
+                }
+            ?>
         </section>
         <section class="articles">
         <?php 
@@ -55,8 +75,10 @@
                 }else if($count === 0){
                     echo "<div class='posts'>";
                 }
+                $category = sendRequest("SELECT name FROM Categorie WHERE category_id = ?;", [$category_id], PDO::FETCH_NUM)[0][0];
+                $category = str_replace(' ', '_', $category);
                 echo "
-                <div class='post' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
+                <div class='post $category' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
                     <span class='post-icon' 
                     style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Blog/$logo');\"></span>
                     <span class='post-title'>$name</span>
@@ -104,5 +126,6 @@
         </div>
     </footer>
     <script src="http://localhost/portfolio/assets/script/burger.js"></script>
+    <script src="http://localhost/portfolio/assets/script/PostSelector.js"></script>
 </body>
 </html>

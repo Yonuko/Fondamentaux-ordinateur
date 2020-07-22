@@ -50,6 +50,40 @@ main .Latest-project {
     background-position: center;
     background-repeat: no-repeat;
     border: white solid 10px; }
+main .Selectors {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  margin-bottom: -50px; }
+  main .Selectors .Selector {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap; }
+    main .Selectors .Selector .selectItem {
+      color: #707070;
+      margin-right: 50px;
+      font-size: 48px;
+      cursor: pointer; }
+      main .Selectors .Selector .selectItem:hover {
+        color: #404040; }
+  main .Selectors .subSelector {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-top: 20px; }
+    main .Selectors .subSelector .selectItem {
+      color: #707070;
+      margin-right: 30px;
+      font-size: 36px;
+      cursor: pointer; }
+      main .Selectors .subSelector .selectItem:hover {
+        color: #404040; }
 main .projects {
   width: 100%;
   margin-top: 50px; }

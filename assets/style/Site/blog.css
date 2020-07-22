@@ -25,7 +25,7 @@ main .Latest-post {
     flex-direction: column; }
     main .Latest-post .latest-post-message span {
       font-size: 42px; }
-    main .Latest-post .latest-post-message p {
+    main .Latest-post .latest-post-message .desc {
       width: 60%;
       font-size: 18px;
       height: 100%;
@@ -41,6 +41,20 @@ main .Latest-post {
     background-position: center;
     background-repeat: no-repeat;
     border: white solid 10px; }
+main .Selector {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap; }
+  main .Selector .selectItem {
+    color: #707070;
+    margin-right: 50px;
+    font-size: 48px;
+    cursor: pointer; }
+    main .Selector .selectItem:hover {
+      color: #404040; }
 main .articles {
   width: 100%;
   margin-top: 50px; }
@@ -59,6 +73,9 @@ main .articles {
       main .articles .posts .post .post-title {
         color: #227093;
         font-size: 32px; }
+      main .articles .posts .post .description {
+        height: 25%;
+        overflow: hidden; }
       main .articles .posts .post p {
         color: #797979; }
       main .articles .posts .post .post-icon {
