@@ -31,7 +31,7 @@
         </section>
         <section class="Latest-project">
             <?php 
-                $rqt = "SELECT * FROM projects ORDER BY project_id ASC LIMIT 1;";
+                $rqt = "SELECT * FROM projects ORDER BY project_id DESC LIMIT 1;";
                 $latest_project = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
                 extract($latest_project);
                 echo "
@@ -75,7 +75,7 @@
         </section>
         <section class="projects">
             <?php 
-                $rqt = "SELECT * FROM projects WHERE isShown = 1;";
+                $rqt = "SELECT * FROM projects WHERE isShown = 1 ORDER BY project_id;";
                 $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                 $count = 0;
                 $isColor = true;
