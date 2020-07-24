@@ -75,6 +75,22 @@ $cat_id = sendRequest("SELECT category_id FROM Categorie WHERE name = ?;", [$dat
 $rqt = "UPDATE posts SET name = ?, category_id = ? WHERE post_id = ?;";
 sendRequest($rqt, [$data["name"], $cat_id, $id], PDO::FETCH_ASSOC);
 
+
+$i = 1;
+$rqt = "DELETE FROM post_keywords WHERE post_id = ?;";
+sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+while(isset($data["type-$i"])){   
+    $rqt = "INSERT INTO keywords VALUES (null, ?);";
+    sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_ASSOC);
+    $rqt = "SELECT key_id FROM keywords WHERE word = ?;";
+    $keyword_id = sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_NUM)[0][0];
+
+    $rqt = "INSERT INTO post_keywords VALUES (?, ?);";
+    sendRequest($rqt, [$id, $keyword_id], PDO::FETCH_ASSOC);
+    $i++;
+}
+
+
 $i = 1;
 $rqt = "SELECT count(*) FROM post_descriptions WHERE post_id = ?;";
 $descriptionCount = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];

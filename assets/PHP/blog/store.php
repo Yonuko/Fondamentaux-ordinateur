@@ -76,6 +76,19 @@ sendRequest($rqt, [
 $rqt = "SELECT post_id FROM posts ORDER BY post_id DESC LIMIT 1;";
 $post_id = sendRequest($rqt, [], PDO::FETCH_NUM)[0][0];
 
+
+$i = 1;
+while(isset($data["type-$i"])){   
+    $rqt = "INSERT INTO keywords VALUES (null, ?);";
+    sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_ASSOC);
+    $rqt = "SELECT key_id FROM keywords WHERE word = ?;";
+    $keyword_id = sendRequest($rqt, [$data["type-$i"]], PDO::FETCH_NUM)[0][0];
+
+    $rqt = "INSERT INTO post_keywords VALUES (?, ?);";
+    sendRequest($rqt, [$post_id, $keyword_id], PDO::FETCH_ASSOC);
+    $i++;
+}
+
 $i = 1;
 while(isset($data["description-$i"])){
     $rqt = "INSERT INTO post_descriptions VALUES (?, ?, ?, ?);";

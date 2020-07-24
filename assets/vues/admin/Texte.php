@@ -75,7 +75,8 @@
         </div>
         <main>
             <div class="body-content">
-                
+                <div class="card">
+                </div>
             </div>
         </main>
     </header>

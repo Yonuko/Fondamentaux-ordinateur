@@ -106,6 +106,12 @@
                                         <input type="submit" name="addNewType" value="ajouter" formnovalidate>
                                         <input type="submit" name="delType" value="supprimer" formnovalidate>
                                     </div>
+                                    <label for="type">Mots clés</label>
+                                    <div class="typeSelector">
+                                        <input id="kw" type="text" name="kw">
+                                        <button id="addType" type="button">ajouter</button>
+                                    </div>
+                                    <div class="types"></div>
                                     <label for="logo">Logo de l'article</label>
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo" required>
                                     <p style="text-align: center;">Paragraphes</p>
@@ -141,5 +147,6 @@
     </header>
     <script src="http://localhost/portfolio/assets/script/notification.js"></script>
     <script src="http://localhost/portfolio/assets/script/AddDescription.js"></script>
+    <script src="http://localhost/portfolio/assets/script/addKeywords.js"></script>
 </body>
 </html>

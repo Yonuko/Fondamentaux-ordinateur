@@ -34,7 +34,8 @@ form {
         display: flex;
         justify-content: space-between;
         align-content: center;
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 20px; }
         form .form-content .scrolleur .typeSelector input {
           margin: 0; }
       form .form-content .scrolleur .types {

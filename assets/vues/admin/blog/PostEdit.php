@@ -121,6 +121,24 @@
                                         <input type="submit" name="addNewType" value="ajouter" formnovalidate>
                                         <input type="submit" name="delType" value="supprimer" formnovalidate>
                                     </div>
+                                    <label for="kw">Mot clés</label>
+                                    <div class="typeSelector">
+                                        <input id="kw" name="kw" type="text">
+                                        <button id="addType" type="button">ajouter</button>
+                                    </div>
+                                    <div class="types">
+                                        <?php 
+                                            $rqt = "SELECT * FROM post_keywords pk INNER JOIN keywords k ON 
+                                            pk.keyword_id = key_id WHERE pk.post_id = ?;";
+                                            $types = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+                                            $i = 1;
+                                            foreach($types as $type){
+                                                extract($type);
+                                                echo "<input class='type' name='type-$i' value='$word' readonly>";
+                                                $i++;
+                                            }
+                                        ?>
+                                    </div>
                                     <label for="logo">Logo du projet</label>
                                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="logo">
                                     <p style="text-align: center;">Paragraphes</p>
@@ -170,5 +188,6 @@
     </header>
     <script src="http://localhost/portfolio/assets/script/notification.js"></script>
     <script src="http://localhost/portfolio/assets/script/AddDescription.js"></script>
+    <script src="http://localhost/portfolio/assets/script/addKeywords.js"></script>
 </body>
 </html>
