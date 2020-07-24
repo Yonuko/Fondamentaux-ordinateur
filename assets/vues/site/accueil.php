@@ -33,29 +33,33 @@
             <h1>A propos</h1>
             <section class="message">
                 <span>Présentation</span>
-                <p>Je m'appelle Sacha EGHIAZARIAN j'ai 19 ans, je suis actuellement étudiant en 3ème année à Ynov Aix Campus (cursus en 5 ans)
-                    <br><br>
-                    Pationné d'informatique depuis l'âge de 14 ans, je souhaite continuer sur la voie du développement logicielle que j'ai débuté en auto didacte il y a de cela 5 ans.
-                    <br>
-                    Je suis quelqu'un de sérieux, pationné et autonome, et je me sers des erreurs du passé pour devenir meilleurs de jour en jour.
-                    <br>
-                    Quelque soit l'obstacle je continue d'avancer !
-                </p>
+                <div class="pres">
+                    <?php 
+                        $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 1;", [], PDO::FETCH_NUM)[0][0];
+                        echo html_entity_decode($text);
+                    ?>
+                </div>
                 <a class="button" href="http://localhost/portfolio/skills">Mes compétences</a>
             </section>
         </section>
 
         <section class="quote">
             <img id="quote" src="http://localhost/portfolio/assets/image/site/quote.JPG" alt="quote icon"><br>
-            <div class="quote-text">“Si tu ne peux pas voler, alors cours. Si tu ne peux pas courir, alors marche. Si tu ne peux pas marcher, alors rampe, mais quoi que tu fasses, tu dois continuer à avancer”<br> - Martin Luther King Jr.</div>
+            <div class="quote-text">
+                <?php 
+                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 2;", [], PDO::FETCH_NUM)[0][0];
+                    echo html_entity_decode($text);
+                ?>
+            </div>
         </section>
 
         <section class="blog">
             <h2>Mon blog</h2>
             <p>
-                Sur ce site vous pourrez consulter mon blog, que j'allimente avec des expérimentations personnelles en lien avec l'informatique, généralement le développement.
-                <br><br>
-                Mais egalement avec un rapport de mes différentes expériences professionnelles faite en fin d'année scolaire.
+                <?php 
+                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 3;", [], PDO::FETCH_NUM)[0][0];
+                    echo html_entity_decode($text);
+                ?>
             </p>
             <br>
             <a class="button" href="http://localhost/portfolio/blog">En savoir plus</a>

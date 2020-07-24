@@ -9,7 +9,7 @@ main .project-presentation {
     text-align: center;
     font-size: 78px;
     color: #d7d1c3;
-    mix-blend-mode: lighten; }
+    mix-blend-mode: darken; }
   main .project-presentation .message {
     padding-left: 51%;
     font-size: 18px; }

@@ -39,5 +39,7 @@ header .skills-form {
       width: 75%; }
     header .skills-form .slider .value {
       width: 50px; }
+header .texts .card {
+  flex-basis: 90%; }
 
 /*# sourceMappingURL=SpecificPage.css.map */

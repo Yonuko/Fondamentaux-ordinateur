@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/Admin/admin.css">
+    <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js" charset="utf-8"></script>
     <title>Admin - texte</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
@@ -11,6 +12,18 @@
             return;
         }
     ?>
+    <style>
+
+        main .body-content form{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main .body-content .skills{
+            flex-basis: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -75,8 +88,38 @@
         </div>
         <main>
             <div class="body-content">
-                <div class="card">
-                </div>
+                <form action="http://localhost/portfolio/admin/texte" method="post">
+                <input style="align-self: center; margin: 20px 0;" class="button" type="submit" value="Actualiser">
+                <?php 
+                    $rqt = "SELECT * FROM DinamicTexts ORDER BY id;";
+                    $textes = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                    $i = 1;
+                    foreach($textes as $text){
+                        echo "
+                            <div class='card skills'>
+                                <div class='card-header'>
+                                    " . $text["type"] . "
+                                </div>
+                                <div class='card-body'>
+                                    <textarea name='text-$i' id='text-$i'></textarea>
+                                </div>
+                                <script>
+                                    ClassicEditor
+                                    .create( document.querySelector( '#text-$i' ) )
+                                    .then( editor => {
+                                        editor.setData(\"" . html_entity_decode($text["text"]) . "\");
+                                    })
+                                    .catch( error => {
+                                        console.error( error );
+                                    });
+                                </script>
+                            </div>
+                        ";
+                        $i++;
+                    }
+                ?>
+                <input style="align-self: center;" class="button" type="submit" value="Actualiser">
+                </form>
             </div>
         </main>
     </header>

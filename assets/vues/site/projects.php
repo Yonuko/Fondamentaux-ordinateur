@@ -143,7 +143,12 @@
         </section>
         <section class="posts">
             <h2>Mes articles</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
+            <div class="text">
+                <?php 
+                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 5;", [], PDO::FETCH_NUM)[0][0];
+                    echo html_entity_decode($text);
+                ?>
+            </div>
             <a class="button" href="http://localhost/portfolio/blog">Mon blog</a>
             <div class="posts-list">
                 <?php 

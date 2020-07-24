@@ -59,7 +59,7 @@ header {
     font-size: 78px;
     margin: 0;
     margin-bottom: 50px; }
-  .project p {
+  .project .text {
     color: #707070;
     width: 60%;
     font-size: 18px;

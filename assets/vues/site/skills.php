@@ -30,7 +30,12 @@
             <span class="background"></span>
             <div class="texte">
                 <h1>Bonjour !</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem repellendus officiis dolorum. Hic eum iusto vero blanditiis ad tenetur id, deserunt exercitationem repudiandae laborum sit reiciendis fugiat pariatur? Voluptatem, adipisci!</p>
+                <div>
+                    <?php 
+                        $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 6;", [], PDO::FETCH_NUM)[0][0];
+                        echo html_entity_decode($text);
+                    ?>
+                </div>
             </div>
         </section>
         <section class="types">
@@ -70,7 +75,12 @@
         </section>
         <section class="project">
             <h2>Mes projets</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
+            <div class="text">
+                <?php 
+                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 4;", [], PDO::FETCH_NUM)[0][0];
+                    echo html_entity_decode($text);
+                ?>
+            </div>
             <a class="button" href="http://localhost/portfolio/projects">Mes projets</a>
             <div class="project-list">
                 <?php 

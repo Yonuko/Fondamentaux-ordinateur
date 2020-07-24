@@ -107,6 +107,11 @@ $router->get('portfolio/admin/texte', function (){
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/Texte.php");
 });
 
+$router->post('portfolio/admin/texte', function ($request){
+  needAdmin();
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/PHP/TextUpdate.php");
+});
+
 $router->get('portfolio/admin/skills', function (){
   needAdmin();
   include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/admin/skills/Competences.php");

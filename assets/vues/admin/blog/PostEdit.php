@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
     <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/createProject.css">
-    <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js" charset="utf-8"></script>
     <title>Admin - project edit</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
@@ -132,10 +132,12 @@
                                             pk.keyword_id = key_id WHERE pk.post_id = ?;";
                                             $types = sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
                                             $i = 1;
-                                            foreach($types as $type){
-                                                extract($type);
-                                                echo "<input class='type' name='type-$i' value='$word' readonly>";
-                                                $i++;
+                                            if(!is_null($types)){
+                                                foreach($types as $type){
+                                                    extract($type);
+                                                    echo "<input class='type' name='type-$i' value='$word' readonly>";
+                                                    $i++;
+                                                }
                                             }
                                         ?>
                                     </div>
