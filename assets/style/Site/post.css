@@ -136,6 +136,8 @@ main .posts {
     padding-left: 150px;
     background-position: 80px; }
   main .secondary .text .content {
+    padding-left: 150px; }
+  main .tiercary .text {
     padding-left: 150px; } }
 @media (max-width: 850px) {
   main .post-title {
@@ -144,6 +146,8 @@ main .posts {
     padding-left: 100px;
     background-position: 30px; }
   main .secondary .text .content {
+    padding-left: 100px; }
+  main .tiercary .text {
     padding-left: 100px; } }
 @media (max-width: 750px) {
   main .post-title {
@@ -166,6 +170,8 @@ main .posts {
       margin-left: -100px;
       margin-right: 10px;
       width: 45%; }
+  main .Paragraphe.tiercary {
+    margin-left: 0; }
   main .posts h2 {
     font-size: 52px; }
   main .posts .posts-list .posts-item {
@@ -186,7 +192,9 @@ main .posts {
       background-size: auto 60%;
       font-size: 32px; }
     main .Paragraphe.secondary .text .content {
-      padding-left: 50px; } }
+      padding-left: 50px; }
+  main .tiercary .text {
+    padding-left: 50px; } }
 @media (max-width: 500px) {
   main .posts h2 {
     font-size: 58px; } }

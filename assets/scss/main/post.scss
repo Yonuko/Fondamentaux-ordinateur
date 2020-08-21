@@ -212,6 +212,12 @@ main{
                 }
             }
         }
+
+        .tiercary{
+            .text{
+                padding-left: 150px;
+            }
+        }
     }
 }
 
@@ -231,6 +237,12 @@ main{
                 .content{
                     padding-left: 100px;
                 }
+            }
+        }
+
+        .tiercary{
+            .text{
+                padding-left: 100px;
             }
         }
     }
@@ -276,6 +288,10 @@ main{
             }
         }
 
+        .Paragraphe.tiercary{
+            margin-left: 0;
+        }
+
         .posts{
 
             h2{
@@ -316,6 +332,12 @@ main{
                 .content{
                     padding-left: 50px;
                 }
+            }
+        }
+
+        .tiercary{
+            .text{
+                padding-left: 50px;
             }
         }
     }
