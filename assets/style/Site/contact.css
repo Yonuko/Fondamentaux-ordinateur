@@ -8,7 +8,7 @@ main .contact {
     width: 60vw;
     display: flex;
     align-items: flex-end;
-    background-image: url("http://localhost/portfolio/assets/image/site/contact.jpg");
+    background-image: url("https://sacha-eghiazarian.fr/assets/image/site/contact.jpg");
     background-size: cover; }
     main .contact .message p {
       margin-bottom: 100px;

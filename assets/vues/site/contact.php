@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/contact.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/contact.css">
     <title>Portfolio Sacha EGHIAZARIAN - Contact</title>
 </head>
 <body>
     <header>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
@@ -36,13 +36,18 @@
                 <p>Téléphone :</p>
                 <p class="phone">06 95 20 97 55</p>
                 <p>LinkedIn :</p>
-                <a href="https://www.linkedin.com/in/sacha-eghiazarian/">linkedin.com/sacha-eghiazarian/</a>
+                <a href="https://www.linkedin.com/in/sacha-eghiazarian/" target="_blank">linkedin.com/sacha-eghiazarian/</a>
             </div>
         </section>
         <section class="project">
             <h2>Mes projets</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel cumque iusto consectetur natus nostrum provident voluptatem, saepe fugit sit laboriosam consequuntur possimus doloremque fuga sed architecto, voluptatum rem ullam!</p>
-            <a class="button" href="http://localhost/portfolio/projects">Mes projets</a>
+            <div class="text">
+                <?php 
+                    $text = sendRequest("SELECT text FROM dinamictexts WHERE id = 4;", [], PDO::FETCH_NUM)[0][0];
+                    echo html_entity_decode($text);
+                ?>
+            </div>
+            <a class="button" href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
             <div class="project-list">
                 <?php 
                     $rqt = "SELECT * from projects WHERE isShown = 1 LIMIT 3;";
@@ -50,9 +55,9 @@
                     foreach($projects as $project){
                         extract($project);
                         echo "
-                        <div class='project-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                        <div class='project-item' onclick=\"location.href = 'https://sacha-eghiazarian.fr/projects/$project_id'\">
                             <span class='image' 
-                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo');\"></span>
                             <p>$name</p>
                         </div>
                         ";
@@ -63,18 +68,18 @@
     </main>
     <footer>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
     </footer>
-    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/burger.js"></script>
 </body>
 </html>

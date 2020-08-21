@@ -28,10 +28,21 @@ function sendRequest($rqt, $formInput, $type){
     return ($gotValue) ? $tab : null;
 }
 
+// Garde en mémoire les utilisateurs qui sont arrivées sur le site et compte le nombre de page vues
+$rqt = "INSERT INTO utilisateurs VALUES (?, ?, 0);";
+sendRequest($rqt, [$_SERVER["REMOTE_ADDR"], date("y-m-d")], PDO::FETCH_ASSOC);
+if(!(isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0') && strpos($_SERVER['REQUEST_URI'], "admin") === false){
+    $rqt = "UPDATE utilisateurs SET views = views + 1 WHERE ip = ? AND login_date = ?;";
+    sendRequest($rqt, [$_SERVER["REMOTE_ADDR"], date("y-m-d")], PDO::FETCH_ASSOC);
+}
+
 function needAdmin(){
     if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
-        header("location:http://localhost/portfolio/login");
+        $_SESSION["url"] = $_SERVER["REQUEST_URI"];
+        header("location:https://sacha-eghiazarian.fr/login");
         return;
+    }else{
+        $_SESSION["url"] = null;
     }
 }
 

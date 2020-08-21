@@ -11,14 +11,14 @@ if(isset($data["addNewType"])){
         $rqt = "INSERT INTO categorie VALUES (null, ?);";
         sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
     }
-    header("Location:http://localhost/portfolio/admin/blog/$id");
+    header("Location:https://sacha-eghiazarian.fr/admin/blog/$id");
     return;
 }
 
 if(isset($data["delType"])){
     $rqt = "DELETE FROM categorie WHERE name = ?;";
     sendRequest($rqt, [$data["type"]], PDO::FETCH_ASSOC);
-    header("Location:http://localhost/portfolio/admin/blog/$id");
+    header("Location:https://sacha-eghiazarian.fr/admin/blog/$id");
     return;
 }
 
@@ -27,7 +27,7 @@ if(isset($data["delType"])){
 if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     $filename = "";
 
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Blog/";
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/Uploads/Blog/";
     $target_file = $target_dir . basename($_FILES["logo"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -52,7 +52,7 @@ if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.<br>";
-        header("Refresh:3;url=http://localhost/portfolio/admin/blog/$id");
+        header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/blog/$id");
         return;
     // if everything is ok, try to upload file
     } else {
@@ -61,7 +61,7 @@ if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
             $filename = basename( $_FILES["logo"]["name"]);
         } else {
             echo "Sorry, there was an error uploading your file.<br>";
-            header("Refresh:3;url=http://localhost/portfolio/admin/blog/$id");
+            header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/blog/$id");
             return;
         }
     }
@@ -71,7 +71,7 @@ if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     sendRequest($rqt, [$filename, $id], PDO::FETCH_NUM);
 }
 
-$cat_id = sendRequest("SELECT category_id FROM Categorie WHERE name = ?;", [$data["type"]], PDO::FETCH_NUM)[0][0];
+$cat_id = sendRequest("SELECT category_id FROM categorie WHERE name = ?;", [$data["type"]], PDO::FETCH_NUM)[0][0];
 $rqt = "UPDATE posts SET name = ?, category_id = ? WHERE post_id = ?;";
 sendRequest($rqt, [$data["name"], $cat_id, $id], PDO::FETCH_ASSOC);
 
@@ -96,7 +96,6 @@ $rqt = "SELECT count(*) FROM post_descriptions WHERE post_id = ?;";
 $descriptionCount = sendRequest($rqt, [$id], PDO::FETCH_NUM)[0][0];
 while(isset($data["description-$i"])){
     if($i <= $descriptionCount){
-        echo $i;
         $rqt = "UPDATE post_descriptions SET subTitle = ?, content = ? WHERE post_id = ? AND `order` = ?;";
         sendRequest($rqt, [$data["subName-$i"], $data["description-$i"], $id, $i], PDO::FETCH_NUM);
     }else{
@@ -112,4 +111,4 @@ if($i <= $descriptionCount){
     sendRequest($rqt, [$id, $i], PDO::FETCH_NUM);
 }
 
-header("Location:http://localhost/portfolio/admin/blog");
+header("Location:https://sacha-eghiazarian.fr/admin/blog");

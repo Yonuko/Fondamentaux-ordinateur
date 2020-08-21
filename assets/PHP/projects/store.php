@@ -15,14 +15,14 @@ if(isset($data["addNewType"])){
             sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
         }
     }
-    header("Location:http://localhost/portfolio/admin/projects/create");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/create");
     return;
 }
 
 if(isset($data["delType"])){
     $rqt = "DELETE FROM project_type WHERE name = ?;";
     sendRequest($rqt, [$data["type"]], PDO::FETCH_ASSOC);
-    header("Location:http://localhost/portfolio/admin/projects/create");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/create");
     return;
 }
 
@@ -30,13 +30,13 @@ if(isset($data["delType"])){
 
 // if no type is set, we return to the beginning page
 if(!isset($data["type-1"])){
-    header("Location:http://localhost/portfolio/admin/projects/create");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/create");
     return; 
 }
 
 $filename = "";
 
-$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Projets/";
+$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/Uploads/Projets/";
 $target_file = $target_dir . basename($_FILES["logo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -61,7 +61,7 @@ if (file_exists($target_file)) {
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.<br>";
-    header("Refresh:3;url=http://localhost/portfolio/admin/projects/create");
+    header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/projects/create");
     return;
 // if everything is ok, try to upload file
 } else {
@@ -70,12 +70,12 @@ if ($uploadOk == 0) {
         $filename = basename( $_FILES["logo"]["name"]);
     } else {
         echo "Sorry, there was an error uploading your file.<br>";
-        header("Refresh:3;url=http://localhost/portfolio/admin/projects/create");
+        header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/projects/create");
         return;
     }
 }
 
-$rqt = "INSERT INTO projects VALUES (null, ?, ?, ?, ?, 0, 0);";
+$rqt = "INSERT INTO projects VALUES (null, ?, ?, ?, ?, 0, 0, 0);";
 sendRequest($rqt, [$data["name"], $data["presentationName"], $data["presentation"], $filename], PDO::FETCH_ASSOC);
 
 $i = 1;
@@ -97,4 +97,4 @@ while(isset($data["description-$i"])){
     $i++;
 }
 
-header("Location:http://localhost/portfolio/admin/projects");
+header("Location:https://sacha-eghiazarian.fr/admin/projects");

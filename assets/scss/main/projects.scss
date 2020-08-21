@@ -62,7 +62,7 @@ main{
             margin-bottom: -50px;
             width: 40%;
             height: 100%;
-            background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+            background-image: url("https://sacha-eghiazarian.fr/assets/image/projects/project.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -163,7 +163,7 @@ main{
                 }
                 
                 .project-icon{
-                    background-image: url("http://localhost/portfolio/assets/image/Uploads/Blog/test.jpg");
+                    background-image: url("https://sacha-eghiazarian.fr/assets/image/Uploads/Blog/test.jpg");
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -251,7 +251,7 @@ main{
                 cursor: pointer;
     
                 span{
-                    background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+                    background-image: url("https://sacha-eghiazarian.fr/assets/image/projects/project.jpg");
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -290,7 +290,7 @@ main{
                 margin-bottom: 0;
                 width: 40%;
                 height: 100%;
-                background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+                background-image: url("https://sacha-eghiazarian.fr/assets/image/projects/project.jpg");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -315,6 +315,22 @@ main{
                 display: flex;
             }
         }
+
+        .Selectors{            
+            .Selector{        
+                .selectItem{
+                    font-size: 42px;
+                    margin-right: 20px;
+                }
+            }
+        
+            .subSelector{
+                .selectItem{
+                    font-size: 30px;
+                    margin-right: 15px;
+                }
+            }
+        }
     }
 }
 
@@ -328,6 +344,32 @@ main{
                 margin-bottom: 0;
                 height: 80%;
                 margin-left: -2%;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px){
+    main{
+        .Selectors{      
+            .Selector{
+                flex-flow: column nowrap;
+
+                .selectItem{
+                    font-size: 40px;
+                    margin-right: 0;
+                    margin-top: 20px;
+                }
+            }
+        
+            .subSelector{
+                flex-flow: column nowrap;
+
+                .selectItem{
+                    font-size: 28px;
+                    margin-right: 0;
+                    margin-top: 10px;
+                }
             }
         }
     }
@@ -399,6 +441,20 @@ main{
                 font-size: 58px;
             }
         }
+
+        .Selectors{            
+            .Selector{        
+                .selectItem{
+                    font-size: 32px;
+                }
+            }
+        
+            .subSelector{
+                .selectItem{
+                    font-size: 22px;
+                }
+            }
+        }
     }
 }
 
@@ -440,6 +496,20 @@ main{
                 .posts-item{
                     width: 250px;
                     height: 250px;
+                }
+            }
+        }
+
+        .Selectors{            
+            .Selector{        
+                .selectItem{
+                    font-size: 26px;
+                }
+            }
+        
+            .subSelector{
+                .selectItem{
+                    font-size: 20px;
                 }
             }
         }

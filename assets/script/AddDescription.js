@@ -50,7 +50,7 @@ addDescriptionButton.onclick = () =>{
     
     arrowImg.classList.add("expend");
     arrowImg.classList.add("toggle");
-    arrowImg.src = "http://localhost/portfolio/assets/image/ArrowIcon.png";
+    arrowImg.src = "https://sacha-eghiazarian.fr/assets/image/ArrowIcon.png";
     
     descriptionHolder.appendChild(subTitleLabel);
     descriptionHolder.appendChild(subTitleName);

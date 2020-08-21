@@ -11,4 +11,4 @@ while(isset($data["text-$i"])){
     $i++;
 }
 
-header("Location:http://localhost/portfolio/admin/texte");
+header("Location:https://sacha-eghiazarian.fr/admin/texte");

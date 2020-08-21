@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/createProject.css">
-    <script src="http://localhost/portfolio/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Admin/admin.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Admin/createProject.css">
+    <script src="https://sacha-eghiazarian.fr/assets/ckeditor5-build-classic-20.0.0/ckeditor5-build-classic/ckeditor.js"></script>
     <title>Admin - detail d'un projet</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
-            header("location:http://localhost/portfolio/login");
+            header("location:https://sacha-eghiazarian.fr/login");
             return;
         }
     ?>
@@ -22,23 +22,23 @@
                 <?php echo $_SESSION["name"]; ?> <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="http://localhost/portfolio/admin" class="element">
-                    <img src="http://localhost/portfolio/assets/image/homeIcon.png" alt="home icon"> Accueil
+                <a href="https://sacha-eghiazarian.fr/admin" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/homeIcon.png" alt="home icon"> Accueil
                 </a>
-                <a href="http://localhost/portfolio/admin/blog" class="element">
-                    <img src="http://localhost/portfolio/assets/image/blogIcon.png" alt="blog icon"> Blog
+                <a href="https://sacha-eghiazarian.fr/admin/blog" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/blogIcon.png" alt="blog icon"> Blog
                 </a>
-                <a href="http://localhost/portfolio/admin/texte" class="element">
-                    <img src="http://localhost/portfolio/assets/image/textIcon.png" alt="Text icon"> Texte
+                <a href="https://sacha-eghiazarian.fr/admin/texte" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/textIcon.png" alt="Text icon"> Texte
                 </a>
-                <a href="http://localhost/portfolio/admin/skills" class="element">
-                    <img src="http://localhost/portfolio/assets/image/skillsIcon.png" alt="skills icon"> Competences
+                <a href="https://sacha-eghiazarian.fr/admin/skills" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/skillsIcon.png" alt="skills icon"> Competences
                 </a>
-                <a href="http://localhost/portfolio/admin/projects" class="element">
-                    <img src="http://localhost/portfolio/assets/image/projectIcon.png" alt="project icon"> Projets
+                <a href="https://sacha-eghiazarian.fr/admin/projects" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/projectIcon.png" alt="project icon"> Projets
                 </a>
-                <a href="http://localhost/portfolio/admin/CV" class="element">
-                    <img src="http://localhost/portfolio/assets/image/cvIcon.png" alt="cv icon"> CV
+                <a href="https://sacha-eghiazarian.fr/admin/CV" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/cvIcon.png" alt="cv icon"> CV
                 </a>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <div id="notif-content" class="content">
                     <div class="header">
                         Notifications
-                        <img onclick="notificationCloseButton()" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                        <img onclick="notificationCloseButton()" class="close" src="https://sacha-eghiazarian.fr/assets/image/closeIcon.png" alt="croix fermante">
                     </div>
                     <div class="notification-content">
                         <!--  aucune notification -->
@@ -58,7 +58,7 @@
                             <div class="card-content">
                                 On s'en ballance
                             </div>
-                            <img onclick="removeNotif(1)" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                            <img onclick="removeNotif(1)" class="close" src="https://sacha-eghiazarian.fr/assets/image/closeIcon.png" alt="croix fermante">
                         </div>
                     </div>
                 </div>
@@ -66,10 +66,10 @@
             <div class="dropdown">
                 <button class="dropbtn"><?php echo $_SESSION["name"]; ?></button> <!-- Afficher name de l'utilisateur connecté -->
                 <div class="dropdown-content">
-                    <a href="http://localhost/portfolio/">Retour au site</a>
-                    <a href="http://localhost/portfolio/blog">Retour au blog</a>
+                    <a href="https://sacha-eghiazarian.fr/">Retour au site</a>
+                    <a href="https://sacha-eghiazarian.fr/blog">Retour au blog</a>
                     <a href="#">Messages</a>
-                    <form action="http://localhost/portfolio/logout" method="POST">
+                    <form action="https://sacha-eghiazarian.fr/logout" method="POST">
                         <input type="submit" value="Deconnexion">
                     </form>
                 </div>
@@ -82,7 +82,7 @@
                         <div class="card-title">Nouvel article</div>
                     </div>
                     <div class="card-body">
-                        <form action="http://localhost/portfolio/admin/blog/store" method="POST" enctype="multipart/form-data">
+                        <form action="https://sacha-eghiazarian.fr/admin/blog/store" method="POST" enctype="multipart/form-data">
                             <div class="form-content">
                                <div class="scrolleur">
                                 <label for="name">Nom de l'article</label>
@@ -91,7 +91,7 @@
                                     <div class="typeSelector">
                                         <select name="type">
                                             <?php 
-                                                $rqt = "SELECT * FROM Categorie;";
+                                                $rqt = "SELECT * FROM categorie;";
                                                 $types = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                                                 if(!is_null($types)){
                                                     foreach($types as $type){
@@ -119,7 +119,7 @@
                                         <label for="subName-1" class="label">Sous titre paragraphe 1</label>
                                         <input type="text" name="subName-1">
                                         <div id="description-label-1" class="toggler">
-                                            <img class="expend toggle" src="http://localhost/portfolio/assets/image/ArrowIcon.png">
+                                            <img class="expend toggle" src="https://sacha-eghiazarian.fr/assets/image/ArrowIcon.png">
                                             <label for="description-1">Description (paragraphe) 1</label>
                                         </div>
                                         <textarea id="description-textarea-1" name="description-1"></textarea>
@@ -134,9 +134,9 @@
                                </div>
                             </div>
                             <div class="descriptionButton">
-                                <img id="addDesc" src="http://localhost/portfolio/assets/image/CirclePlus.png" alt="Add a description">
+                                <img id="addDesc" src="https://sacha-eghiazarian.fr/assets/image/CirclePlus.png" alt="Add a description">
                                 <img id="removeDesc" style="display: none;"
-                                    src="http://localhost/portfolio/assets/image/minus.png" alt="Remove a description">
+                                    src="https://sacha-eghiazarian.fr/assets/image/minus.png" alt="Remove a description">
                             </div>
                             <input class="create" type="submit" name="create" value="Créer">
                         </form>
@@ -145,8 +145,8 @@
             </div>
         </main>
     </header>
-    <script src="http://localhost/portfolio/assets/script/notification.js"></script>
-    <script src="http://localhost/portfolio/assets/script/AddDescription.js"></script>
-    <script src="http://localhost/portfolio/assets/script/addKeywords.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/notification.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/AddDescription.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/addKeywords.js"></script>
 </body>
 </html>

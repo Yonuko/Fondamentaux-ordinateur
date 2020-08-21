@@ -1,5 +1,6 @@
 let selectors = document.getElementsByClassName("selectItem");
 let posts = document.getElementsByClassName("project");
+let projectPhones = document.getElementsByClassName("phone");
 let subSelectors = document.getElementsByClassName("subSelector");
 let projectLists = document.getElementsByClassName("project-list");
 let selection = "none";
@@ -22,10 +23,12 @@ for(let i = 0; i < selectors.length; i++){
 ChangeSelection();
 
 function ChangeSelection(){
+    // Supprime l'affichage de tous les sous type
     for(let i = 0; i < subSelectors.length; i++){
         subSelectors[i].style.display = "none";
     }
     if(selection !== "none"){
+        // On desactive tous les posts
         for(let i = 0; i < posts.length; i++){
             posts[i].style.display = "none";
         }
@@ -64,6 +67,17 @@ function ChangeSelection(){
         }
         for(let i = 0; i < projectLists.length; i++){
             projectLists[i].style.display = "flex";
+        }
+    }
+    if(window.innerWidth > 950){
+        for(let i = 0; i < projectPhones.length; i++){
+            projectPhones[i].style.display = "none";
+        }
+    }else{
+        for(let i = 0; i < projectLists.length; i++){
+            if(!projectLists[i].classList.contains("phone")){
+                projectLists[i].style.display = "none";
+            }
         }
     }
 }

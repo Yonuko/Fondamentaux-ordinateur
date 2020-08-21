@@ -13,7 +13,7 @@
 
     if(is_null($passwordHash)){
         $_SESSION["misstake"] = "login";
-        header("Location:http://localhost/portfolio/login");
+        header("Location:https://sacha-eghiazarian.fr/login");
         return;
     }
 
@@ -29,10 +29,14 @@
             $rqt = "SELECT user_id FROM users WHERE email = ?;";
             $_SESSION["id"] = sendRequest($rqt, [$requestParam["login"]], PDO::FETCH_NUM)[0][0];
         }
-        header("Location:http://localhost/portfolio/admin");
+        if(isset($_SESSION["url"]) && !is_null($_SESSION["url"])){
+            header("Location:https://sacha-eghiazarian.fr" . $_SESSION["url"]);
+        }else{
+            header("Location:https://sacha-eghiazarian.fr/admin");
+        }
         return;
     }else{
         $_SESSION["misstake"] = "password";
-        header("Location:http://localhost/portfolio/login");
+        header("Location:https://sacha-eghiazarian.fr/login");
         return;
     }

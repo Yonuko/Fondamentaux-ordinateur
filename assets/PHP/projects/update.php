@@ -18,19 +18,19 @@ if(isset($data["addNewType"])){
             sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
         }
     }
-    header("Location:http://localhost/portfolio/admin/projects/$id");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/$id");
     return;
 }
 
 if(isset($data["delType"])){
     $rqt = "DELETE FROM project_type WHERE name = ?;";
     sendRequest($rqt, [$data["type"]], PDO::FETCH_ASSOC);
-    header("Location:http://localhost/portfolio/admin/projects/$id");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/$id");
     return;
 }
 
 if(!isset($data["type-1"])){
-    header("Location:http://localhost/portfolio/admin/projects/$id");
+    header("Location:https://sacha-eghiazarian.fr/admin/projects/$id");
     return;
 }
 
@@ -39,7 +39,7 @@ if(!isset($data["type-1"])){
 if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     $filename = "";
 
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Projets/";
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/Uploads/Projets/";
     $target_file = $target_dir . basename($_FILES["logo"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -64,7 +64,7 @@ if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.<br>";
-        header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id");
+        header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/projects/$id");
         return;
     // if everything is ok, try to upload file
     } else {
@@ -73,7 +73,7 @@ if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
             $filename = basename( $_FILES["logo"]["name"]);
         } else {
             echo "Sorry, there was an error uploading your file.<br>";
-            header("Refresh:3;url=http://localhost/portfolio/admin/projects/$id");
+            header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/projects/$id");
             return;
         }
     }
@@ -118,4 +118,4 @@ if($i <= $descriptionCount){
     sendRequest($rqt, [$id, $i], PDO::FETCH_NUM);
 }
 
-header("Location:http://localhost/portfolio/admin/projects");
+header("Location:https://sacha-eghiazarian.fr/admin/projects");

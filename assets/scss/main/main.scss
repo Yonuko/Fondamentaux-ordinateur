@@ -105,7 +105,7 @@ header{
             cursor: pointer;
 
             span{
-                background-image: url("http://localhost/portfolio/assets/image/projects/project.jpg");
+                background-image: url("https://sacha-eghiazarian.fr/assets/image/projects/project.jpg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -328,6 +328,14 @@ footer{
 }
 
 @media (max-width: 430px){
+    header{
+        .menu{
+            a{
+                font-size: 36px;
+            }
+        }
+    }
+
     main{
         .project{
             .project-list{
@@ -341,14 +349,6 @@ footer{
 }
 
 @media (max-width: 360px){
-    header{
-        .menu{
-            a{
-                font-size: 42px;
-            }
-        }
-    }
-
     main{
         .project{
             .project-list{
@@ -362,7 +362,7 @@ footer{
     
     footer{
         .menu{
-            width: 90%;
+            width: 85%;
         }
     }
 }
@@ -371,7 +371,7 @@ footer{
     header{
         .menu{
             a{
-                font-size: 38px;
+                font-size: 32px;
             }
         }
     }

@@ -44,7 +44,7 @@ class Router
             array_push($this->dynamicRoutes, $result);
         }
         if ($result === '') {
-            return 'portfolio';
+            return '/';
         }
         return $result;
     }
@@ -57,7 +57,7 @@ class Router
 
     private function defaultRequestHandler()
     {
-        include_once($_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/vues/site/404.php");
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/assets/vues/site/404.php");
         http_response_code(404);
     }
 

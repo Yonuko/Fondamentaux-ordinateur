@@ -1,17 +1,17 @@
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/error.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/error.css">
 </head>
 <body>
     <header>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
@@ -27,18 +27,18 @@
     </main>
     <footer>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
     </footer>
-    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/burger.js"></script>
 </body>
 </html>

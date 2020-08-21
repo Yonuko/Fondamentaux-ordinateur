@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/accueil.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/accueil.css">
     <title>Portfolio Sacha EGHIAZARIAN - Accueil</title>
 </head>
 <body>
     <header>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
@@ -35,19 +35,19 @@
                 <span>Présentation</span>
                 <div class="pres">
                     <?php 
-                        $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 1;", [], PDO::FETCH_NUM)[0][0];
+                        $text = sendRequest("SELECT text FROM dinamictexts WHERE id = 1;", [], PDO::FETCH_NUM)[0][0];
                         echo html_entity_decode($text);
                     ?>
                 </div>
-                <a class="button" href="http://localhost/portfolio/skills">Mes compétences</a>
+                <a class="button" href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
             </section>
         </section>
 
         <section class="quote">
-            <img id="quote" src="http://localhost/portfolio/assets/image/site/quote.JPG" alt="quote icon"><br>
+            <img id="quote" src="https://sacha-eghiazarian.fr/assets/image/site/quote.JPG" alt="quote icon"><br>
             <div class="quote-text">
                 <?php 
-                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 2;", [], PDO::FETCH_NUM)[0][0];
+                    $text = sendRequest("SELECT text FROM dinamictexts WHERE id = 2;", [], PDO::FETCH_NUM)[0][0];
                     echo html_entity_decode($text);
                 ?>
             </div>
@@ -57,12 +57,12 @@
             <h2>Mon blog</h2>
             <p>
                 <?php 
-                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 3;", [], PDO::FETCH_NUM)[0][0];
+                    $text = sendRequest("SELECT text FROM dinamictexts WHERE id = 3;", [], PDO::FETCH_NUM)[0][0];
                     echo html_entity_decode($text);
                 ?>
             </p>
             <br>
-            <a class="button" href="http://localhost/portfolio/blog">En savoir plus</a>
+            <a class="button" href="https://sacha-eghiazarian.fr/blog">En savoir plus</a>
         </section>
 
         <section class="project">
@@ -74,9 +74,9 @@
                     foreach($projects as $project){
                         extract($project);
                         echo "
-                        <div class='project-item' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                        <div class='project-item' onclick=\"location.href = 'https://sacha-eghiazarian.fr/projects/$project_id'\">
                             <span class='image' 
-                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                            style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo');\"></span>
                             <p>$name</p>
                         </div>
                         ";
@@ -87,18 +87,18 @@
     </main>
     <footer>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
     </footer>
-    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/burger.js"></script>
 </body>
 </html>

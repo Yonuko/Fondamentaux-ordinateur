@@ -30,13 +30,22 @@ main .Latest-post {
       font-size: 18px;
       height: 100%;
       overflow: hidden; }
+    main .Latest-post .latest-post-message .button {
+      background-color: #62a0c3;
+      margin: 20px 0;
+      height: 100px; }
+      main .Latest-post .latest-post-message .button:hover {
+        background-color: white;
+        border: #242b2e solid 0.5px;
+        color: #227093;
+        font-size: 20px; }
   main .Latest-post .latest-post-image {
     margin-top: 50px;
     margin-bottom: -10px;
     width: 40%;
     height: 100%;
     margin-right: 5%;
-    background-image: url("http://localhost/portfolio/assets/image/Uploads/Blog/project.jpg");
+    background-image: url("https://sacha-eghiazarian.fr/assets/image/Uploads/Blog/project.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -79,7 +88,7 @@ main .articles {
       main .articles .posts .post p {
         color: #797979; }
       main .articles .posts .post .post-icon {
-        background-image: url("http://localhost/portfolio/assets/image/Uploads/Blog/test.jpg");
+        background-image: url("https://sacha-eghiazarian.fr/assets/image/Uploads/Blog/test.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -115,7 +124,9 @@ main .posts.dark {
       margin-right: 0;
       margin-bottom: 0;
       width: 50%;
-      height: 80%; } }
+      height: 80%; }
+  main .Selector .selectItem {
+    font-size: 38px; } }
 @media (max-width: 900px) {
   main .articles .posts {
     flex-wrap: wrap;
@@ -128,14 +139,24 @@ main .posts.dark {
     main .articles .posts .post:last-child {
       align-self: unset; }
     main .articles .posts .post:nth-child(2) {
-      align-self: unset; } }
+      align-self: unset; }
+  main .Selector .selectItem {
+    font-size: 32px; } }
+@media (max-width: 700px) {
+  main .Selector .selectItem {
+    font-size: 28px;
+    margin-right: 20px; } }
 @media (max-width: 650px) {
   main .Latest-post {
     padding-left: 50px; }
     main .Latest-post .latest-post-message span {
-      font-size: 38px; }
+      font-size: 28px; }
     main .Latest-post .latest-post-message p {
-      width: 90%; } }
+      width: 90%; }
+  main .articles .posts .post .post-title {
+    font-size: 28px; }
+  main .articles .posts.dark .post .post-title {
+    font-size: 28px; } }
 @media (max-width: 550px) {
   main .Latest-post {
     justify-content: space-between; }
@@ -144,13 +165,36 @@ main .posts.dark {
       height: 60%; }
     main .Latest-post .latest-post-message p {
       font-size: 16px;
-      width: 98%; } }
+      width: 98%; }
+  main .Selector {
+    flex-direction: column; }
+    main .Selector .selectItem {
+      font-size: 28px;
+      margin-right: 0;
+      margin-top: 20px; } }
 @media (max-width: 450px) {
   main .title h1 {
     font-size: 52px; }
   main .Latest-post {
     padding-left: 20px; }
     main .Latest-post .latest-post-message p {
-      font-size: 15px; } }
+      font-size: 15px; }
+  main .Selector {
+    flex-direction: column; }
+    main .Selector .selectItem {
+      font-size: 28px;
+      margin-right: 0;
+      margin-top: 20px; }
+  main .articles .posts .post .post-title {
+    font-size: 20px; }
+  main .articles .posts.dark .post .post-title {
+    font-size: 20px; } }
+@media (max-width: 350px) {
+  main .Latest-post .latest-post-message span {
+    font-size: 22px; }
+  main .Selector {
+    flex-direction: column; }
+    main .Selector .selectItem {
+      font-size: 24px; } }
 
 /*# sourceMappingURL=blog.css.map */

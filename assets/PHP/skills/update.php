@@ -19,4 +19,4 @@ foreach($skillNames as $skillName){
     }
 }
 
-header("Location:http://localhost/portfolio/admin/skills");
+header("Location:https://sacha-eghiazarian.fr/admin/skills");

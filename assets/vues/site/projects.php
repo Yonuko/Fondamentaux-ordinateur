@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/main.css">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Site/projects.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/projects.css">
     <title>Portfolio Sacha EGHIAZARIAN - Projets</title>
 </head>
 <body>
     <header>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
@@ -31,16 +31,16 @@
         </section>
         <section class="Latest-project">
             <?php 
-                $rqt = "SELECT * FROM projects ORDER BY project_id DESC LIMIT 1;";
+                $rqt = "SELECT * FROM projects WHERE isShown = true ORDER BY project_id DESC LIMIT 1;";
                 $latest_project = sendRequest($rqt, [], PDO::FETCH_ASSOC)[0];
                 extract($latest_project);
                 echo "
                 <span class='latest-project-image' 
-                style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo')\"></span>
+                style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo')\"></span>
                 <div class='latest-project-message'>
                     <span>$name</span>
                     <div class='description'>" . html_entity_decode($presentation) . "</div>
-                    <a href='http://localhost/portfolio/projects/$project_id' class='button'>Voir le projet</a>
+                    <a href='https://sacha-eghiazarian.fr/projects/$project_id' class='button'>Voir le projet</a>
                 </div>
                 ";
             ?>
@@ -100,9 +100,9 @@
                         echo " " . str_replace(' ', '_', $type["name"]);
                     }
                     echo "' ";
-                    echo "onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                    echo "onclick=\"location.href = 'https://sacha-eghiazarian.fr/projects/$project_id'\">
                         <span class='project-icon' 
-                        style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                        style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo');\"></span>
                         <span class='project-title'>$name</span>
                         <div class='description'>" . html_entity_decode($presentation) . "</div>
                     </div>
@@ -129,9 +129,17 @@
                         echo "<div class='project-list phone'>";
                     }
                     echo "
-                    <div class='project' onclick=\"location.href = 'http://localhost/portfolio/projects/$project_id'\">
+                    <div class='project";
+                    $rqt = "SELECT t.name FROM project_types pt INNER JOIN project_type t INNER JOIN projects p ON
+                    p.project_id = pt.project_id AND t.project_type_id = pt.project_type_id WHERE p.project_id = ?;";
+                    $types = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC);
+                    foreach($types as $type){
+                        echo " " . str_replace(' ', '_', $type["name"]);
+                    }
+                    echo "' ";
+                    echo "onclick=\"location.href = 'https://sacha-eghiazarian.fr/projects/$project_id'\">
                         <span class='project-icon' 
-                        style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Projets/$logo');\"></span>
+                        style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo');\"></span>
                         <span class='project-title'>$name</span>
                         <div class='description'>" . html_entity_decode($presentation) . "</div>
                     </div>
@@ -145,11 +153,11 @@
             <h2>Mes articles</h2>
             <div class="text">
                 <?php 
-                    $text = sendRequest("SELECT text FROM dinamicTexts WHERE id = 5;", [], PDO::FETCH_NUM)[0][0];
+                    $text = sendRequest("SELECT text FROM dinamictexts WHERE id = 5;", [], PDO::FETCH_NUM)[0][0];
                     echo html_entity_decode($text);
                 ?>
             </div>
-            <a class="button" href="http://localhost/portfolio/blog">Mon blog</a>
+            <a class="button" href="https://sacha-eghiazarian.fr/blog">Mon blog</a>
             <div class="posts-list">
                 <?php 
                     $rqt = "SELECT * from posts WHERE isShown = 1 LIMIT 3;";
@@ -157,9 +165,9 @@
                     foreach($posts as $post){
                         extract($post);
                         echo "
-                        <div class='posts-item' onclick=\"location.href = 'http://localhost/portfolio/post/$post_id'\">
+                        <div class='posts-item' onclick=\"location.href = 'https://sacha-eghiazarian.fr/post/$post_id'\">
                             <span class='image' 
-                            style=\"background-image: url('http://localhost/portfolio/assets/image/Uploads/Blog/$logo');\"></span>
+                            style=\"background-image: url('https://sacha-eghiazarian.fr/assets/image/Uploads/Blog/$logo');\"></span>
                             <p>$name</p>
                         </div>
                         ";
@@ -170,19 +178,19 @@
     </main>
     <footer>
         <div class="menu">
-            <a href="http://localhost/portfolio">Accueil</a>
-            <a href="http://localhost/portfolio/blog">Blog</a>
-            <a href="http://localhost/portfolio/projects">Mes projets</a>
-            <a href="http://localhost/portfolio/skills">Mes compétences</a>
-            <a href="http://localhost/portfolio/contact">Contact</a>
+            <a href="https://sacha-eghiazarian.fr">Accueil</a>
+            <a href="https://sacha-eghiazarian.fr/blog">Blog</a>
+            <a href="https://sacha-eghiazarian.fr/projects">Mes projets</a>
+            <a href="https://sacha-eghiazarian.fr/skills">Mes compétences</a>
+            <a href="https://sacha-eghiazarian.fr/contact">Contact</a>
             <?php 
                 if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-                    echo("<a href='http://localhost/portfolio/admin'>Admin</a>");
+                    echo("<a href='https://sacha-eghiazarian.fr/admin'>Admin</a>");
                 }
             ?>
         </div>
     </footer>
-    <script src="http://localhost/portfolio/assets/script/burger.js"></script>
-    <script src="http://localhost/portfolio/assets/script/projectSelector.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/burger.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/ProjectSelector.js"></script>
 </body>
 </html>

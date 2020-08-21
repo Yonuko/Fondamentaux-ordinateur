@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/login.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Admin/login.css">
     <title>Admin - login</title>
 </head>
 <body>
 
     <?php
         if(isset($_SESSION["name"]) && isset($_SESSION["id"])){
-            header("location:http://localhost/portfolio/admin");
+            header("location:https://sacha-eghiazarian.fr/admin");
             return;
         }
     ?>
 
-    <form action="http://localhost/portfolio/login" method="POST">
+    <form action="https://sacha-eghiazarian.fr/login" method="POST">
         <?php 
             if(isset($_SESSION["misstake"])){
                 echo "<div class='error'>" . $_SESSION["misstake"] . " incorrect</div>";

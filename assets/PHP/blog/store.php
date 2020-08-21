@@ -8,14 +8,14 @@ if(isset($data["addNewType"])){
         $rqt = "INSERT INTO categorie VALUES (null, ?);";
         sendRequest($rqt, [$data["newType"]], PDO::FETCH_ASSOC);
     }
-    header("Location:http://localhost/portfolio/admin/blog/create");
+    header("Location:https://sacha-eghiazarian.fr/admin/blog/create");
     return;
 }
 
 if(isset($data["delType"])){
     $rqt = "DELETE FROM categorie WHERE name = ?;";
     sendRequest($rqt, [$data["type"]], PDO::FETCH_ASSOC);
-    header("Location:http://localhost/portfolio/admin/blog/create");
+    header("Location:https://sacha-eghiazarian.fr/admin/blog/create");
     return;
 }
 
@@ -23,7 +23,7 @@ if(isset($data["delType"])){
 
 $filename = "";
 
-$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/portfolio/assets/image/Uploads/Blog/";
+$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/Uploads/Blog/";
 $target_file = $target_dir . basename($_FILES["logo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -48,7 +48,7 @@ if (file_exists($target_file)) {
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.<br>";
-    header("Refresh:3;url=http://localhost/portfolio/admin/blog/create");
+    header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/blog/create");
     return;
 // if everything is ok, try to upload file
 } else {
@@ -57,14 +57,14 @@ if ($uploadOk == 0) {
         $filename = basename( $_FILES["logo"]["name"]);
     } else {
         echo "Sorry, there was an error uploading your file.<br>";
-        header("Refresh:3;url=http://localhost/portfolio/admin/blog/create");
+        header("Refresh:3;url=https://sacha-eghiazarian.fr/admin/blog/create");
         return;
     }
 }
 
 $categorie_id = sendRequest("SELECT category_id FROM categorie WHERE name = ?;", [$data['type']], PDO::FETCH_NUM)[0][0];
 
-$rqt = "INSERT INTO posts VALUES (null, ?, ?, ?, 0, ?, null, 0, ?);";
+$rqt = "INSERT INTO posts VALUES (null, ?, ?, ?, 0, ?, null, 0, ?, 0);";
 sendRequest($rqt, [
     $categorie_id,
     $data["name"], 
@@ -96,4 +96,4 @@ while(isset($data["description-$i"])){
     $i++;
 }
 
-header("Location:http://localhost/portfolio/admin/blog");
+header("Location:https://sacha-eghiazarian.fr/admin/blog");

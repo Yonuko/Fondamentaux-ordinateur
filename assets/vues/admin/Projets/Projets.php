@@ -8,7 +8,7 @@
     <title>Admin - projets</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
-            header("location:http://localhost/portfolio/login");
+            header("location:https://sacha-eghiazarian.fr/login");
             return;
         }
     ?>
@@ -21,30 +21,30 @@
                 <?php echo $_SESSION["name"]; ?> <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="http://localhost/portfolio/admin" class="element">
-                    <img src="http://localhost/portfolio/assets/image/homeIcon.png" alt="home icon"> Accueil
+                <a href="https://sacha-eghiazarian.fr/admin" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/homeIcon.png" alt="home icon"> Accueil
                 </a>
-                <a href="http://localhost/portfolio/admin/blog" class="element">
-                    <img src="http://localhost/portfolio/assets/image/blogIcon.png" alt="blog icon"> Blog
+                <a href="https://sacha-eghiazarian.fr/admin/blog" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/blogIcon.png" alt="blog icon"> Blog
                 </a>
-                <a href="http://localhost/portfolio/admin/texte" class="element">
-                    <img src="http://localhost/portfolio/assets/image/textIcon.png" alt="Text icon"> Texte
+                <a href="https://sacha-eghiazarian.fr/admin/texte" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/textIcon.png" alt="Text icon"> Texte
                 </a>
-                <a href="http://localhost/portfolio/admin/skills" class="element">
-                    <img src="http://localhost/portfolio/assets/image/skillsIcon.png" alt="skills icon"> Competences
+                <a href="https://sacha-eghiazarian.fr/admin/skills" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/skillsIcon.png" alt="skills icon"> Competences
                 </a>
-                <a href="http://localhost/portfolio/admin/projects" class="element">
-                    <img src="http://localhost/portfolio/assets/image/projectIcon.png" alt="project icon"> Projets
+                <a href="https://sacha-eghiazarian.fr/admin/projects" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/projectIcon.png" alt="project icon"> Projets
                 </a>
-                <a href="http://localhost/portfolio/admin/CV" class="element">
-                    <img src="http://localhost/portfolio/assets/image/cvIcon.png" alt="cv icon"> CV
+                <a href="https://sacha-eghiazarian.fr/admin/CV" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/cvIcon.png" alt="cv icon"> CV
                 </a>
             </div>
         </div>
 
         <div class="secondary-menu">
             <div class="manageMenu">
-                <form action="http://localhost/portfolio/admin/projects/create" method="get">
+                <form action="https://sacha-eghiazarian.fr/admin/projects/create" method="get">
                     <button class="add">Ajouter</button>
                 </form>
             </div>
@@ -71,10 +71,10 @@
                 <div class="dropdown">
                     <button class="dropbtn"><?php echo $_SESSION["name"]; ?></button> <!-- Afficher name de l'utilisateur connecté -->
                     <div class="dropdown-content">
-                        <a href="http://localhost/portfolio/">Retour au site</a>
-                        <a href="http://localhost/portfolio/blog">Retour au blog</a>
+                        <a href="https://sacha-eghiazarian.fr/">Retour au site</a>
+                        <a href="https://sacha-eghiazarian.fr/blog">Retour au blog</a>
                         <a href="#">Messages</a>
-                        <form action="http://localhost/portfolio/logout" method="POST">
+                        <form action="https://sacha-eghiazarian.fr/logout" method="POST">
                             <input type="submit" value="Deconnexion">
                         </form>
                     </div>
@@ -98,7 +98,7 @@
                 <div class="card webSite-info">
                     <div class="card-body">
                         <img src="../assets/image/pagesViewed.png" alt="Messages count icon">
-                        42 vues cette semaine
+                        <?php echo sendRequest("SELECT SUM(views_semaine) FROM projects;", [], PDO::FETCH_NUM)[0][0] ?> vues cette semaine
                     </div>
                 </div>
                 <div class="card webSite-info">
@@ -119,7 +119,7 @@
                     </div>
                     <div class="card-body">
                         <?php 
-                            $rqt = "SELECT * FROM projects;";
+                            $rqt = "SELECT * FROM projects ORDER BY views_semaine DESC;";
                             $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
                             if(!is_null($projects)){  
                                 foreach($projects as $project){
@@ -129,24 +129,24 @@
                                     $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
                                     echo "<div class='card'>
                                     <div class='card-body'>
-                                        <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
+                                        <img src='https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
                                         <div>$type</div>
-                                        <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
+                                        <div>vues semaine: $views_semaine</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>";
                                         if($isShown){
                                             echo "<input style='cursor: pointer;'
-                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\" 
+                                            onclick=\"location.href = 'https://sacha-eghiazarian.fr/admin/projects/$project_id/active'\" 
                                             type='checkbox' value='visible' checked>";
                                         }else{
                                             echo "<input style='cursor: pointer;'
-                                            onclick=\"location.href = 'http://localhost/portfolio/admin/projects/$project_id/active'\"
+                                            onclick=\"location.href = 'https://sacha-eghiazarian.fr/admin/projects/$project_id/active'\"
                                             type='checkbox' value='visible'>";
                                         }
-                                        echo "<img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
-                                        src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id/delete'\"
-                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
+                                        echo "<img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/projects/$project_id'\"
+                                        src='https://sacha-eghiazarian.fr/assets/image/edit.png' alt='Edit Icon'>
+                                        <img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/projects/$project_id/delete'\"
+                                        src='https://sacha-eghiazarian.fr/assets/image/delete.png' alt='Delete Icon'>
                                     </div>
                                 </div>";
                                 }

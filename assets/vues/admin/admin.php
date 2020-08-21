@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/portfolio/assets/style/Admin/admin.css">
+    <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Admin/admin.css">
     <title>Admin - accueil</title>
     <?php
         if(!isset($_SESSION["name"]) || !isset($_SESSION["id"])){
-            header("location:http://localhost/portfolio/login");
+            header("location:https://sacha-eghiazarian.fr/login");
             return;
         }
     ?>
@@ -20,23 +20,23 @@
                 <?php echo $_SESSION["name"]; ?> <!-- Afficher name de l'utilisateur connecté -->
             </div>
             <div class="menu-button">
-                <a href="http://localhost/portfolio/admin" class="element">
-                    <img src="http://localhost/portfolio/assets/image/homeIcon.png" alt="home icon"> Accueil
+                <a href="https://sacha-eghiazarian.fr/admin" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/homeIcon.png" alt="home icon"> Accueil
                 </a>
-                <a href="http://localhost/portfolio/admin/blog" class="element">
-                    <img src="http://localhost/portfolio/assets/image/blogIcon.png" alt="blog icon"> Blog
+                <a href="https://sacha-eghiazarian.fr/admin/blog" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/blogIcon.png" alt="blog icon"> Blog
                 </a>
-                <a href="http://localhost/portfolio/admin/texte" class="element">
-                    <img src="http://localhost/portfolio/assets/image/textIcon.png" alt="Text icon"> Texte
+                <a href="https://sacha-eghiazarian.fr/admin/texte" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/textIcon.png" alt="Text icon"> Texte
                 </a>
-                <a href="http://localhost/portfolio/admin/skills" class="element">
-                    <img src="http://localhost/portfolio/assets/image/skillsIcon.png" alt="skills icon"> Competences
+                <a href="https://sacha-eghiazarian.fr/admin/skills" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/skillsIcon.png" alt="skills icon"> Competences
                 </a>
-                <a href="http://localhost/portfolio/admin/projects" class="element">
-                    <img src="http://localhost/portfolio/assets/image/projectIcon.png" alt="project icon"> Projets
+                <a href="https://sacha-eghiazarian.fr/admin/projects" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/projectIcon.png" alt="project icon"> Projets
                 </a>
-                <a href="http://localhost/portfolio/admin/CV" class="element">
-                    <img src="http://localhost/portfolio/assets/image/cvIcon.png" alt="cv icon"> CV
+                <a href="https://sacha-eghiazarian.fr/admin/CV" class="element">
+                    <img src="https://sacha-eghiazarian.fr/assets/image/cvIcon.png" alt="cv icon"> CV
                 </a>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div id="notif-content" class="content">
                     <div class="header">
                         Notifications
-                        <img onclick="notificationCloseButton()" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                        <img onclick="notificationCloseButton()" class="close" src="https://sacha-eghiazarian.fr/assets/image/closeIcon.png" alt="croix fermante">
                     </div>
                     <div class="notification-content">
                        <!--  aucune notification -->
@@ -56,7 +56,7 @@
                            <div class="card-content">
                                 On s'en ballance
                            </div>
-                           <img onclick="removeNotif(1)" class="close" src="http://localhost/portfolio/assets/image/closeIcon.png" alt="croix fermante">
+                           <img onclick="removeNotif(1)" class="close" src="https://sacha-eghiazarian.fr/assets/image/closeIcon.png" alt="croix fermante">
                        </div>
                     </div>
                 </div>
@@ -64,10 +64,10 @@
             <div class="dropdown">
                 <button class="dropbtn"><?php echo $_SESSION["name"]; ?></button> <!-- Afficher name de l'utilisateur connecté -->
                 <div class="dropdown-content">
-                    <a href="http://localhost/portfolio/">Retour au site</a>
-                    <a href="http://localhost/portfolio/blog">Retour au blog</a>
+                    <a href="https://sacha-eghiazarian.fr/">Retour au site</a>
+                    <a href="https://sacha-eghiazarian.fr/blog">Retour au blog</a>
                     <a href="#">Messages</a>
-                    <form action="http://localhost/portfolio/logout" method="POST">
+                    <form action="https://sacha-eghiazarian.fr/logout" method="POST">
                         <input type="submit" value="Deconnexion">
                     </form>
                 </div>
@@ -78,20 +78,20 @@
                 <!-- First row where there are showed the web site infos -->
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/Messages.png" alt="Messages count icon">
-                        12 nouveaux messages
+                        <img src="https://sacha-eghiazarian.fr/assets/image/Messages.png" alt="Messages count icon">
+                        0 nouveaux messages
                     </div>
                 </div>
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/pagesViewed.png" alt="Messages count icon">
-                        42 pages vues
+                        <img src="https://sacha-eghiazarian.fr/assets/image/pagesViewed.png" alt="Messages count icon">
+                        <?php echo sendRequest("SELECT SUM(views) FROM utilisateurs;", [], PDO::FETCH_NUM)[0][0] ?> pages vues
                     </div>
                 </div>
                 <div class="card webSite-info">
                     <div class="card-body">
-                        <img src="http://localhost/portfolio/assets/image/Users.png" alt="Messages count icon">
-                        10 utilisateurs
+                        <img src="https://sacha-eghiazarian.fr/assets/image/Users.png" alt="Messages count icon">
+                        <?php echo sendRequest("SELECT count(*) FROM utilisateurs;", [], PDO::FETCH_NUM)[0][0] ?> utilisateurs
                     </div>
                 </div>
                 <!-- Card of projects and skills -->
@@ -99,39 +99,39 @@
                     <div class="card-header">
                         <div class="card-title">Projets</div>
                         <div>
-                            <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
-                            onclick="location.href = 'http://localhost/portfolio/admin/projects'">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/refresh.png" alt="Refresh icon">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'https://sacha-eghiazarian.fr/admin/projects'">
                         </div>
                     </div>
                     <div class="card-body">
                     <?php 
-                            $rqt = "SELECT * FROM projects;";
-                            $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
-                            if(!is_null($projects)){  
-                                foreach($projects as $project){
-                                    extract($project);
-                                    $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
-                                    ON pt.project_type_id = p.project_type_id WHERE project_id = ? LIMIT 1;";
-                                    $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
-                                    echo "<div class='card'>
-                                    <div class='card-body'>
-                                        <img src='http://localhost/portfolio/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
-                                        <div>$name</div>
-                                        <div>$type</div>
-                                        <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
-                                        <div>vues totales: $views</div>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id'\"
-                                        src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/projects/$project_id/delete'\"
-                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
-                                    </div>
-                                </div>";
-                                }
-                            }else{
-                                echo "<p style='text-align: center;'>Aucun projet disponible, veuillez en créer un</p>";
+                        $rqt = "SELECT * FROM projects;";
+                        $projects = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                        if(!is_null($projects)){  
+                            foreach($projects as $project){
+                                extract($project);
+                                $rqt = "SELECT name FROM project_type p INNER JOIN project_types pt 
+                                ON pt.project_type_id = p.project_type_id WHERE project_id = ? LIMIT 1;";
+                                $type = sendRequest($rqt, [$project_id], PDO::FETCH_ASSOC)[0]["name"];
+                                echo "<div class='card'>
+                                <div class='card-body'>
+                                    <img src='https://sacha-eghiazarian.fr/assets/image/Uploads/Projets/$logo' alt='Icon du projet $name'>
+                                    <div>$name</div>
+                                    <div>$type</div>
+                                    <div>vues semaine: $views_semaine</div> <!-- Remplacer par le nombre de vues de cette semaine -->
+                                    <div>vues totales: $views</div>
+                                    <img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/projects/$project_id'\"
+                                    src='https://sacha-eghiazarian.fr/assets/image/edit.png' alt='Edit Icon'>
+                                    <img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/projects/$project_id/delete'\"
+                                    src='https://sacha-eghiazarian.fr/assets/image/delete.png' alt='Delete Icon'>
+                                </div>
+                            </div>";
                             }
-                        ?>
+                        }else{
+                            echo "<p style='text-align: center;'>Aucun projet disponible, veuillez en créer un</p>";
+                        }
+                    ?>
                     </div>
                 </div>
 
@@ -139,9 +139,9 @@
                     <div class="card-header">
                         <div class="card-title">Blog</div>
                         <div>
-                            <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
-                            onclick="location.href = 'http://localhost/portfolio/admin/blog'">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/refresh.png" alt="Refresh icon">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'https://sacha-eghiazarian.fr/admin/blog'">
                         </div>
                     </div>
                     <div class="card-body">
@@ -153,15 +153,15 @@
                                     extract($post);
                                     echo "<div class='card'>
                                     <div class='card-body'>
-                                        <img src='http://localhost/portfolio/assets/image/Uploads/Blog/$logo' alt='Icon du projet $name'>
+                                        <img src='https://sacha-eghiazarian.fr/assets/image/Uploads/Blog/$logo' alt='Icon du projet $name'>
                                         <div>$name</div>
                                         <div>Dev</div>
-                                        <div>vues semaine: 4</div> <!-- Remplacer par le nombre de vues de cette semaine -->
+                                        <div>vues semaine: $views_semaine</div> <!-- Remplacer par le nombre de vues de cette semaine -->
                                         <div>vues totales: $views</div>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id'\"
-                                        src='http://localhost/portfolio/assets/image/edit.png' alt='Edit Icon'>
-                                        <img class='edit' onclick=\"window.location = 'http://localhost/portfolio/admin/blog/$post_id/delete'\"
-                                        src='http://localhost/portfolio/assets/image/delete.png' alt='Delete Icon'>
+                                        <img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/blog/$post_id'\"
+                                        src='https://sacha-eghiazarian.fr/assets/image/edit.png' alt='Edit Icon'>
+                                        <img class='edit' onclick=\"window.location = 'https://sacha-eghiazarian.fr/admin/blog/$post_id/delete'\"
+                                        src='https://sacha-eghiazarian.fr/assets/image/delete.png' alt='Delete Icon'>
                                     </div>
                                 </div>";
                                 }
@@ -176,9 +176,9 @@
                     <div class="card-header">
                         <div class="card-title">Competences</div>
                         <div>
-                            <img src="http://localhost/portfolio/assets/image/refresh.png" alt="Refresh icon">
-                            <img src="http://localhost/portfolio/assets/image/more.png" alt="More icon"
-                            onclick="location.href = 'http://localhost/portfolio/admin/skills'">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/refresh.png" alt="Refresh icon">
+                            <img src="https://sacha-eghiazarian.fr/assets/image/more.png" alt="More icon"
+                            onclick="location.href = 'https://sacha-eghiazarian.fr/admin/skills'">
                         </div>
                     </div>
                     <div class="card-body">
@@ -206,7 +206,7 @@
             </div>
         </main>
     </header>
-    <script src="http://localhost/portfolio/assets/script/notification.js"></script>
-    <script src="http://localhost/portfolio/assets/script/Skills.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/notification.js"></script>
+    <script src="https://sacha-eghiazarian.fr/assets/script/Skills.js"></script>
 </body>
 </html>
