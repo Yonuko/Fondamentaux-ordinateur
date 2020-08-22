@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
     <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/project.css">
     <?php 
-        $rqt = "SELECT * FROM projects WHERE project_id = ?;";
+        $rqt = "SELECT * FROM projects WHERE project_id = ? AND isShown = 1;";
         $project = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
         if(is_null($project)){
             echo "<title>Portfolio Sacha EGHIAZARIAN - Projet inconnu</title>";

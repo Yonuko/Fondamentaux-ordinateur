@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/main.css">
     <link rel="stylesheet" href="https://sacha-eghiazarian.fr/assets/style/Site/post.css">
     <?php 
-        $rqt = "SELECT * FROM posts WHERE post_id = ?;";
+        $rqt = "SELECT * FROM posts WHERE post_id = ? AND isShown = 1;";
         $post = sendRequest($rqt, [$id], PDO::FETCH_ASSOC)[0];
         if(is_null($post)){
             echo "<title>Portfolio Sacha EGHIAZARIAN - Article inconnu</title>";
