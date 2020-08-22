@@ -4,7 +4,7 @@ main .project-presentation {
   background-repeat: no-repeat;
   background-position: left;
   margin: 0 50px;
-  height: 600px; }
+  height: auto; }
   main .project-presentation h1 {
     text-align: center;
     font-size: 78px;
@@ -58,5 +58,59 @@ main .color .strcuture {
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%; }
+
+@media (max-width: 1000px) {
+  main .description .content {
+    padding-left: 20px; }
+    main .description .content .description-content {
+      color: #707070;
+      font-size: 20px;
+      margin-bottom: 10px; } }
+@media (max-width: 850px) {
+  main .description .marge {
+    flex: 0 0 150px; }
+  main .description .content .description-content {
+    font-size: 18px; }
+  main .description .content .title {
+    font-size: 36px; } }
+@media (max-width: 650px) {
+  main .project-presentation {
+    margin: 0 10px; }
+    main .project-presentation h1 {
+      font-size: 56px; }
+    main .project-presentation .message span {
+      font-size: 36px; }
+  main .description .marge {
+    flex: 0 0 50px;
+    margin-left: 0; }
+  main .description .content {
+    padding-right: 10px; } }
+@media (max-width: 550px) {
+  main .description .content {
+    width: 80%;
+    margin-right: 0; }
+  main .color .img {
+    height: 100px; }
+  main .color .strcuture {
+    width: 100%; } }
+@media (max-width: 450px) {
+  main .project-presentation {
+    background-size: 30%, 100%, cover; }
+    main .project-presentation h1 {
+      font-size: 38px; }
+    main .project-presentation .message {
+      font-size: 16px;
+      padding-left: 31%; }
+      main .project-presentation .message span {
+        font-size: 36px; }
+  main .description .content .description-content {
+    font-size: 14px; }
+  main .description .content .title {
+    font-size: 26px; } }
+@media (max-width: 360px) {
+  main .description .content .description-content {
+    font-size: 13px; }
+  main .description .content .title {
+    font-size: 24px; } }
 
 /*# sourceMappingURL=project.css.map */

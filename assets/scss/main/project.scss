@@ -5,7 +5,7 @@ main{
         background-repeat: no-repeat;
         background-position: left;
         margin: 0 50px;
-        height: 600px;
+        height: auto;
 
         h1{
             text-align: center;
@@ -86,6 +86,141 @@ main{
             justify-content: flex-start;
             align-items: flex-start;
             width: 100%;
+        }
+    }
+}
+
+@media (max-width: 1000px){
+    main{
+        .description{
+            .content{
+                padding-left: 20px;
+
+                .description-content{
+                    color: #707070;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 850px){
+    main{
+        .description{    
+            .marge{
+                flex: 0 0 150px;
+            }
+
+            .content{    
+                .description-content{
+                    font-size: 18px;
+                }
+    
+                .title{
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px){
+    main{
+        .project-presentation{
+            margin: 0 10px;
+
+            h1{
+                font-size: 56px;
+            }
+
+            .message{
+                span{
+                    font-size: 36px;
+                }
+            }
+        }
+
+        .description{    
+            .marge{
+                flex: 0 0 50px;
+                margin-left: 0;
+            }
+
+            .content{
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 550px){
+    main{
+        .description{    
+            .content{
+                width: 80%;
+                margin-right: 0;
+            }
+        }
+
+        .color{    
+            .img{
+                height: 100px;
+            }
+
+            .strcuture{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px){
+    main{
+        .project-presentation{
+            background-size: 30%, 100%, cover;
+
+            h1{
+                font-size: 38px;
+            }
+
+            .message{
+                font-size: 16px;
+                padding-left: 31%;
+
+                span{
+                    font-size: 36px;
+                }
+            }
+        }
+
+        .description{    
+            .content{    
+                .description-content{
+                    font-size: 14px;
+                }
+    
+                .title{
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    main{
+        .description{    
+            .content{    
+                .description-content{
+                    font-size: 13px;
+                }
+    
+                .title{
+                    font-size: 24px;
+                }
+            }
         }
     }
 }
