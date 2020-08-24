@@ -28,7 +28,8 @@ main {
     main .a-propos h1 {
       text-align: center;
       font-size: 78px;
-      color: #227093; }
+      color: #227093;
+      mix-blend-mode: color-dodge; }
     main .a-propos .message {
       padding-left: 50%;
       font-size: 18px; }

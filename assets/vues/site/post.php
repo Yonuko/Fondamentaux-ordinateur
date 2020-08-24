@@ -15,6 +15,23 @@
         }
         extract($post);
     ?>
+    <?php 
+        echo "<meta name='keywords' content='";
+        $rqt = "SELECT keyword_id FROM post_keywords WHERE post_id = ?;";
+        $keywords_id = sendRequest($rqt, [$id], PDO::FETCH_NUM);
+        $endElement = end($keywords_id);
+        foreach($keywords_id as $keyID){
+            $rqt = "SELECT word FROM keywords WHERE key_id = ?;";
+            $name = sendRequest($rqt, [$keyID[0]], PDO::FETCH_NUM)[0][0];
+            // if it's the last element we don't put a comma
+            if($endElement == $keyID){
+                echo "$name";
+            }else{
+                echo "$name, ";
+            }
+        }
+        echo "'>";
+    ?>
     <title>Portfolio Sacha EGHIAZARIAN - Article <?php echo $name ?></title>
 </head>
 <body>

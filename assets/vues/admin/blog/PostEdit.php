@@ -126,6 +126,22 @@
                                         <input id="kw" name="kw" type="text">
                                         <button id="addType" type="button">ajouter</button>
                                     </div>
+                                    <div class="typeSelector">
+                                        <select id="tagcopy" name="tagcopy">
+                                            <?php 
+                                                $rqt = "SELECT * FROM posts;";
+                                                $posts = sendRequest($rqt, [], PDO::FETCH_ASSOC);
+                                                foreach($posts as $post){
+                                                    extract($post);
+                                                    if($post_id === $id){
+                                                        continue;
+                                                    }
+                                                    echo "<option value='$post_id'>$name</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                        <input name="copyTag" type="submit" value="Copy tag">
+                                    </div>
                                     <div class="types">
                                         <?php 
                                             $rqt = "SELECT * FROM post_keywords pk INNER JOIN keywords k ON 

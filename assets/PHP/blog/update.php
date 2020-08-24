@@ -22,6 +22,21 @@ if(isset($data["delType"])){
     return;
 }
 
+// Copy everytag of the selected post
+if(isset($data["copyTag"])){
+    $rqt = "DELETE FROM post_keywords WHERE post_id = ?;";
+    sendRequest($rqt, [$id], PDO::FETCH_ASSOC);
+    $rqt = "SELECT * FROM post_keywords WHERE post_id = ?;";
+    $originalPost = sendRequest($rqt, [$data["tagcopy"]], PDO::FETCH_ASSOC);
+    foreach($originalPost as $keyword){
+        extract($keyword);
+        $rqt = "INSERT INTO post_keywords VALUES (?, ?);";
+        sendRequest($rqt, [$id, $keyword_id], PDO::FETCH_ASSOC);
+    }
+    header("Location:https://sacha-eghiazarian.fr/admin/blog/$id");
+    return;
+}
+
 // Create the new post
 
 if(isset($_FILES["logo"]["name"]) && $_FILES["logo"]["size"] !== 0){
